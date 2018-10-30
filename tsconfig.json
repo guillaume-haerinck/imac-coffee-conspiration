@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "./_build/js/",
+        "allowJs": true,
+        "target": "es5"
+    },
+    "include": [
+        "./main.ts",
+        "./components/**/*"
+    ]
+}
