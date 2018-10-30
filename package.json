@@ -5,10 +5,10 @@
   "main": "index.html",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
-    "sass": "sass --watch styles.scss:_build/css/styles.css",
+    "sass": "sass --watch src/styles.scss:src/_build/styles.css src/pages/:src/_build/pages/ src/components/:src/_build/components/",
     "typescript": "tsc --watch",
     "serve": "npm-run-all --parallel live sass typescript",
-    "sass:build": "sass styles.scss:_build/css/styles.css",
+    "sass:build": "sass src/styles.scss:src/_build/styles.css src/pages/:src/_build/pages/ src/components/:src/_build/components/",
     "typescript:build": "tsc",
     "build": "npm-run-all sass:build typescript:build"
   },
