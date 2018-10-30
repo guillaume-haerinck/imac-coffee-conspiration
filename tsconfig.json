@@ -1,12 +1,11 @@
 {
     "compilerOptions": {
-        "outDir": "./src/_build/",
         "allowJs": true,
         "target": "es5"
     },
     "include": [
         "./src/main.ts",
-        "./src/components/**/*",
-        "./src/pages/**/*"
+        "./src/components/**/*.ts",
+        "./src/pages/**/*.ts"
     ]
 }
