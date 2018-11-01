@@ -1,5 +1,9 @@
 # imac-frontend-coffe
 
+https://medium.com/jeremy-keeshin/hello-world-for-javascript-with-npm-modules-in-the-browser-6020f82d1072
+
+https://www.alsacreations.com/tuto/lire/1754-debuter-avec-webpack.html
+
 ## Getting Started
 
 ### Prerequisites

@@ -1,3 +1,8 @@
+/* Global styles */
 html {
     background-color: white;
 }
+
+/* Besoin d'importer tous les fichiers scss pour les voirs dans _styles.css */
+@import "pages/pagetest/pagetest.scss";
+@import "components/test/test.scss";

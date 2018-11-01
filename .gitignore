@@ -2,6 +2,7 @@
 
 # compiled output
 /src/_build
+.temp
 
 # dependencies
 /node_modules
