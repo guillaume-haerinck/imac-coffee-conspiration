@@ -10366,7 +10366,7 @@ var Vector = _dereq_('../geometry/Vector');
 },{}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* imports */
+/* Besoin d'importer tous les fichiers ts pour les intégrer dans _bundle.js */
 require("./pages/pagetest/pagetest");
 
 },{"./pages/pagetest/pagetest":3}],3:[function(require,module,exports){

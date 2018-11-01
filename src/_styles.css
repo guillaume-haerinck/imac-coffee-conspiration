@@ -1,1 +1,9 @@
-html{background-color:#fff}test{color:red}
+/* Global styles */
+html {
+  background-color: white;
+}
+
+/* Besoin d'importer tous les fichiers scss pour les voirs dans _styles.css */
+test {
+  color: red;
+}
