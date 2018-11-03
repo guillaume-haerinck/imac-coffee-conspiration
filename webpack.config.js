@@ -2,8 +2,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// https://github.com/webpack/webpack-dev-server
-
 module.exports = {
     entry: {
         index: './src/index.ts',
@@ -13,26 +11,20 @@ module.exports = {
         new ExtractTextPlugin('[name].bundle.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html',
+            template: './src/index.ejs',
             chunks: ['index']
         }),
         new HtmlWebpackPlugin({
             filename: 'module-test.html',
-            template: './src/modules/module-test/module-test.html',
+            template: './src/modules/module-test/module-test.ejs',
             chunks: ['moduletest']
         })
     ],
     module: {
         rules: [
             {
-                test: /\.(jpg|png|gif|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: './assets/images/'
-                    }
-                }]
+                test: /\.ejs?$/,
+                use: 'ejs-loader'
             },
             {
                 test: /\.ts?$/,
@@ -48,6 +40,16 @@ module.exports = {
                         'sass-loader'
                     ]
                 })
+            },
+            {
+                test: /\.(jpg|png|gif|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: './assets/images/'
+                    }
+                }]
             }
         ]
     },
