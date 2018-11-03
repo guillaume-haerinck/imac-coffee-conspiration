@@ -6,9 +6,9 @@
   "scripts": {
     "build": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
-    "serve": "webpack-dev-server --mode=development",
+    "serve": "webpack-dev-server --mode=development --open",
     "monitor": "webpack-dashboard",
-    "serve:prod": "cross-env NODE_ENV=production webpack-dev-server --mode=production",
+    "serve:prod": "cross-env NODE_ENV=production webpack-dev-server --mode=production --open",
     "build:prod": "cross-env NODE_ENV=production webpack --mode=production"
   },
   "repository": {
@@ -32,6 +32,10 @@
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
+    "ts-lint": "^4.5.1",
     "ts-loader": "^5.3.0",
     "typescript": "^3.1.6",
     "webpack": "^4.24.0",

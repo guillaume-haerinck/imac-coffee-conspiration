@@ -10,6 +10,14 @@ https://hackernoon.com/webpack-3-quickstarter-configure-webpack-from-scratch-30a
 
 https://www.npmjs.com/package/ejs-loader
 
+http://youmightnotneedjquery.com/
+
+https://github.com/getify/You-Dont-Know-JS
+
+https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70
+
+https://css-tricks.com/combining-the-powers-of-sem-and-bio-for-improving-css/
+
 ## Getting Started
 
 ### Prerequisites

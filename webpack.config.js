@@ -1,7 +1,11 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+
+// Assets path for ejs files, can be an external server
+const builtAssetsPath = '/assets/';
 
 module.exports = {
     entry: {
@@ -9,16 +13,23 @@ module.exports = {
         moduletest: './src/modules/module-test/module-test.ts'
     },
     plugins: [
+        new StyleLintPlugin({
+            syntax: 'scss',
+            emitErrors: false,
+            failOnError: false
+        }),
         new ExtractTextPlugin('[name].bundle.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.ejs',
-            chunks: ['index']
+            chunks: ['index'],
+            assetsPath: builtAssetsPath
         }),
         new HtmlWebpackPlugin({
             filename: 'module-test.html',
             template: './src/modules/module-test/module-test.ejs',
-            chunks: ['moduletest']
+            chunks: ['moduletest'],
+            assetsPath: builtAssetsPath
         }),
         new DashboardPlugin()
     ],
@@ -54,6 +65,11 @@ module.exports = {
                 }]
             }
         ]
+    },
+    devServer: {
+        overlay: true,
+        compress: true,
+        hot: false
     },
     output: {
         filename: '[name].bundle.js',
