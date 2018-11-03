@@ -1,8 +1,21 @@
-# imac-frontend-coffe
+# imac-frontend-coffee
 
-https://medium.com/jeremy-keeshin/hello-world-for-javascript-with-npm-modules-in-the-browser-6020f82d1072
+https://putaindecode.io/fr/articles/js/de-jquery-a-vanillajs/
 
-https://www.alsacreations.com/tuto/lire/1754-debuter-avec-webpack.html
+https://stackoverflow.com/questions/8410298/one-js-file-for-multiple-pages
+
+https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
+
+https://github.com/7affer/webpack-setup-non-spa
+
+https://survivejs.com/webpack/output/multiple-pages/
+
+https://github.com/bitfella/webpack-not-spa
+
+https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1
+
+https://hackernoon.com/webpack-3-quickstarter-configure-webpack-from-scratch-30a6c394038a
+
 
 ## Getting Started
 
@@ -13,10 +26,6 @@ You need nodejs and its package manager 'npm' installed on your computer.
 ### Installing
 
 ```
-npm install -g browser-sync
-npm install -g sass
-npm install -g typescript
-npm install -g npm-run-all
 npm install
 ```
 
@@ -26,7 +35,7 @@ npm install
 npm run build
 ```
 
-And open index.html
+And open index.html inside of the 'dist' folder
 
 ## Live development
 
