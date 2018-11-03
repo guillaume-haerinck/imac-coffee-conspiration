@@ -1,23 +1,14 @@
 # imac-frontend-coffee
 
-Reste a gerrer import sass et gestion des assets
-
 https://putaindecode.io/fr/articles/js/de-jquery-a-vanillajs/
 
-https://stackoverflow.com/questions/8410298/one-js-file-for-multiple-pages
-
 https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9
-
-https://github.com/7affer/webpack-setup-non-spa
-
-https://survivejs.com/webpack/output/multiple-pages/
-
-https://github.com/bitfella/webpack-not-spa
 
 https://hackernoon.com/a-tale-of-webpack-4-and-how-to-finally-configure-it-in-the-right-way-4e94c8e7e5c1
 
 https://hackernoon.com/webpack-3-quickstarter-configure-webpack-from-scratch-30a6c394038a
 
+https://www.npmjs.com/package/ejs-loader
 
 ## Getting Started
 
@@ -31,6 +22,9 @@ You need nodejs and its package manager 'npm' installed on your computer.
 npm install
 ```
 
+Optionnal
+https://github.com/FormidableLabs/electron-webpack-dashboard/releases/tag/v1.0.0
+
 ## Launch
 
 ```
@@ -43,4 +37,10 @@ And open index.html inside of the 'dist' folder
 
 ```
 npm run serve
+```
+
+Optionnal, open another terminal
+
+```
+npm run monitor
 ```

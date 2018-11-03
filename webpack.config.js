@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
     entry: {
@@ -18,7 +19,8 @@ module.exports = {
             filename: 'module-test.html',
             template: './src/modules/module-test/module-test.ejs',
             chunks: ['moduletest']
-        })
+        }),
+        new DashboardPlugin()
     ],
     module: {
         rules: [

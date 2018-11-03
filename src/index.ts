@@ -3,4 +3,4 @@
 /* Webpack imports */
 import './index.scss';
 
-console.log('test from index');
+console.log('hello from index');
