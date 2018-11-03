@@ -1,5 +1,7 @@
 # imac-frontend-coffee
 
+Reste a gerrer import sass et gestion des assets
+
 https://putaindecode.io/fr/articles/js/de-jquery-a-vanillajs/
 
 https://stackoverflow.com/questions/8410298/one-js-file-for-multiple-pages

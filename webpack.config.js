@@ -2,6 +2,8 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// https://github.com/webpack/webpack-dev-server
+
 module.exports = {
     entry: {
         index: './src/index.ts',
@@ -22,6 +24,16 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.(jpg|png|gif|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: './assets/images/'
+                    }
+                }]
+            },
             {
                 test: /\.ts?$/,
                 use: 'ts-loader',
