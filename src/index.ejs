@@ -1,11 +1,21 @@
-<%= require('./components/header.ejs')({title: 'Home'}) %>
+<%= require('./parts/header.ejs')({title: 'Home'}) %>
 
 <div>
   <a href="module-test.html">Go to module test</a>
+
+  <div class="text">
+	<label for="name">Your name:</label>
+	<input id="name" aria-describedby="tp1"/>
+	<app-howto-tooltip id="tp1">Ideally your name is Batman</app-howto-tooltip>
+	<br>
+	<label for="cheese">Favourite type of cheese: </label>
+	<input id="cheese" aria-describedby="tp2"/>
+	<app-howto-tooltip id="tp2">Help I am trapped inside a tooltip message</app-howto-tooltip>
+ </div>
 
   <% for(let i = 0; i < 2; i++) { %>
     <p>Hello, world from index !</p>
   <% } %>
 </div>
 
-<%= require('./components/footer.ejs')() %>
+<%= require('./parts/footer.ejs')() %>

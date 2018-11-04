@@ -18,6 +18,16 @@ https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosa
 
 https://css-tricks.com/combining-the-powers-of-sem-and-bio-for-improving-css/
 
+https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/
+
+https://medium.freecodecamp.org/learn-how-to-manipulate-the-dom-by-building-a-simple-javascript-color-game-1a3aec1d109a
+
+https://medium.com/bunnyllc/vanilla-js-components-8d20c58b69f4
+
+https://github.com/GoogleChromeLabs/howto-components
+
+https://developers.google.com/web/fundamentals/web-components/
+
 ## Getting Started
 
 ### Prerequisites
