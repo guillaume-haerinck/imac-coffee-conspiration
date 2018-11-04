@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import './tooltip.scss';
+
 export class HowtoTooltip extends HTMLElement {
 	private _target: any;
 

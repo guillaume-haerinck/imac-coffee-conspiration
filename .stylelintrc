@@ -1,6 +1,9 @@
 {
     "extends": "stylelint-config-standard",
     "rules": {
-        "indentation": tab
+        "indentation": tab,
+		"selector-type-no-unknown": [ true, {
+			"ignoreTypes": ["/^app-/"]
+		}]
     }
 }

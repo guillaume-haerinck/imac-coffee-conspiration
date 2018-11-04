@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+require('./tooltip.scss');
+
 class HowtoTooltip extends HTMLElement {
 	/**
 	* The constructor does work that needs to be executed _exactly_ once.
