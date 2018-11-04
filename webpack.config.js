@@ -10,8 +10,8 @@ const builtAssetsPath = '/assets/';
 
 module.exports = {
     entry: {
-        index: './src/modules/index/index.ts',
-        moduletest: './src/modules/module-test/module-test.ts'
+        index: './src/pages/index/index.ts',
+        pagetest: './src/pages/page-test/page-test.ts'
 	},
 	resolve: {
         extensions: [".ts", ".js"]
@@ -26,14 +26,14 @@ module.exports = {
         new ExtractTextPlugin('[name].bundle.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/modules/index/index.ejs',
+            template: './src/pages/index/index.ejs',
             chunks: ['index'],
             assetsPath: builtAssetsPath
         }),
         new HtmlWebpackPlugin({
-            filename: 'module-test.html',
-            template: './src/modules/module-test/module-test.ejs',
-            chunks: ['moduletest'],
+            filename: 'page-test.html',
+            template: './src/pages/page-test/page-test.ejs',
+            chunks: ['pagetest'],
             assetsPath: builtAssetsPath
         }),
         new DashboardPlugin()

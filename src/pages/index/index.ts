@@ -1,6 +1,6 @@
 /* Webpack imports */
 import './index.scss';
-import '../../components/tooltip/tooltip.component';
+import '../../shared/components/tooltip/tooltip.component';
 
 console.log('hello from index');
 
