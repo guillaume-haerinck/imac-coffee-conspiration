@@ -15,9 +15,9 @@
  */
 
 /* Webpack imports */
-import './tooltip.scss';
+import './tooltip.component.scss';
 
-export class HowtoTooltip extends HTMLElement {
+export class Tooltip extends HTMLElement {
 	public hidden: boolean;
 	private _target: any;
 
@@ -90,3 +90,5 @@ export class HowtoTooltip extends HTMLElement {
 		this.hidden = true;
 	}
 }
+
+customElements.define('app-tooltip', Tooltip);

@@ -4,6 +4,8 @@
         "module": "es6",
         "allowJs": true,
 		"target": "esnext",
-		"experimentalDecorators": true
+		"experimentalDecorators": true,
+		"sourceMap": true,
+		"baseUrl": "./node_modules/"
     }
 }

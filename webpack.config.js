@@ -3,19 +3,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 // Assets path for ejs files, can be an external server
 const builtAssetsPath = '/assets/';
 
 module.exports = {
     entry: {
-        index: './src/index.ts',
+        index: './src/modules/index/index.ts',
         moduletest: './src/modules/module-test/module-test.ts'
 	},
 	resolve: {
         extensions: [".ts", ".js"]
     },
     plugins: [
+		new ForkTsCheckerWebpackPlugin(),
         new StyleLintPlugin({
             syntax: 'scss',
             emitErrors: false,
@@ -24,7 +26,7 @@ module.exports = {
         new ExtractTextPlugin('[name].bundle.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.ejs',
+            template: './src/modules/index/index.ejs',
             chunks: ['index'],
             assetsPath: builtAssetsPath
         }),
@@ -44,8 +46,11 @@ module.exports = {
             },
             {
                 test: /\.ts?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                loader: 'ts-loader',
+				exclude: /node_modules/,
+				options: {
+                    transpileOnly: true // Checked in fork plugin
+                }
             },
             {
                 test:/\.scss$/, 

@@ -1,0 +1,14 @@
+<%= require('../../parts/header.ejs')({title: 'Home'}) %>
+
+<div>
+	<a href="module-test.html">Go to module test</a>
+
+	<input id="name" aria-describedby="tp1"/>
+	<app-tooltip id="tp1">I'm a dynamically added component !</app-tooltip>
+
+	<% for(let i = 0; i < 2; i++) { %>
+	<p>Hello, world from index !</p>
+	<% } %>
+</div>
+
+<%= require('../../parts/footer.ejs')() %>

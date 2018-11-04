@@ -36,6 +36,14 @@ https://www.webcomponents.org/introduction
 
 https://medium.com/@gilfink/creating-a-custom-element-decorator-using-typescript-302e7ed3a3d1
 
+https://github.com/TypeStrong/ts-loader
+
+https://github.com/Realytics/fork-ts-checker-webpack-plugin
+
+https://github.com/geocine/custom-elements-ts
+
+https://ayushgp.github.io/html-web-components-using-vanilla-js-part-3/
+
 ## Getting Started
 
 ### Prerequisites
@@ -59,7 +67,9 @@ npm run build
 
 And open index.html inside of the 'dist' folder
 
-## Live development
+## Development
+
+### Live mode
 
 ```
 npm run serve
@@ -70,3 +80,12 @@ Optionnal, open another terminal
 ```
 npm run monitor
 ```
+
+### Explanation
+
+Parts is server side
+Components are added dynamically client side using the customElement DOM fonctionnality
+Modules are the pages, they heave have an individual bundle.
+Services take care of http request and giving data
+Assets is the public folder
+

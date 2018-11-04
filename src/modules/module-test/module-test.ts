@@ -2,4 +2,4 @@
 import './module-test.scss';
 import '../../assets/images/test.jpg';
 
-console.log('module test works !');
+console.log('module test works yeah !');
