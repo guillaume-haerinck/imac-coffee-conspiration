@@ -28,6 +28,14 @@ https://github.com/GoogleChromeLabs/howto-components
 
 https://developers.google.com/web/fundamentals/web-components/
 
+https://medium.com/dev-channel/custom-elements-that-work-anywhere-898e1dd2bc48
+
+https://decembersoft.com/posts/say-goodbye-to-relative-paths-in-typescript-imports/
+
+https://www.webcomponents.org/introduction
+
+https://medium.com/@gilfink/creating-a-custom-element-decorator-using-typescript-302e7ed3a3d1
+
 ## Getting Started
 
 ### Prerequisites

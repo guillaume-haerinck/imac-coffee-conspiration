@@ -11,6 +11,9 @@ module.exports = {
     entry: {
         index: './src/index.ts',
         moduletest: './src/modules/module-test/module-test.ts'
+	},
+	resolve: {
+        extensions: [".ts", ".js"]
     },
     plugins: [
         new StyleLintPlugin({
