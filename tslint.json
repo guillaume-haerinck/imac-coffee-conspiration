@@ -7,8 +7,7 @@
     "rules": {
         "quotemark": [true, "single"],
         "no-console": false,
-		"indent": [true, "tabs"],
-		"variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+		"variable-name": [true, "ban-keywords", "allow-leading-underscore", "allow-pascal-case"],
 		"object-literal-sort-keys": false,
 		"ordered-imports": false
     },

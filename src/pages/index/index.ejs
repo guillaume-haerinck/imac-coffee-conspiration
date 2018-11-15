@@ -3,12 +3,13 @@
 <div>
 	<a href="module-test.html">Go to module test</a>
 
-	<input id="name" aria-describedby="tp1"/>
-	<app-tooltip id="tp1">I'm a dynamically added component !</app-tooltip>
+	<app-question id="q-test" ifRight="q-test2" ifWrong="l-test1">
+		<p>Ma question ?</p>
+		<button rightAwnser>Bonne réponse</button>
+		<button wrongAwnser>Mauvaise réponse</button>
+		<button rightAwnser>Autre bonne réponse</button>
+	</app-question>
 
-	<% for(let i = 0; i < 2; i++) { %>
-	<p>Hello, world from index !</p>
-	<% } %>
 </div>
 
 <%= require('../../core/parts/footer.ejs')() %>
