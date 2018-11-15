@@ -13,8 +13,8 @@ export class Question extends HTMLElement {
     }
 
     public connectedCallback() {
-        this._nextQuestionId = this.getAttribute('ifTrue');
-        this._loopQuestionId = this.getAttribute('ifFalse');
+        this._nextQuestionId = this.getAttribute('ifRight');
+        this._loopQuestionId = this.getAttribute('ifWrong');
 
         for (const item of this.children) {
             if (item.hasAttribute('rightAwnser')) {
@@ -28,6 +28,7 @@ export class Question extends HTMLElement {
         this._rightAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener('click', (event: Event) => {
                 console.log('right awnser clicked !');
+                this.changeQuestion(this._nextQuestionId);
             });
         });
 
@@ -37,7 +38,21 @@ export class Question extends HTMLElement {
             });
         });
     }
-    // public disconnectedCallback() {}
+
+    public disconnectedCallback() {
+        console.log(this.id + ' destructed !');
+    }
+
+    private changeQuestion(destinationId: string) {
+        for (const item of this.children) {
+            item.removeEventListener('click', (event: Event) => {
+                console.log('event listenner removed');
+            });
+        }
+        const destination = document.getElementById(destinationId);
+        destination.hidden = false;
+        this.remove();
+    }
 }
 
 customElements.define('app-question', Question);
