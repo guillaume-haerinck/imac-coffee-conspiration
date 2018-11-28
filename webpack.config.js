@@ -6,7 +6,7 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 // Assets path for ejs files, can be an external server
-const builtAssetsPath = '/assets/';
+const envFile = require('./environment');
 
 module.exports = {
     entry: {
@@ -28,13 +28,13 @@ module.exports = {
             filename: 'index.html',
             template: './src/pages/index/index.ejs',
             chunks: ['index'],
-            assetsPath: builtAssetsPath
+            assetsPath: envFile.environment.builtAssetsPath
         }),
         new HtmlWebpackPlugin({
             filename: 'page-test.html',
             template: './src/pages/page-test/page-test.ejs',
             chunks: ['pagetest'],
-            assetsPath: builtAssetsPath
+            assetsPath: envFile.environment.builtAssetsPath
         }),
         new DashboardPlugin()
     ],
@@ -63,12 +63,12 @@ module.exports = {
                 })
             },
             {
-                test: /\.(jpg|png|gif|svg)$/,
+                test: /\.(jpg|jpeg|png|gif|svg)$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: './assets/images/'
+                        outputPath: '.' + envFile.environment.builtAssetsPath + 'images/'
                     }
                 }]
             }
