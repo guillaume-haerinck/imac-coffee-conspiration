@@ -1,5 +1,7 @@
-/* Global styles */
+/* Global styles, import only once per page, do not import in elements */
+
+@import "./constants";
 
 a {
-	color: red;
+  color: red;
 }

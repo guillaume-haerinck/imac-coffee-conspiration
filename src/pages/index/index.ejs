@@ -1,23 +1,27 @@
 <%= require('../../core/parts/header.ejs')({title: 'Home'}) %>
 
-<div>
-	<a href="page-test.html">Go to page test</a>
-
-	<p id="test" onclick="RoverXpDog.addRover()">Add rover the dog</p>
-
-	<app-question id="q-test" ifRight="q-test2" ifWrong="l-test1">
+<div id="foreground-wrapper">
+	<app-window id="q-test" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
-		<button rightAwnser>Bonne réponse</button>
+		<button
+			rightAwnser
+			onclick="RoverXpDog.append();
+					 RoverXpDog.say('bonita');">
+			Bonne réponse ajout rover
+		</button>
 		<button wrongAwnser>Mauvaise réponse</button>
 		<button rightAwnser>Autre bonne réponse</button>
-	</app-question>
+	</app-window>
 
-	<app-question id="q-test2" ifRight="q-test1" ifWrong="l-test1" hidden>
+	<app-window id="q-test2" ifRight="q-test1" ifWrong="l-test1" hidden>
 		<p>Ma question 2 ?</p>
 		<button rightAwnser>Bonne réponse questi</button>
 		<button wrongAwnser>Mauvaise réponse</button>
-	</app-question>
+	</app-window>
+</div>
 
+<div id="background-wrapper">
+	<a href="page-test.html">Go to page test</a>
 </div>
 
 <%= require('../../core/parts/footer.ejs')() %>

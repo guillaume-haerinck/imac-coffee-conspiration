@@ -1,5 +1,5 @@
 /* Webpack imports */
-import './page-test.scss';
-import '../../shared/assets/images/test.jpg';
+import "./page-test.scss";
+import "../../shared/assets/images/test.jpg";
 
-console.log('page test works yeah !');
+console.log("page test works yeah !");

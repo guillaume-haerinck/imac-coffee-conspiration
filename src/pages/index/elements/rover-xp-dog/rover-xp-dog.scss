@@ -1,3 +1,9 @@
-p {
-	color: blue;
+@import '../../../../core/scss/constants';
+
+.rover {
+  background-color: red;
+
+  p {
+    color: orange;
+  }
 }
