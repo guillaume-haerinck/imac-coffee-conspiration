@@ -1,6 +1,8 @@
 /* Webpack imports */
 // import './question.component.scss';
 
+// https://github.com/mdn/web-components-examples/blob/master/life-cycle-callbacks/main.js
+
 export class Question extends HTMLElement {
     private _nextQuestionId: string;
     private _loopQuestionId: string;
@@ -51,7 +53,7 @@ export class Question extends HTMLElement {
         }
         const destination = document.getElementById(destinationId);
         destination.hidden = false;
-        this.remove();
+        this.replaceWith(destination);
     }
 }
 
