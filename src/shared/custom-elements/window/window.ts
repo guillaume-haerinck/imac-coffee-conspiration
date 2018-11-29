@@ -12,7 +12,11 @@ export class Window extends HTMLElement {
         // Always call super first in constructor
         super();
 
-        this.innerHTML += template(environment);
+        // Put the input content in the content div of the template
+        const templateContainer = document.createElement("div");
+        templateContainer.innerHTML = template(environment);
+        templateContainer.getElementsByClassName("content")[0].innerHTML = this.innerHTML;
+        this.innerHTML = templateContainer.innerHTML;
     }
 
     public connectedCallback() {
