@@ -1,3 +1,4 @@
+import "./window.scss";
 
 export class Window extends HTMLElement {
     private _rightWindowId: string;
@@ -26,7 +27,7 @@ export class Window extends HTMLElement {
         this._rightAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener("click", (event: Event) => {
                 console.log("right awnser clicked !");
-                this.changeQuestion(this._rightWindowId);
+                this.replaceWindow(this._rightWindowId);
             });
         });
 
@@ -41,7 +42,7 @@ export class Window extends HTMLElement {
         console.log(this.id + " destructed !");
     }
 
-    private changeQuestion(destinationId: string) {
+    private replaceWindow(destinationId: string) {
         for (const item of this.children) {
             item.removeEventListener("click", (event: Event) => {
                 console.log("event listenner removed");

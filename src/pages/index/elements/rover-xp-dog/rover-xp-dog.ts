@@ -1,8 +1,6 @@
-/* Webpack imports */
 import "./rover-xp-dog.scss";
 import "../../../../shared/assets/images/rover-xp-dog.gif";
-
-/* Typescript imports */
+import template from "./rover-xp-dog.html";
 import { environment } from "../../../../../environment.js";
 
 export class RoverXpDog {
@@ -14,10 +12,8 @@ export class RoverXpDog {
 
     public append() {
         const roverContainer = document.createElement("div");
-        roverContainer.innerHTML = "I\'m roveeer";
-        const img = document.createElement("img");
-        img.src = environment.builtAssetsPath + "/images/rover-xp-dog.gif";
-        roverContainer.appendChild(img);
+        roverContainer.className = "rover-xp-dog";
+        roverContainer.innerHTML = template;
         document.getElementById(this._wrapperId).appendChild(roverContainer);
     }
 

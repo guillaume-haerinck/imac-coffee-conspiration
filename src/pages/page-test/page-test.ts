@@ -1,4 +1,3 @@
-/* Webpack imports */
 import "./page-test.scss";
 import "../../shared/assets/images/test.jpg";
 
