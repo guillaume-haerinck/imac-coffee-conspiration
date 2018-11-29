@@ -1,6 +1,6 @@
 import "./rover-xp-dog.scss";
 import "../../../../shared/assets/images/rover-xp-dog.gif";
-import template from "./rover-xp-dog.html";
+import template from "./rover-xp-dog.ejs";
 import { environment } from "../../../../../environment.js";
 
 export class RoverXpDog {
@@ -13,7 +13,7 @@ export class RoverXpDog {
     public append() {
         const roverContainer = document.createElement("div");
         roverContainer.className = "rover-xp-dog";
-        roverContainer.innerHTML = template;
+        roverContainer.innerHTML = template(environment);
         document.getElementById(this._wrapperId).appendChild(roverContainer);
     }
 

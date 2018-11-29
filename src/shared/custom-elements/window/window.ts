@@ -1,4 +1,6 @@
 import "./window.scss";
+import template from "./window.ejs";
+import { environment } from "../../../../environment.js";
 
 export class Window extends HTMLElement {
     private _rightWindowId: string;
@@ -9,6 +11,8 @@ export class Window extends HTMLElement {
     constructor() {
         // Always call super first in constructor
         super();
+
+        this.innerHTML += template(environment);
     }
 
     public connectedCallback() {

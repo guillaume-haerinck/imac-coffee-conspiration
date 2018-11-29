@@ -1,4 +1,4 @@
-declare module '*.html' {
-    const value: string;
+declare module '*.ejs' {
+    const value: Function;
     export default value
 }
