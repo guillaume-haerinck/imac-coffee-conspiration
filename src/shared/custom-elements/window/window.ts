@@ -37,28 +37,27 @@ export class Window extends HTMLElement {
         }
 
         this._rightAwnsers.forEach((awnser: Element) => {
-            awnser.addEventListener("click", (event: Event) => {
-                console.log("right awnser clicked !");
-                this.replaceWindow(this._rightWindowId);
-            });
+            awnser.addEventListener("click", this.replaceWindow);
         });
 
         this._wrongAwnsers.forEach((awnser: Element) => {
-            awnser.addEventListener("click", (event: Event) => {
-                console.log("wrong awnser clicked !");
-            });
+            awnser.addEventListener("click", this.replaceWindow);
         });
     }
 
     // public disconnectedCallback() {}
 
-    // TODO remove event listenner
-    private replaceWindow(destinationId: string) {
+    private replaceWindow = (event: Event) => {
+        let destinationId = null;
+        if (event.srcElement.attributes.getNamedItem("rightAwnser")) {
+            destinationId = this._rightWindowId;
+        } else if (event.srcElement.attributes.getNamedItem("wrongAwnser")) {
+            destinationId = this._wrongWindowId;
+        }
+
         const content = this.getElementsByClassName("content");
         for (const item of content[0].children) {
-            item.removeEventListener("click", (event: Event) => {
-                console.log("event listener removed");
-            });
+            item.removeEventListener("click", this.replaceWindow);
         }
         const destination = document.getElementById(destinationId);
         destination.hidden = false;
