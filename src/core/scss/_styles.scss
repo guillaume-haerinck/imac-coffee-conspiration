@@ -1,7 +1,8 @@
 /* Global styles, import only once per page, do not import in elements */
 
 @import "./constants";
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
 
-a {
-  color: red;
+body {
+  font-family: "Inconsolata", monospace;
 }

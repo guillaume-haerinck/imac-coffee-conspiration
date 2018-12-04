@@ -1,9 +1,5 @@
+@import '../../core/scss/styles';
 @import '../../core/scss/constants';
-
-html,
-body {
-  box-sizing: border-box;
-}
 
 #foreground-wrapper,
 #background-wrapper {
@@ -13,4 +9,7 @@ body {
 #foreground-wrapper {
   position: absolute;
   height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-content: center;
 }
