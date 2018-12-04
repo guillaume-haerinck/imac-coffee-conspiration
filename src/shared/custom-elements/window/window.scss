@@ -43,79 +43,84 @@ $base-pad: 4px;
 
 app-window {
   display: grid;
-  min-width: 360px;
-  min-height: 220px;
+  align-content: start;
+  align-self: start;
   background-color: $base;
   padding: $base-pad;
 
   @include full-shadow(2px);
 
   .title-bar {
+    display: inline-grid;
+    grid-auto-flow: column;
+    color: $base;
     background-color: $blue;
     padding: $base-pad;
     height: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 
-    > .minimize,
-    > .maximize,
-    > .close {
-      width: 26px;
-      height: 22px;
-      background-color: $base;
-      margin-left: $base-pad;
-
-      @include base-shadow(2px);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-
-      @include hover-reverse;
+    .title {
+      width: 50px;
     }
 
-    > .minimize {
-      align-items: flex-end;
+    .controls {
+      display: inline-grid;
+      grid-auto-flow: column;
 
-      > .symbol {
-        width: 60%;
-        height: 3px;
-        background-color: $default;
-        margin-bottom: 2px;
+      .minimize,
+      .maximize,
+      .close {
+        width: 26px;
+        height: 22px;
+        background-color: $base;
+        margin-left: $base-pad;
+
+        @include base-shadow(2px);
+
+        cursor: pointer;
+
+        @include hover-reverse;
       }
-    }
 
-    > .maximize > .symbol {
-      width: 70%;
-      height: 80%;
-      border: 2px solid $default;
-      border-top-width: 4px;
-    }
+      .minimize {
+        align-items: flex-end;
 
-    > .close > .symbol {
-      width: 70%;
-      height: 3px;
-      background-color: $default;
-      transform: rotate(45deg);
+        .symbol {
+          width: 60%;
+          height: 3px;
+          background-color: $default;
+          margin-bottom: 2px;
+        }
+      }
 
-      &::after {
-        content: "";
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 100%;
+      .maximize .symbol {
+        width: 70%;
+        height: 80%;
+        border: 2px solid $default;
+        border-top-width: 4px;
+      }
+
+      .close .symbol {
+        width: 70%;
         height: 3px;
         background-color: $default;
-        transform: rotate(90deg);
+        transform: rotate(45deg);
+
+        &::after {
+          content: "";
+          top: 0;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          background-color: $default;
+          transform: rotate(90deg);
+        }
       }
     }
   }
 
   .menu-bar {
-    > span {
+    span {
       padding: ($base-pad * 2);
       display: inline-block;
       cursor: pointer;
@@ -133,16 +138,16 @@ app-window {
   .content-container {
     @include full-reverse(2px);
 
-    > .content {
-      display: flex;
+    .content {
+      display: inline-grid;
       height: 260px;
 
-      > .main,
-      > .scroll-left {
+      .main,
+      .scroll-left {
         height: 100%;
       }
 
-      > .main {
+      .main {
         width: calc(100% - 26px);
       }
     }
@@ -151,12 +156,12 @@ app-window {
   .scroll {
     width: 26px;
     background-color: $base-100;
-    display: flex;
+    display: inline-grid;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 
-    > .progress {
+    .progress {
       width: 24px;
       height: 70%;
       cursor: pointer;
@@ -170,8 +175,8 @@ app-window {
       }
     }
 
-    > .start,
-    > .end {
+    .start,
+    .end {
       width: 24px;
       height: 22px;
       position: relative;
@@ -197,7 +202,7 @@ app-window {
       }
     }
 
-    > .end {
+    .end {
       &::after {
         transform: rotate(180deg);
       }
@@ -206,18 +211,18 @@ app-window {
     &.-row {
       flex-direction: row;
 
-      > .progress {
+      .progress {
         width: 30%;
         height: 24px;
       }
 
-      > .start {
+      .start {
         &::after {
           transform: rotate(-90deg);
         }
       }
 
-      > .end {
+      .end {
         &::after {
           transform: rotate(90deg);
         }

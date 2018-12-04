@@ -1,5 +1,16 @@
 @import '../../core/scss/constants';
 
-html {
-  background-color: greenyellow;
+html,
+body {
+  box-sizing: border-box;
+}
+
+#foreground-wrapper,
+#background-wrapper {
+  display: grid;
+}
+
+#foreground-wrapper {
+  position: absolute;
+  height: 100vh;
 }
