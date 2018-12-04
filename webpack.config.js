@@ -11,7 +11,7 @@ const envFile = require('./environment');
 module.exports = {
     entry: {
         index: './src/pages/index/index.ts',
-        pagetest: './src/pages/page-test/page-test.ts'
+        forms: './src/pages/forms/forms.ts'
 	},
 	resolve: {
         extensions: [".ts", ".js"]
@@ -31,9 +31,9 @@ module.exports = {
             assetsPath: envFile.environment.builtAssetsPath
         }),
         new HtmlWebpackPlugin({
-            filename: 'page-test.html',
-            template: './src/pages/page-test/page-test.ejs',
-            chunks: ['pagetest'],
+            filename: 'forms.html',
+            template: './src/pages/forms/forms.ejs',
+            chunks: ['forms'],
             assetsPath: envFile.environment.builtAssetsPath
         }),
         new DashboardPlugin()

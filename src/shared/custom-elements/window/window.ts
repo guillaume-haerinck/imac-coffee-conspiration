@@ -12,6 +12,10 @@ export class Window extends HTMLElement {
         // Always call super first in constructor
         super();
 
+        if (this.hidden) {
+            this.style.display = "none";
+        }
+
         // Put the input content in the content div of the template
         const templateContainer = document.createElement("div");
         templateContainer.innerHTML = template(environment);
@@ -22,8 +26,8 @@ export class Window extends HTMLElement {
     public connectedCallback() {
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
-
-        for (const item of this.children) {
+        const content = this.getElementsByClassName("content");
+        for (const item of content[0].children) {
             if (item.hasAttribute("rightAwnser")) {
                 this._rightAwnsers.push(item);
             }
@@ -46,18 +50,19 @@ export class Window extends HTMLElement {
         });
     }
 
-    public disconnectedCallback() {
-        console.log(this.id + " destructed !");
-    }
+    // public disconnectedCallback() {}
 
+    // TODO remove event listenner
     private replaceWindow(destinationId: string) {
-        for (const item of this.children) {
+        const content = this.getElementsByClassName("content");
+        for (const item of content[0].children) {
             item.removeEventListener("click", (event: Event) => {
-                console.log("event listenner removed");
+                console.log("event listener removed");
             });
         }
         const destination = document.getElementById(destinationId);
         destination.hidden = false;
+        destination.style.display = "grid";
         this.replaceWith(destination);
     }
 }

@@ -1,0 +1,33 @@
+<%= require('../../core/parts/header.ejs')({title: 'Module test'}) %>
+
+<div id="foreground-wrapper">
+	<app-window id="q-test1" ifRight="q-test2" ifWrong="l-test1">
+		<p>Ma question ?</p>
+		<button rightAwnser>Bonne réponse ajout rover</button>
+		<button wrongAwnser>Mauvaise réponse</button>
+		<button rightAwnser>Autre bonne réponse</button>
+	</app-window>
+
+	<app-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
+		<p>Ma question 2 ?</p>
+		<button rightAwnser 
+			onclick="RoverXpDog.append();
+			RoverXpDog.say('bonita');">
+			Bonne réponse questi
+		</button>
+		<button wrongAwnser>Mauvaise réponse</button>
+	</app-window>
+
+	<app-window id="q-test3" hidden>
+		<p>Ma question 3 ?</p>
+		<button rightAwnser>
+			Bonne réponse questi
+		</button>
+		<button wrongAwnser>Mauvaise réponse</button>
+	</app-window>
+</div>
+
+<div id="background-wrapper">
+</div>
+
+<%= require('../../core/parts/footer.ejs')() %>

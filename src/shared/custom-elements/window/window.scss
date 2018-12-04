@@ -1,5 +1,227 @@
 @import '../../../core/scss/constants';
 
-.app-window {
-  border-color: 1px;
+// colors
+$background: #ff9ae0;
+$base: #c7c7c7;
+$base-hover: darken($base, 5%);
+$base-border: #fcfcfc;
+$base-shadow: #2a2a2a;
+$base-100: #d7d7d7;
+$blue: #000080;
+$default: #000;
+
+// measurements
+$base-pad: 4px;
+
+// mixins
+@mixin full-shadow($size) {
+  border-left: $size solid $base-border;
+  border-top: $size solid $base-border;
+  border-right: $size solid $base-shadow;
+  border-bottom: $size solid $base-shadow;
+}
+
+@mixin full-reverse($size) {
+  border-left: $size solid $base-shadow;
+  border-top: $size solid $base-shadow;
+  border-right: $size solid $base-border;
+  border-bottom: $size solid $base-border;
+}
+
+@mixin base-shadow($size) {
+  border-left: $size solid $base-border;
+  border-top: $size solid $base-border;
+}
+
+@mixin hover-reverse {
+  &:hover {
+    background-color: $base-hover;
+
+    @include full-reverse(2px);
+  }
+}
+
+app-window {
+  display: grid;
+  min-width: 360px;
+  min-height: 220px;
+  background-color: $base;
+  padding: $base-pad;
+
+  @include full-shadow(2px);
+
+  .title-bar {
+    background-color: $blue;
+    padding: $base-pad;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > .minimize,
+    > .maximize,
+    > .close {
+      width: 26px;
+      height: 22px;
+      background-color: $base;
+      margin-left: $base-pad;
+
+      @include base-shadow(2px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      @include hover-reverse;
+    }
+
+    > .minimize {
+      align-items: flex-end;
+
+      > .symbol {
+        width: 60%;
+        height: 3px;
+        background-color: $default;
+        margin-bottom: 2px;
+      }
+    }
+
+    > .maximize > .symbol {
+      width: 70%;
+      height: 80%;
+      border: 2px solid $default;
+      border-top-width: 4px;
+    }
+
+    > .close > .symbol {
+      width: 70%;
+      height: 3px;
+      background-color: $default;
+      transform: rotate(45deg);
+
+      &::after {
+        content: "";
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: $default;
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .menu-bar {
+    > span {
+      padding: ($base-pad * 2);
+      display: inline-block;
+      cursor: pointer;
+
+      &::first-letter {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        background-color: $base-hover;
+      }
+    }
+  }
+
+  .content-container {
+    @include full-reverse(2px);
+
+    > .content {
+      display: flex;
+      height: 260px;
+
+      > .main,
+      > .scroll-left {
+        height: 100%;
+      }
+
+      > .main {
+        width: calc(100% - 26px);
+      }
+    }
+  }
+
+  .scroll {
+    width: 26px;
+    background-color: $base-100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    > .progress {
+      width: 24px;
+      height: 70%;
+      cursor: pointer;
+
+      @include full-shadow(2px);
+
+      background-color: $base;
+
+      &:hover {
+        background-color: $base-hover;
+      }
+    }
+
+    > .start,
+    > .end {
+      width: 24px;
+      height: 22px;
+      position: relative;
+
+      @include full-shadow(2px);
+
+      background-color: $base;
+
+      @include hover-reverse;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 6px;
+        left: 4px;
+        border-top: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid $default;
+      }
+    }
+
+    > .end {
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.-row {
+      flex-direction: row;
+
+      > .progress {
+        width: 30%;
+        height: 24px;
+      }
+
+      > .start {
+        &::after {
+          transform: rotate(-90deg);
+        }
+      }
+
+      > .end {
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
 }

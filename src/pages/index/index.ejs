@@ -1,27 +1,10 @@
 <%= require('../../core/parts/header.ejs')({title: 'Home'}) %>
 
-<div id="foreground-wrapper">
-	<app-window id="q-test" ifRight="q-test2" ifWrong="l-test1">
-		<p>Ma question ?</p>
-		<button
-			rightAwnser
-			onclick="RoverXpDog.append();
-					 RoverXpDog.say('bonita');">
-			Bonne réponse ajout rover
-		</button>
-		<button wrongAwnser>Mauvaise réponse</button>
-		<button rightAwnser>Autre bonne réponse</button>
-	</app-window>
 
-	<app-window id="q-test2" ifRight="q-test1" ifWrong="l-test1" hidden>
-		<p>Ma question 2 ?</p>
-		<button rightAwnser>Bonne réponse questi</button>
-		<button wrongAwnser>Mauvaise réponse</button>
-	</app-window>
-</div>
-
-<div id="background-wrapper">
-	<a href="page-test.html">Go to page test</a>
+<div>
+  <a href="forms.html">Go back to forms</a>
+  Hello, world from module test !
+  <img src="<%= htmlWebpackPlugin.options.assetsPath %>images/test.jpg">
 </div>
 
 <%= require('../../core/parts/footer.ejs')() %>
