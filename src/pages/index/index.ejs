@@ -1,10 +1,16 @@
 <%= require('../../core/parts/header.ejs')({title: 'Home'}) %>
 
-
-<div>
-  <a href="forms.html">Go back to forms</a>
+  <a href="forms.html">Goto forms</a>
   Hello, world from module test !
+  <!--
   <img src="<%= htmlWebpackPlugin.options.assetsPath %>images/test.jpg">
-</div>
+  -->
+
+  <app-random-screen>
+    <h1>I'm random number 1</h1>
+    <h1>I'm random number 2</h1>
+    <h1>I'm random number 3</h1>
+    <h1>I'm random number 4</h1>
+  </app-random-screen>
 
 <%= require('../../core/parts/footer.ejs')() %>
