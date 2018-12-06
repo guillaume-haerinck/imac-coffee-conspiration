@@ -1,12 +1,15 @@
 import "./random-screen.scss";
 import template from "./random-screen.ejs";
 import { environment } from "../../../../environment.js";
+import { runInThisContext } from "vm";
 
 export class RandomScreen extends HTMLElement {
 
     constructor() {
         // Always call super first in constructor
         super();
+
+        
 
         let i = 0;
         for (const item of this.children) {
@@ -20,12 +23,22 @@ export class RandomScreen extends HTMLElement {
     }
 
     public connectedCallback() {
-        window.setInterval(this.incrementVisible, 990);
+        const self = this;
+        function loop() {
+            var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+            setTimeout(() => {
+                self.incrementVisible();
+                console.log("ran");
+                loop();
+            }, rand);
+        }
+
+        loop();
     }
 
     // public disconnectedCallback() {}
 
-    private incrementVisible = () => {
+    private incrementVisible() {
         let i = 0;
         let visibleIndex = null;
 
