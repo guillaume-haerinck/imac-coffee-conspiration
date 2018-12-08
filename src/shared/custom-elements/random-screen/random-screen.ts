@@ -9,11 +9,9 @@ export class RandomScreen extends HTMLElement {
         // Always call super first in constructor
         super();
 
-        
-
         let i = 0;
         for (const item of this.children) {
-            if (i != 0) {
+            if (i !== 0) {
                 (item as HTMLElement).hidden = true;
             } else {
                 (item as HTMLElement).hidden = false;
@@ -23,9 +21,12 @@ export class RandomScreen extends HTMLElement {
     }
 
     public connectedCallback() {
+        // TODO if video, wait for it to finish
+        // TODO add transition before change visible
+        // TODO voir utilisation de bind pour self
         const self = this;
         function loop() {
-            var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+            const rand = Math.round(Math.random() * (3000 - 500)) + 500;
             setTimeout(() => {
                 self.incrementVisible();
                 console.log("ran");
@@ -51,7 +52,7 @@ export class RandomScreen extends HTMLElement {
                 (item as HTMLElement).hidden = false;
             }
             if (visibleIndex === this.childElementCount) {
-                let firstChild = this.firstElementChild as HTMLElement;
+                const firstChild = this.firstElementChild as HTMLElement;
                 firstChild.hidden = false;
             }
             i++;
