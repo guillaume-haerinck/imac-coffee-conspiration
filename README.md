@@ -99,3 +99,6 @@ https://www.sitepoint.com/simple-javascript-quiz/
 
 https://github.com/dnimmo/project-arklay-v2
 
+https://medium.com/@PavelLaptev/three-js-for-beginers-32ce451aabda
+
+https://stackoverflow.com/questions/29417374/threejs-remove-all-together-object-from-scene

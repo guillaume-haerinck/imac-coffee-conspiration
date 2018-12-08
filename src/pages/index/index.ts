@@ -3,6 +3,7 @@ import * as THREE from "three";
 const GLTFfLoader = require("three-gltf-loader");
 
 /* custom */
+import { environment } from "../../../environment.js";
 import "./index.scss";
 
 /* Managers */
@@ -43,17 +44,25 @@ function init() { // MUST RUN
     });
 
 
+    const video = document.createElement("video");
+    video.src = environment.assetsUrl + "videos/hollande.mp4";
+    video.load();
+    video.play();
+
+    const videoTexture = new THREE.VideoTexture(video);
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+    var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: 1, side:THREE.DoubleSide } );
+	// the geometry on which the movie will be displayed;
+	// 		movie image will be scaled to fit these dimensions.
+	var movieGeometry = new THREE.PlaneGeometry( 16, 9, 4, 4 );
+	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
+    scene.add(movieScreen);
+
     gltfLoader.load("assets/three-models/test.glb", (loadedModel) => {
         scene.add(loadedModel.scene);
     });
 
-    /*
-    cubeGeo = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-    material = new THREE.MeshNormalMaterial();
-    cubeMesh = new THREE.Mesh(cubeGeo, material);
-    cubeMesh.name = "cube";
-    scene.add(cubeMesh);
-    */
 
     var light = new THREE.AmbientLight(0xffffff);
     scene.add(light);
@@ -65,10 +74,6 @@ function init() { // MUST RUN
 
 function animate() { // MUST RUN
     requestAnimationFrame(animate); // Do not change
-
-    //cubeMesh.rotation.x += 0.01;
-    //cubeMesh.rotation.y += 0.02;
-
     renderer.render(scene, camera); // Do not change
 }
 

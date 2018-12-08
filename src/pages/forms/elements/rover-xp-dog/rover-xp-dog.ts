@@ -1,5 +1,4 @@
 import "./rover-xp-dog.scss";
-import "../../../../shared/assets/images/rover-xp-dog.gif";
 import template from "./rover-xp-dog.ejs";
 import { environment } from "../../../../../environment.js";
 

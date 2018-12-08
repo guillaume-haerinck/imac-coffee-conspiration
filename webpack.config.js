@@ -29,18 +29,15 @@ module.exports = {
             filename: 'index.html',
             template: './src/pages/index/index.ejs',
             chunks: ['index'],
-            assetsPath: envFile.environment.builtAssetsPath
+            assetsUrl: envFile.environment.assetsUrl,
         }),
         new HtmlWebpackPlugin({
             filename: 'forms.html',
             template: './src/pages/forms/forms.ejs',
             chunks: ['forms'],
-            assetsPath: envFile.environment.builtAssetsPath
+            assetsUrl: envFile.environment.assetsUrl,
         }),
-        new CopyWebpackPlugin([
-            { from: './src/shared/assets/three-fonts', to: '.' + envFile.environment.builtAssetsPath + 'three-fonts'},
-            { from: './src/shared/assets/three-models', to: '.' + envFile.environment.builtAssetsPath + 'three-models'}
-        ]),
+        new CopyWebpackPlugin([{ from: './src/shared/assets/', to: envFile.environment.assetsAbsolutePath}]),
         new DashboardPlugin()
     ],
     module: {
@@ -66,17 +63,7 @@ module.exports = {
                         'sass-loader'
                     ]
                 })
-            },
-            {
-                test: /\.(jpg|jpeg|png|gif|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: '.' + envFile.environment.builtAssetsPath + 'images/'
-                    }
-                }]
-            },
+            }
         ]
     },
     devServer: {
