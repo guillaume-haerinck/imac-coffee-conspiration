@@ -79,10 +79,10 @@ function resize() {
 }
 
 function parralax(event: MouseEvent) {
-    const mouseX = (event.clientX - window.innerWidth) / 100;
-    const mouseY = (event.clientY - window.innerHeight) / 100;
-    camera.position.x += mouseX - camera.position.x;
-    camera.position.y += mouseY - camera.position.y;
+    const mouseX = event.clientX - window.innerWidth / 2;
+    const mouseY = event.clientY - window.innerHeight / 2;
+    camera.position.x = (mouseX - camera.position.x) * 0.01;
+    camera.position.y = (mouseY - camera.position.y) * 0.01;
     camera.lookAt(scene.position);
 };
 
