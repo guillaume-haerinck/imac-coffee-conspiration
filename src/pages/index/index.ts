@@ -1,5 +1,6 @@
 /* 3rd party */
 import * as THREE from "three";
+const GLTFfLoader = require("three-gltf-loader");
 
 /* custom */
 import "./index.scss";
@@ -9,40 +10,52 @@ const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerH
 const scene = new THREE.Scene();
 scene.name = "scene";
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-const loader = new THREE.FontLoader();
+const fontLoader = new THREE.FontLoader();
+const gltfLoader: THREE.GLTFLoader = new GLTFfLoader();
 
-/* Global variables */
+/* Objects, TODO use object oriented programming to nest material, mesh and geo */
 let material: THREE.Material;
 let cubeGeo: THREE.Geometry;
 let cubeMesh: THREE.Mesh;
 let textGeo: THREE.TextGeometry;
+let textMesh: THREE.Mesh;
 
 /* Code */
 window.addEventListener("resize", resize, false);
 init();
 animate();
 
-/* Functions (tied to global variables) */
+/* Functions (tied to objects) */
 function init() { // MUST RUN
-    camera.position.z = 1;
+    camera.position.z = 8;
 
-    loader.load( "assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
-        textGeo = new THREE.TextGeometry( "TEST", {
+    fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
+        textGeo = new THREE.TextGeometry("SEEK THE THRUTH", {
             font: loadedFont,
-            size: 0.1,
-            height: 0.1,
+            size: 1,
+            height: 1,
         });
 
-        const textMesh = new THREE.Mesh(textGeo, material);
+        textMesh = new THREE.Mesh(textGeo, material);
         textMesh.name = "text";
         scene.add(textMesh);
     });
 
+
+    gltfLoader.load("assets/three-models/test.gltf", (loadedModel) => {
+        scene.add(loadedModel.scene);
+    });
+
+    /*
     cubeGeo = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
     material = new THREE.MeshNormalMaterial();
     cubeMesh = new THREE.Mesh(cubeGeo, material);
     cubeMesh.name = "cube";
     scene.add(cubeMesh);
+    */
+
+    var light = new THREE.AmbientLight(0xffffff);
+    scene.add(light);
 
     // Add to html
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,8 +65,8 @@ function init() { // MUST RUN
 function animate() { // MUST RUN
     requestAnimationFrame(animate); // Do not change
 
-    cubeMesh.rotation.x += 0.01;
-    cubeMesh.rotation.y += 0.02;
+    //cubeMesh.rotation.x += 0.01;
+    //cubeMesh.rotation.y += 0.02;
 
     renderer.render(scene, camera); // Do not change
 }

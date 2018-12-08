@@ -37,7 +37,10 @@ module.exports = {
             chunks: ['forms'],
             assetsPath: envFile.environment.builtAssetsPath
         }),
-        new CopyWebpackPlugin([{ from: './src/shared/assets/three-fonts', to: '.' + envFile.environment.builtAssetsPath + 'three-fonts'}]),
+        new CopyWebpackPlugin([
+            { from: './src/shared/assets/three-fonts', to: '.' + envFile.environment.builtAssetsPath + 'three-fonts'},
+            { from: './src/shared/assets/three-models', to: '.' + envFile.environment.builtAssetsPath + 'three-models'}
+        ]),
         new DashboardPlugin()
     ],
     module: {
