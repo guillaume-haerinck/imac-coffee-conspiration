@@ -1,7 +1,6 @@
 import "./random-screen.scss";
-import template from "./random-screen.ejs";
+// import template from "./random-screen.ejs";
 import { environment } from "../../../../environment.js";
-import { runInThisContext } from "vm";
 
 export class RandomScreen extends HTMLElement {
 

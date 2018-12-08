@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Assets path for ejs files, can be an external server
 const envFile = require('./environment');
@@ -36,6 +37,7 @@ module.exports = {
             chunks: ['forms'],
             assetsPath: envFile.environment.builtAssetsPath
         }),
+        new CopyWebpackPlugin([{ from: './src/shared/assets/three-fonts', to: '.' + envFile.environment.builtAssetsPath + 'three-fonts'}]),
         new DashboardPlugin()
     ],
     module: {
@@ -71,7 +73,7 @@ module.exports = {
                         outputPath: '.' + envFile.environment.builtAssetsPath + 'images/'
                     }
                 }]
-            }
+            },
         ]
     },
     devServer: {
