@@ -22,6 +22,7 @@ let textMesh: THREE.Mesh;
 
 /* Code */
 window.addEventListener("resize", resize, false);
+document.addEventListener('mousemove', parralax, false);
 init();
 animate();
 
@@ -42,7 +43,7 @@ function init() { // MUST RUN
     });
 
 
-    gltfLoader.load("assets/three-models/test.gltf", (loadedModel) => {
+    gltfLoader.load("assets/three-models/test.glb", (loadedModel) => {
         scene.add(loadedModel.scene);
     });
 
@@ -76,6 +77,14 @@ function resize() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
+function parralax(event: MouseEvent) {
+    const mouseX = (event.clientX - window.innerWidth) / 100;
+    const mouseY = (event.clientY - window.innerHeight) / 100;
+    camera.position.x += mouseX - camera.position.x;
+    camera.position.y += mouseY - camera.position.y;
+    camera.lookAt(scene.position);
+};
 
 /* Exports to access elements for inspector */
 (window as any).scene = scene;
