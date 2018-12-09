@@ -14,58 +14,35 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 const fontLoader = new THREE.FontLoader();
 const gltfLoader: THREE.GLTFLoader = new GLTFfLoader();
 
-/* Objects, TODO use object oriented programming to nest material, mesh and geo */
-let material: THREE.Material;
-let cubeGeo: THREE.Geometry;
-let cubeMesh: THREE.Mesh;
-let textGeo: THREE.TextGeometry;
-let textMesh: THREE.Mesh;
-
 /* Code */
 window.addEventListener("resize", resize, false);
 document.addEventListener('mousemove', parralax, false);
 init();
 animate();
 
-/* Functions (tied to objects) */
+/* Functions (tied to Managers) */
 function init() { // MUST RUN
     camera.position.z = 8;
 
     fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
-        textGeo = new THREE.TextGeometry("SEEK THE THRUTH", {
+        let material: THREE.Material;
+        let textGeo = new THREE.TextGeometry("SEEK THE THRUTH", {
             font: loadedFont,
             size: 1,
             height: 1,
         });
 
-        textMesh = new THREE.Mesh(textGeo, material);
+        let textMesh = new THREE.Mesh(textGeo, material);
         textMesh.name = "text";
         scene.add(textMesh);
     });
 
-
-    const video = document.createElement("video");
-    video.src = environment.assetsUrl + "videos/hollande.mp4";
-    video.load();
-    video.play();
-
-    const videoTexture = new THREE.VideoTexture(video);
-    videoTexture.minFilter = THREE.LinearFilter;
-    videoTexture.magFilter = THREE.LinearFilter;
-    var movieMaterial = new THREE.MeshBasicMaterial( { map: videoTexture, overdraw: 1, side:THREE.DoubleSide } );
-	// the geometry on which the movie will be displayed;
-	// 		movie image will be scaled to fit these dimensions.
-	var movieGeometry = new THREE.PlaneGeometry( 16, 9, 4, 4 );
-	var movieScreen = new THREE.Mesh( movieGeometry, movieMaterial );
-    scene.add(movieScreen);
-
     gltfLoader.load("assets/three-models/test.glb", (loadedModel) => {
+        loadedModel.scene.name = "test";
+        const videoMaterial = loadVideoMaterial("hollande.mp4");
+        loadedModel.scene.children[2].material = videoMaterial;
         scene.add(loadedModel.scene);
     });
-
-
-    var light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);
 
     // Add to html
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -90,6 +67,23 @@ function parralax(event: MouseEvent) {
     camera.position.y = (mouseY - camera.position.y) * 0.01;
     camera.lookAt(scene.position);
 };
+
+function loadVideoMaterial(filename: string): THREE.MeshBasicMaterial {
+    const video = document.createElement("video");
+    video.src = environment.assetsUrl + "videos/" + filename;
+    video.load();
+    video.muted = true;
+    video.play();
+    window.addEventListener("click", () => {
+        video.muted = false;
+    }, {once: true});
+
+    const videoTexture = new THREE.VideoTexture(video);
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+
+    return new THREE.MeshBasicMaterial({ map: videoTexture, overdraw: 1, side: THREE.DoubleSide });
+}
 
 /* Exports to access elements for inspector */
 (window as any).scene = scene;
