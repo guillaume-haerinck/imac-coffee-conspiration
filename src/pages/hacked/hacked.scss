@@ -1,0 +1,15 @@
+@import '../../core/scss/styles';
+@import '../../core/scss/constants';
+
+iframe {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: none;
+  cursor: none;
+}
