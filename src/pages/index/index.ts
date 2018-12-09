@@ -109,8 +109,8 @@ function placeSnoopAtRandom() {
 
 const updateSnoopHints = (event: MouseEvent) => {
     // TODO client x and y and snoopa container position
-    console.log("snoopposition: " + snoopaPosition.right);
-    console.log("mouseX: " + event.clientX);
+    //console.log("snoopposition: " + snoopaPosition.right);
+    //console.log("mouseX: " + event.clientX);
 }
 
 const revealSnoop = () => {
@@ -120,12 +120,37 @@ const revealSnoop = () => {
     document.removeEventListener("mousemove", updateSnoopHints);
 }
 
+const openFullscreen = () => {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+        document.documentElement.msRequestFullscreen();
+    }
+}
+
+function blockWebsite(isActivated: boolean) {
+    console.log("DO NOT EXIT");
+}
+
 /* Event listenners and function calls */
 init();
 animate();
 initSnoop();
 
 snoopaContainer.addEventListener("mouseenter", revealSnoop, {once: true});
+snoopaContainer.addEventListener("click", openFullscreen, {once: true});
+const isFullScreen = matchMedia("all and (display-mode: fullscreen");
+isFullScreen.onchange = (event: Event) => {
+    if (!isFullScreen.matches) {
+        blockWebsite(true);
+    } else {
+        // blockWebsite(false);
+    }
+};
 document.addEventListener("mousemove", updateSnoopHints);
 document.addEventListener('mousemove', parralax, false);
 document.addEventListener("resize", resize, false);
