@@ -1,11 +1,15 @@
+@import '../../core/scss/styles';
+@import '../../core/scss/constants';
+
 body {
   background: url('/assets/images/statue2.png'), url('/assets/images/statue1.png'), url('/assets/images/bg.gif');
   background-size: 44%, 27%, cover;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
   background-repeat: no-repeat;
   background-position-x: -21%, right -7%, center;
   background-position-y: bottom -7vh, bottom -6vh, center;
+  height: 100vh;
+  display: grid;
+  align-content: center;
 }
 
 .carte {
@@ -13,10 +17,10 @@ body {
   height: 300px;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  background: linear-gradient(121deg, rgba(0,255,252,1) 0%, rgba(255,0,254,1) 100%);
-  border: 5px solid #FFF;
+  background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
+  border: 5px solid #fff;
   box-sizing: border-box;
-  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.7), inset 0 0 7px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), inset 0 0 7px;
   border-radius: 33px;
   margin: auto;
 }
