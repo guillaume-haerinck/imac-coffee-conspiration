@@ -52,7 +52,7 @@ export class Window extends HTMLElement {
         });
 
         this.firstElementChild.addEventListener("mousedown", this.onMouseDown);
-        this.firstElementChild.addEventListener("mouseup", this.onMouseUp);
+        document.addEventListener("mouseup", this.onMouseUp);
         document.addEventListener("mousemove", this.dragWindow);
         window.addEventListener("resize", (event: UIEvent) => {
             this.style.left = "0px";

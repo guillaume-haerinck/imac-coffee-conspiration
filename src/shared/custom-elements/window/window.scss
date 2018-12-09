@@ -52,6 +52,7 @@ app-window {
   @include full-shadow(2px);
 
   .title-bar {
+    user-select: none;
     cursor: move;
     display: inline-grid;
     grid-auto-flow: column;
