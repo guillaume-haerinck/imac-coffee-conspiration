@@ -1,0 +1,25 @@
+<%= require('../../core/parts/header.ejs')({title: 'Enroll'}) %>
+    <div class="carte">
+        <div class="photo">
+            <img src="<%= htmlWebpackPlugin.options.assetsUrl %>/images/blob.jpeg">
+        </div>
+        <div class="infos">
+            <h2 id="agent">Agent</h2>
+            <h1 id="titre">Anti-Coffee Society</h1>
+            <h3 class="label-badge">First Name: <span id="badge-fname">First Name</span></h3>
+            <h3 class="label-badge">Last Name: <span id="badge-lname">Last Name</span></h3>
+            <h3 class="label-badge">Birth date: <span id="badge-bdate">Birth date</span></h3>
+        </div>
+        <p id="citation">LOL</p>
+    </div>
+
+    <div class="form">
+        <h1 id="form" onclick="updateCaption()">Agent submission form</h1>
+        <form>
+            <h4 class="label-form">First Name: </h4><input type="text" name="fname" onchange="updateText()" onkeyup="updateText()">
+            <h4 class="label-form">Last Name:</h4><input type="text" name="lname" onchange="updateText()" onkeyup="updateText()">
+            <h4 class="label-form">Birth date: </h4><input type="date" name="date" onchange="updateText()" onkeyup="updateText()">
+            <input type="submit" id="flanquer" value="Flanquer">
+        </form>
+    </div>
+<%= require('../../core/parts/footer.ejs')() %>

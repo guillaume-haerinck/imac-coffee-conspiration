@@ -12,7 +12,9 @@ const envFile = require('./environment');
 module.exports = {
     entry: {
         index: ['./src/pages/index/index.ts', './src/router.ts', './src/main.ts'],
-        forms: ['./src/pages/forms/forms.ts', './src/router.ts', './src/main.ts']
+        quizz: ['./src/pages/quizz/quizz.ts', './src/router.ts', './src/main.ts'],
+        enroll: ['./src/pages/enroll/enroll.ts', './src/router.ts', './src/main.ts'],
+        hacked: ['./src/pages/hacked/hacked.ts', './src/router.ts', './src/main.ts']
 	},
 	resolve: {
         extensions: [".ts", ".js"]
@@ -32,9 +34,21 @@ module.exports = {
             assetsUrl: envFile.environment.assetsUrl,
         }),
         new HtmlWebpackPlugin({
-            filename: 'forms.html',
-            template: './src/pages/forms/forms.ejs',
-            chunks: ['forms'],
+            filename: 'quizz.html',
+            template: './src/pages/quizz/quizz.ejs',
+            chunks: ['quizz'],
+            assetsUrl: envFile.environment.assetsUrl,
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'enroll.html',
+            template: './src/pages/enroll/enroll.ejs',
+            chunks: ['enroll'],
+            assetsUrl: envFile.environment.assetsUrl,
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'hacked.html',
+            template: './src/pages/hacked/hacked.ejs',
+            chunks: ['hacked'],
             assetsUrl: envFile.environment.assetsUrl,
         }),
         new CopyWebpackPlugin([{ from: './src/shared/assets/', to: envFile.environment.assetsAbsolutePath}]),
