@@ -1,4 +1,4 @@
-const style = require('./window.inlinescss').toString();
+const style = require('!css-loader!sass-loader!./window.scss').toString();
 import template from "./window.ejs";
 import { environment } from "../../../../environment.js";
 

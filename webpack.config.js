@@ -78,13 +78,6 @@ module.exports = {
                     ]
                 })
             },
-            {
-                test:/\.inlinescss$/, // TODO ameliorer pour conserver extension .scss 
-                use: [
-                    'css-loader',
-                    'sass-loader'
-                ]
-            },
         ]
     },
     devServer: {
