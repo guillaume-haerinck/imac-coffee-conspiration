@@ -60,4 +60,6 @@ export class RandomScreen extends HTMLElement {
 
 }
 
-customElements.define("app-random-screen", RandomScreen);
+if (!customElements.get("app-random-screen")) {
+    customElements.define("app-random-screen", RandomScreen);
+}

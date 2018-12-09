@@ -57,11 +57,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ejs?$/,
+                test: /\.ejs$/,
                 use: 'ejs-loader'
             },
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 loader: 'ts-loader',
 				exclude: /node_modules/,
 				options: {
@@ -77,7 +77,14 @@ module.exports = {
                         'sass-loader'
                     ]
                 })
-            }
+            },
+            {
+                test:/\.inlinescss$/, // TODO ameliorer pour conserver extension .scss 
+                use: [
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
         ]
     },
     devServer: {

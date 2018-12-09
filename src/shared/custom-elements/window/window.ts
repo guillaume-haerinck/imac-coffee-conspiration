@@ -1,4 +1,4 @@
-import "./window.scss";
+const style = require('./window.inlinescss').toString();
 import template from "./window.ejs";
 import { environment } from "../../../../environment.js";
 
@@ -17,24 +17,26 @@ export class Window extends HTMLElement {
         // Always call super first in constructor
         super();
 
+        this.attachShadow({ mode: 'open' });
+        const templateContainer = document.createElement("template");      
+        templateContainer.innerHTML = `<style>${ style }</style>`
+        templateContainer.innerHTML += template(environment);
+        this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
+    }
+
+    public connectedCallback() {
         if (this.hidden) {
             this.style.display = "none";
         }
 
         // Put the input content in the content div of the template
-        const templateContainer = document.createElement("div");
-        templateContainer.innerHTML = template(environment);
-        templateContainer.getElementsByClassName("content")[0].innerHTML = this.innerHTML;
-        this.innerHTML = templateContainer.innerHTML;
         this.style.left = "0px";
         this.style.top = "0px";
-    }
 
-    public connectedCallback() {
+        // Get attributes
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
-        const content = this.getElementsByClassName("content");
-        for (const item of content[0].children) {
+        for (const item of this.children) {
             if (item.hasAttribute("rightAwnser")) {
                 this._rightAwnsers.push(item);
             }
@@ -51,7 +53,7 @@ export class Window extends HTMLElement {
             awnser.addEventListener("click", this.replaceWindow);
         });
 
-        this.firstElementChild.addEventListener("mousedown", this.onMouseDown);
+        this.shadowRoot.children[1].addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("mouseup", this.onMouseUp);
         document.addEventListener("mousemove", this.dragWindow);
         window.addEventListener("resize", (event: UIEvent) => {
@@ -93,8 +95,7 @@ export class Window extends HTMLElement {
             destinationId = this._wrongWindowId;
         }
 
-        const content = this.getElementsByClassName("content");
-        for (const item of content[0].children) {
+        for (const item of this.children) {
             item.removeEventListener("click", this.replaceWindow);
         }
         const destination = document.getElementById(destinationId);
@@ -102,8 +103,11 @@ export class Window extends HTMLElement {
         destination.style.display = "grid";
         destination.style.left = this._posX + "px";
         destination.style.top = this._posY + "px";
-        this.replaceWith(destination);
+        this.remove();
     }
 }
 
-customElements.define("app-window", Window);
+if (!customElements.get("app-window")) {
+    customElements.define("app-window", Window);
+}
+

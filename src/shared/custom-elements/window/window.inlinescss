@@ -41,7 +41,7 @@ $base-pad: 4px;
   }
 }
 
-app-window {
+:host {
   position: relative;
   display: grid;
   align-content: start;
