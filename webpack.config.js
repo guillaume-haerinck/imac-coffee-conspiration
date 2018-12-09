@@ -11,8 +11,8 @@ const envFile = require('./environment');
 
 module.exports = {
     entry: {
-        index: './src/pages/index/index.ts',
-        forms: './src/pages/forms/forms.ts'
+        index: ['./src/pages/index/index.ts', './src/router.ts', './src/main.ts'],
+        forms: ['./src/pages/forms/forms.ts', './src/router.ts', './src/main.ts']
 	},
 	resolve: {
         extensions: [".ts", ".js"]

@@ -132,10 +132,6 @@ const openFullscreen = () => {
     }
 }
 
-function blockWebsite(isActivated: boolean) {
-    console.log("DO NOT EXIT");
-}
-
 /* Event listenners and function calls */
 init();
 animate();
@@ -143,14 +139,7 @@ initSnoop();
 
 snoopaContainer.addEventListener("mouseenter", revealSnoop, {once: true});
 snoopaContainer.addEventListener("click", openFullscreen, {once: true});
-const isFullScreen = matchMedia("all and (display-mode: fullscreen");
-isFullScreen.onchange = (event: Event) => {
-    if (!isFullScreen.matches) {
-        blockWebsite(true);
-    } else {
-        // blockWebsite(false);
-    }
-};
+
 document.addEventListener("mousemove", updateSnoopHints);
 document.addEventListener('mousemove', parralax, false);
 document.addEventListener("resize", resize, false);
