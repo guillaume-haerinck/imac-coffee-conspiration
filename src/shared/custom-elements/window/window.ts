@@ -7,6 +7,11 @@ export class Window extends HTMLElement {
     private _wrongWindowId: string;
     private _rightAwnsers: Element[] = [];
     private _wrongAwnsers: Element[] = [];
+    private _posX: number = 0;
+    private _posY: number = 0;
+    private _posXMouse: number = 0;
+    private _posYMouse: number = 0;
+    private _isDragged: boolean = false;
 
     constructor() {
         // Always call super first in constructor
@@ -21,6 +26,8 @@ export class Window extends HTMLElement {
         templateContainer.innerHTML = template(environment);
         templateContainer.getElementsByClassName("content")[0].innerHTML = this.innerHTML;
         this.innerHTML = templateContainer.innerHTML;
+        this.style.left = "0px";
+        this.style.top = "0px";
     }
 
     public connectedCallback() {
@@ -43,9 +50,40 @@ export class Window extends HTMLElement {
         this._wrongAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
+
+        this.firstElementChild.addEventListener("mousedown", this.onMouseDown);
+        this.firstElementChild.addEventListener("mouseup", this.onMouseUp);
+        document.addEventListener("mousemove", this.dragWindow);
+        window.addEventListener("resize", (event: UIEvent) => {
+            this.style.left = "0px";
+            this.style.top = "0px";
+        });
     }
 
-    // public disconnectedCallback() {}
+    private dragWindow = (event: MouseEvent) => {
+        if (this._isDragged) {
+            const deltaX = event.clientX - this._posXMouse;
+            const deltaY = event.clientY - this._posYMouse;
+            this.style.left = this._posX + deltaX + "px";
+            this.style.top = this._posY + deltaY + "px";
+        }
+    }
+
+    private onMouseDown = (event: MouseEvent) => {
+        if (!this._isDragged) {
+            this._posX = parseInt(this.style.left);
+            this._posY = parseInt(this.style.top);
+        }
+        this._posXMouse = event.clientX;
+        this._posYMouse = event.clientY;
+        this._isDragged = true;
+    }
+
+    private onMouseUp = (event: MouseEvent) => {
+        this._posX = parseInt(this.style.left);
+        this._posY = parseInt(this.style.top);
+        this._isDragged = false;
+    }
 
     private replaceWindow = (event: Event) => {
         let destinationId = null;
@@ -62,6 +100,8 @@ export class Window extends HTMLElement {
         const destination = document.getElementById(destinationId);
         destination.hidden = false;
         destination.style.display = "grid";
+        destination.style.left = this._posX + "px";
+        destination.style.top = this._posY + "px";
         this.replaceWith(destination);
     }
 }

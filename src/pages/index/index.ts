@@ -120,29 +120,16 @@ const revealSnoop = () => {
     document.removeEventListener("mousemove", updateSnoopHints);
 }
 
-const openFullscreen = () => {
-    if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
-        document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
-        document.documentElement.msRequestFullscreen();
-    }
-}
-
 /* Event listenners and function calls */
 init();
 animate();
 initSnoop();
 
 snoopaContainer.addEventListener("mouseenter", revealSnoop, {once: true});
-snoopaContainer.addEventListener("click", openFullscreen, {once: true});
-
+// TODO ask for fullscreen f11 (not closed on page change)
 document.addEventListener("mousemove", updateSnoopHints);
 document.addEventListener('mousemove', parralax, false);
-document.addEventListener("resize", resize, false);
+window.addEventListener("resize", resize, true);
 
 /* Exports to access elements for inspector */
 (window as any).scene = scene;

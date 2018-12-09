@@ -42,6 +42,7 @@ $base-pad: 4px;
 }
 
 app-window {
+  position: relative;
   display: grid;
   align-content: start;
   align-self: start;
@@ -51,6 +52,7 @@ app-window {
   @include full-shadow(2px);
 
   .title-bar {
+    cursor: move;
     display: inline-grid;
     grid-auto-flow: column;
     justify-content: space-between;
@@ -62,6 +64,7 @@ app-window {
     height: 30px;
 
     .title {
+      pointer-events: none;
       font-weight: bold;
       margin: 0;
       align-self: center;
