@@ -12,7 +12,6 @@ const render = (event: HashChangeEvent) => {
             document.open();
             document.write(html);
             document.close();
-            // TODO remove existing html
         })
 }
 
@@ -20,7 +19,6 @@ window.addEventListener("hashchange", render, false);
 
 window.onload = () => {
     history.pushState("", document.title, window.location.pathname); // Removes hash
-    
 };
 
 

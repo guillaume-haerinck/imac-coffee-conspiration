@@ -8,12 +8,10 @@
 
 #foreground-wrapper {
   position: absolute;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   justify-content: center;
   align-content: center;
-  background-image: url("/assets/images/bean.gif");
-  background-size: cover;
 
   #q-test1 button:not(.control) {
     background-position-x: 0;
@@ -24,7 +22,6 @@
     height: 150px;
     width: 110px;
     background-position: center center;
-    background-repeat: no-repeat;
     border: 3px solid;
     border-bottom-color: #A8A9A8;
     border-right-color: #A8A9A8;
@@ -35,4 +32,11 @@
   #holland {
     background: url("/assets/images/hollande.jpg");
   }
+}
+
+#background-wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/images/bean.gif");
+  background-size: cover;
 }

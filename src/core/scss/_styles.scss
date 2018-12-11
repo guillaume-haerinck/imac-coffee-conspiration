@@ -3,8 +3,14 @@
 @import "./constants";
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
 
+html,
 body {
-  font-family: "Inconsolata", monospace;
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Inconsolata", monospace;
 }
