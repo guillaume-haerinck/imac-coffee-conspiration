@@ -11,6 +11,10 @@ document.querySelector(`input[type="submit"]`).addEventListener('click', event =
   document.getElementById(`citation`).innerHTML = `"` + caption.contents.quotes[0].quote+`"`;
 });
 
+document.querySelectorAll(`input`).addEventListener('input', () => {
+  updateText();
+});
+
 function updateText() {
   document.querySelector(`#badge-fname`).innerHTML = document.querySelector(`input[name="fname"]`).value || 'First Name';
   document.querySelector(`#badge-lname`).innerHTML = document.querySelector(`input[name="lname"]`).value || 'Last Name';
