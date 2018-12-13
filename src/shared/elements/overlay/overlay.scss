@@ -1,5 +1,11 @@
 @import '../../../core/scss/constants';
 
 .overlay {
-  color: red;
+  z-index: 10;
+  position: fixed;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  background-color: rgba($color: #000000, $alpha: 0.5);
 }

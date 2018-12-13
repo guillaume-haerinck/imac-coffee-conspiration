@@ -4,7 +4,11 @@ const GLTFfLoader = require("three-gltf-loader");
 
 /* custom */
 import { environment } from "../../../environment.js";
+import { Overlay } from "../../shared/elements/overlay/overlay";
 import "./index.scss";
+
+/* Overlay */
+const overlay = new Overlay("Imported overlay");
 
 /* Three.js Managers */
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);

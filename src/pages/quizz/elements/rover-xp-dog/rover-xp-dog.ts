@@ -4,16 +4,17 @@ import { environment } from "../../../../../environment.js";
 
 export class RoverXpDog {
     private _wrapperId: string;
+    private _roverContainer: HTMLDivElement;
 
     constructor(wrapperId: string) {
         this._wrapperId = wrapperId;
     }
 
     public append() {
-        const roverContainer = document.createElement("div");
-        roverContainer.className = "rover-xp-dog";
-        roverContainer.innerHTML = template(environment);
-        document.getElementById(this._wrapperId).appendChild(roverContainer);
+        this._roverContainer = document.createElement("div");
+        this._roverContainer.className = "rover-xp-dog";
+        this._roverContainer.innerHTML = template(environment);
+        document.getElementById(this._wrapperId).appendChild(this._roverContainer);
     }
 
     public say(message: string) {
