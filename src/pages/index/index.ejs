@@ -3,8 +3,12 @@
       <a href="#enroll">Goto enroll</a>
       <a href="#hacked">Goto hacked</a>
 
-      <app-overlay>
-            <p>Hello I'm the overlay</p>
+      <app-overlay id="intro-overlay" onclick="initSnoop()">
+            <p>Congratulation, you arrived here</p>
             <button>Click me</button>
+      </app-overlay>
+
+      <app-overlay id="fullscreen-overlay" hidden>
+            <p>You must press f11 to activate snoopavision</p>
       </app-overlay>
 <%= require('../../core/parts/footer.ejs')() %>
