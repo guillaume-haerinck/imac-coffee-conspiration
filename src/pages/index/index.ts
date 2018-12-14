@@ -3,7 +3,7 @@ import * as THREE from "three";
 const GLTFfLoader = require("three-gltf-loader");
 
 /* custom */
-import { Overlay } from "../../shared/elements/overlay/overlay";
+import "../../shared/custom-elements/overlay/overlay";
 import { environment } from "../../../environment.js";
 import "./index.scss";
 
@@ -19,7 +19,6 @@ const gltfLoader: THREE.GLTFLoader = new GLTFfLoader();
 const snoopaContainer = document.createElement("div");
 let snoopaImage: HTMLImageElement;
 let snoopaPosition: ClientRect | DOMRect;
-const overlay = new Overlay("This experience is about to start", "I'm useless", environment.assetsUrl + "images/snoopa-vision.png");
 
 /* Three.js */
 function init() {

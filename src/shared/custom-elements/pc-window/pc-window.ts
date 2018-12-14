@@ -1,8 +1,8 @@
-const style = require('!css-loader!sass-loader!./window.scss').toString();
-import template from "./window.ejs";
+const style = require('!css-loader!sass-loader!./pc-window.scss').toString();
+import template from "./pc-window.ejs";
 import { environment } from "../../../../environment.js";
 
-export class Window extends HTMLElement {
+export class PCWindow extends HTMLElement {
     private _rightWindowId: string;
     private _wrongWindowId: string;
     private _rightAwnsers: Element[] = [];
@@ -14,8 +14,7 @@ export class Window extends HTMLElement {
     private _isDragged: boolean = false;
 
     constructor() {
-        // Always call super first in constructor
-        super();
+        super(); // Always calls first
 
         this.attachShadow({ mode: 'open' });
         const templateContainer = document.createElement("template");      
@@ -111,7 +110,7 @@ export class Window extends HTMLElement {
     }
 }
 
-if (!customElements.get("app-window")) {
-    customElements.define("app-window", Window);
+if (!customElements.get("app-pc-window")) {
+    customElements.define("app-pc-window", Window);
 }
 
