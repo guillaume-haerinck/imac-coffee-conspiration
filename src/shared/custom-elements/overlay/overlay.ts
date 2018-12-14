@@ -5,10 +5,14 @@ export class Overlay extends HTMLElement {
         super(); // Always calls first
     }
 
-    public connectedCallback() {
+    connectedCallback() {
         if (this.hidden) {
             this.style.display = "none";
         }
+    }
+
+    unhide() {
+        this.style.display = "grid";
     }
 }
 

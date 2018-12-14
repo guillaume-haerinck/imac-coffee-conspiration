@@ -4,6 +4,7 @@ import * as THREE from "three";
 /* custom */
 import "../../shared/custom-elements/overlay/overlay";
 import "./index.scss";
+import { Overlay } from "../../shared/custom-elements/overlay/overlay";
 import { TVRoom } from "./elements/tv-room";
 import { SnoopaVision } from "./elements/snoopa-vision";
 
@@ -12,12 +13,6 @@ const tvroom = new TVRoom();
 const snoopaVision = new SnoopaVision();
 
 /* Event listenners and function calls */
-tvroom.init();
-tvroom.animate();
-
-document.addEventListener('mousemove', tvroom.parralax, false);
-window.addEventListener("resize", tvroom.resize, true);
-
 // Overlays
 document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "intro-overlay") {
@@ -26,9 +21,10 @@ document.addEventListener('click', (event: MouseEvent) => {
   };
 });
 
-snoopaVision.snoopaContainer.addEventListener('mouseenter', () => {
-  snoopaVision.revealSnoop();
-  document.getElementById("fullscreen-overlay").style.display = "grid";
+snoopaVision.container.addEventListener('mouseenter', () => {
+  snoopaVision.reveal();
+  const overlay = document.getElementById("fullscreen-overlay") as HTMLElement & Overlay;
+  overlay.unhide();
 }, {once: true});
 
 /* Exports to access elements for inspector and from html */

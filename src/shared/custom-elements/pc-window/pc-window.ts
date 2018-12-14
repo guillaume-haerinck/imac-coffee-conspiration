@@ -23,11 +23,7 @@ export class PCWindow extends HTMLElement {
         this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
     }
 
-    public getMe() {
-        console.log("You got me");
-    }
-
-    public connectedCallback() {
+    connectedCallback() {
         if (this.hidden) {
             this.style.display = "none";
         }
