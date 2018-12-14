@@ -19,7 +19,7 @@ const gltfLoader: THREE.GLTFLoader = new GLTFfLoader();
 const snoopaContainer = document.createElement("div");
 let snoopaImage: HTMLImageElement;
 let snoopaPosition: ClientRect | DOMRect;
-const overlay = new Overlay("This experience is about to start");
+const overlay = new Overlay("This experience is about to start", "I'm useless", environment.assetsUrl + "images/snoopa-vision.png");
 
 /* Three.js */
 function init() {
