@@ -5,21 +5,32 @@ import { isNullOrUndefined } from "util";
 
 export class Overlay {
     private _overlayContainer: HTMLDivElement;
-    private _text: HTMLDivElement;
-    private _image: HTMLImageElement;
 
-    constructor(text: string, imageUrl?: string) {
+    constructor(text: string, btnText?: string, imageUrl?: string) {
         this._overlayContainer = document.createElement("div");
         this._overlayContainer.className = "overlay";
         environment.overlayText = text;
-        if (!isNullOrUndefined(imageUrl)) {
-            environment.overlayImageUrl = imageUrl;
-        }
         this._overlayContainer.innerHTML = template(environment);
         document.body.appendChild(this._overlayContainer);
     }
 
     changeText() {
+
+    }
+
+    changeBtnText() {
+
+    }
+
+    changeImage() {
+
+    }
+
+    show() {
+
+    }
+
+    hide() {
 
     }
 

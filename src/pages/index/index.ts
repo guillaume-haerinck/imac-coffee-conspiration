@@ -3,12 +3,9 @@ import * as THREE from "three";
 const GLTFfLoader = require("three-gltf-loader");
 
 /* custom */
-import { environment } from "../../../environment.js";
 import { Overlay } from "../../shared/elements/overlay/overlay";
+import { environment } from "../../../environment.js";
 import "./index.scss";
-
-/* Overlay */
-const overlay = new Overlay("Imported overlay");
 
 /* Three.js Managers */
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -18,25 +15,11 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 const fontLoader = new THREE.FontLoader();
 const gltfLoader: THREE.GLTFLoader = new GLTFfLoader();
 
-/* Snoopa vision Managers */
+/* Snoopa vision & Overlay Managers */
 const snoopaContainer = document.createElement("div");
 let snoopaImage: HTMLImageElement;
 let snoopaPosition: ClientRect | DOMRect;
-
-snoopaContainer.addEventListener('click', () => {
-  // document.documentElement.mozRequestFullScreen();
-  var elem = document.documentElement;
-
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen();
-  } else if (elem.mozRequestFullScreen) {
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-  }
-});
+const overlay = new Overlay("This experience is about to start");
 
 /* Three.js */
 function init() {
