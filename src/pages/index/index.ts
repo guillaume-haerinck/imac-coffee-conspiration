@@ -23,7 +23,7 @@ document.addEventListener('click', (event: MouseEvent) => {
 
 snoopaVision.container.addEventListener('mouseenter', () => {
   snoopaVision.reveal();
-  const overlay = document.getElementById("fullscreen-overlay") as HTMLElement & Overlay;
+  const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
   overlay.unhide();
 }, {once: true});
 

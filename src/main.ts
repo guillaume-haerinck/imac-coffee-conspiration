@@ -1,6 +1,15 @@
+import { Overlay } from "./shared/custom-elements/overlay/overlay";
+
 /* Functions */
 function blockWebsite(isActivated: boolean) {
-    console.log("DO NOT EXIT");
+    if (isActivated) {
+        const overlay = new Overlay();
+        overlay.id = "stopit-overlay";
+        overlay.innerHTML = "<p>DO NO EXIT FULLSCREEN MOTHERFUCKER</p>";
+        document.body.appendChild(overlay);
+    } else {
+        document.getElementById("stopit-overlay").remove();
+    }
 }
 
 /* Global event listenners */
@@ -9,6 +18,6 @@ isFullScreen.onchange = (event: Event) => {
     if (!isFullScreen.matches) {
         blockWebsite(true);
     } else {
-        // blockWebsite(false);
+        blockWebsite(false);
     }
 };

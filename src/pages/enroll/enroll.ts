@@ -1,6 +1,21 @@
 import "./enroll.scss";
+import "../../shared/custom-elements/pc-window/pc-window";
+import { QuotesService } from "./services/quotes.service";
+
+const quotesService = new QuotesService();
+quotesService.getQuote()
+  .then((quote) => {
+    console.log(quote);
+  })
+  .catch(error => {
+    console.warn("Cannot get quote");
+    console.error(error);
+  })
 
 // TODO use get api + use a service for external request + add typings for api
+// use https://talaikis.com/api/quotes/random/
+
+/*
 let caption = new XMLHttpRequest();
 caption.open("GET", 'http://quotes.rest/qod.json?category=inspire', false);
 caption.send(null);
@@ -18,3 +33,4 @@ function updateText() {
 }
 
 (window as any).updateText = updateText;
+*/
