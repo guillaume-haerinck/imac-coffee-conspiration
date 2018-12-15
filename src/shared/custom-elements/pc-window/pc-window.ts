@@ -31,6 +31,9 @@ export class PCWindow extends HTMLElement {
         // Put the input content in the content div of the template
         this.style.left = "0px";
         this.style.top = "0px";
+        if (this.hasAttribute("randomPlace")) {
+            this.placeAtRandom();
+        }
 
         // Get attributes
         this._rightWindowId = this.getAttribute("ifRight");
@@ -114,6 +117,14 @@ export class PCWindow extends HTMLElement {
             (windows[i] as HTMLElement).style.zIndex = "auto";
         }
         this.style.zIndex = "10";
+    }
+
+    private placeAtRandom() {
+        this.style.position = "absolute";
+        const posX = Math.floor(Math.random() * Math.floor(window.innerWidth - this.offsetWidth));
+        const posY = Math.floor(Math.random() * Math.floor(window.innerHeight - this.offsetHeight));
+        this.style.left = posX.toString() + "px";
+        this.style.top = posY.toString() + "px";
     }
 }
 
