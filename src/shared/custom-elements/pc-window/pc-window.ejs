@@ -1,27 +1,21 @@
 <div class="title-bar">
-    <p class="title"><img class="icon" src="../../assets/images/bean_icon.jpg"><span>Le nom de la fenêtre<!-- To be replaced by input content --></span></p>
+    <div class="title">
+        <slot name="icon" class="icon"><img src="<%= assetsUrl %>/images/icons/bean.jpg"></slot>
+        <slot name="title" class="text"><p>Change me by adding slot="title" to a tag</p></slot>
+    </div>
     <div class="controls">
-        <button class="control" onclick="var error=new Audio('assets/audio/WindowsError.mp3');error.play();">
-            _
-        </button>
-        <button class="control" onclick="var error=new Audio('assets/audio/WindowsError.mp3');error.play();">
-            X
-        </button>
-        <button class="control" onclick="var error=new Audio('assets/audio/WindowsError.mp3');error.play();">
-            U
+        <% if (pcWindowOptions.controls.full) { %><button class="control">t</button><% } %>
+        <% if (pcWindowOptions.controls.help) { %><button class="control">?</button><% } %>
+        <button class="control">
+            <img src="<%= assetsUrl %>/images/icons/close.png">
         </button>
     </div>
 </div>
 
+<% if (pcWindowOptions.bMenu) { %>
 <div class="menu-bar"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+<% } %>
 
-<div class="content-container">
-    <div class="content">
-        <slot>To be replaced by content inside the tag</slot>
-    </div>
-    <div class="scroll">
-        <div class="start"></div>
-        <div class="progress"></div>
-        <div class="end"></div>
-    </div>
+<div class="content">
+    <slot>To be replaced by content inside the tag</slot>
 </div>

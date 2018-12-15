@@ -1,6 +1,7 @@
 const style = require('!css-loader!sass-loader!./pc-window.scss').toString();
 import template from "./pc-window.ejs";
 import { environment } from "../../../../environment.js";
+import { PCWindowOptions } from "./pc-window-options";
 
 export class PCWindow extends HTMLElement {
     private _rightWindowId: string;
@@ -16,26 +17,25 @@ export class PCWindow extends HTMLElement {
     constructor() {
         super(); // Always calls first
 
+        const options = this.handleTemplateVariables();
         this.attachShadow({ mode: 'open' });
         const templateContainer = document.createElement("template");      
         templateContainer.innerHTML = `<style>${ style }</style>`
+        environment.pcWindowOptions = options;
         templateContainer.innerHTML += template(environment);
         this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
     }
 
     connectedCallback() {
+        // Handle attributes
         if (this.hidden) {
             this.style.display = "none";
         }
 
-        // Put the input content in the content div of the template
-        this.style.left = "0px";
-        this.style.top = "0px";
         if (this.hasAttribute("randomPlace")) {
             this.placeAtRandom();
         }
-
-        // Get attributes
+        
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
         for (const item of this.children) {
@@ -46,23 +46,18 @@ export class PCWindow extends HTMLElement {
                 this._wrongAwnsers.push(item);
             }
         }
-
         this._rightAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
-
         this._wrongAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
 
+        // Event listenners
         this.shadowRoot.children[1].addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("mouseup", this.onMouseUp);
         document.addEventListener("mousemove", this.dragWindow);
-        window.addEventListener("resize", (event: UIEvent) => {
-            this.style.left = "0px";
-            this.style.top = "0px";
-        });
-        this.addEventListener("mousedown", () => {
+        this.addEventListener("mousedown", (event: MouseEvent) => {
             this.putOnTop();
         });
     }
@@ -125,6 +120,30 @@ export class PCWindow extends HTMLElement {
         const posY = Math.floor(Math.random() * Math.floor(window.innerHeight - this.offsetHeight));
         this.style.left = posX.toString() + "px";
         this.style.top = posY.toString() + "px";
+    }
+
+    private handleTemplateVariables(): PCWindowOptions {
+        let options: PCWindowOptions = {
+            bMenu: false,
+            controls: {
+                full: false,
+                help: false,
+            }
+        };
+
+        if (this.hasAttribute("menu")) {
+            options.bMenu = true;
+        } else {
+            options.bMenu = false;
+        }
+        if (this.hasAttribute("controls")) {
+            const controls = this.getAttribute("controls").split(";");
+            controls.forEach(control => {
+                if (control === "full") { options.controls.full = true; }
+                if (control === "help") { options.controls.help = true; }
+            });
+        }
+        return options;
     }
 }
 

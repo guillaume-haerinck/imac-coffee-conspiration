@@ -12,20 +12,15 @@ body {
   width: 100%;
 }
 
-#background-wrapper {
-  app-pc-window {
-    max-width: 500px;
-  }
-}
-
 #foreground-wrapper {
   pointer-events: none;
-  z-index: 50;
+  z-index: 9;
   position: absolute;
   justify-content: center;
   align-content: center;
 
   .agent-card {
+    pointer-events: all;
     width: 530px;
     height: 300px;
     display: grid;
