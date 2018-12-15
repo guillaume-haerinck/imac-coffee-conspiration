@@ -20,32 +20,17 @@ export class PCWindow extends HTMLElement {
         const options = this.handleTemplateVariables();
         this.attachShadow({ mode: 'open' });
         const templateContainer = document.createElement("template");      
-        templateContainer.innerHTML = `<style>${ style }</style>`
+        templateContainer.innerHTML = `<style>${ style }</style>`;
+        this.style.left = "0px";
+        this.style.top = "0px";
         environment.pcWindowOptions = options;
         templateContainer.innerHTML += template(environment);
         this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
     }
 
-    connectedCallback() {
-        // Handle attributes
-        if (this.hidden) {
-            this.style.display = "none";
-        }
-
-        if (this.hasAttribute("randomPlace")) {
-            this.placeAtRandom();
-        }
+    connectedCallback() { // Use event listenners here
+        this.handleAttributes();
         
-        this._rightWindowId = this.getAttribute("ifRight");
-        this._wrongWindowId = this.getAttribute("ifWrong");
-        for (const item of this.children) {
-            if (item.hasAttribute("rightAwnser")) {
-                this._rightAwnsers.push(item);
-            }
-            if (item.hasAttribute("wrongAwnser")) {
-                this._wrongAwnsers.push(item);
-            }
-        }
         this._rightAwnsers.forEach((awnser: Element) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
@@ -53,8 +38,15 @@ export class PCWindow extends HTMLElement {
             awnser.addEventListener("click", this.replaceWindow);
         });
 
-        // Event listenners
-        this.shadowRoot.children[1].addEventListener("mousedown", this.onMouseDown);
+        const controls = this.shadowRoot.querySelectorAll(".control");
+        const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
+        for (let i = 0; i < controls.length; i++) {
+            controls[i].addEventListener("mousedown", () => {
+                audio.play();
+            });
+        }
+
+        this.shadowRoot.children[1].addEventListener("mousedown", this.onMouseDown); // Title bar
         document.addEventListener("mouseup", this.onMouseUp);
         document.addEventListener("mousemove", this.dragWindow);
         this.addEventListener("mousedown", (event: MouseEvent) => {
@@ -144,6 +136,27 @@ export class PCWindow extends HTMLElement {
             });
         }
         return options;
+    }
+
+    private handleAttributes() {
+        if (this.hidden) {
+            this.style.display = "none";
+        }
+
+        if (this.hasAttribute("randomPlace")) {
+            this.placeAtRandom();
+        }
+        
+        this._rightWindowId = this.getAttribute("ifRight");
+        this._wrongWindowId = this.getAttribute("ifWrong");
+        for (const item of this.children) {
+            if (item.hasAttribute("rightAwnser")) {
+                this._rightAwnsers.push(item);
+            }
+            if (item.hasAttribute("wrongAwnser")) {
+                this._wrongAwnsers.push(item);
+            }
+        }
     }
 }
 
