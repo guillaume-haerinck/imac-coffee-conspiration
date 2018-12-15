@@ -41,7 +41,7 @@ export class TVRoom {
         this._gltfLoader.load("assets/three-models/test.glb", (loadedModel) => {
             loadedModel.scene.name = "test";
             const videoMaterial = this.loadVideoMaterial("hollande.mp4");
-            loadedModel.scene.children[2].material = videoMaterial;
+            (loadedModel as any).scene.children[2].material = videoMaterial;
             this._scene.add(loadedModel.scene);
         });
 

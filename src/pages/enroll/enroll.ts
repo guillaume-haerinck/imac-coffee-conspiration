@@ -4,12 +4,11 @@ import { QuotesService } from "./services/quotes.service";
 
 const quotesService = new QuotesService();
 quotesService.getQuote()
-  .then((quote) => {
+  .then(quote => {
     console.log(quote);
   })
   .catch(error => {
-    console.warn("Cannot get quote");
-    console.error(error);
+    console.warn("cannot get quote");
   })
 
 // TODO use get api + use a service for external request + add typings for api

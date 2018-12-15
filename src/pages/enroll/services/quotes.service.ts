@@ -7,8 +7,8 @@ export class QuotesService {
                 .then((response) => {
                     return response.json();
                 })
-                .then((quote: Quote) => {
-                    resolve(quote);
+                .then((json: Quote) => {
+                    resolve(json);
                 })
                 .catch(error => {
                     reject(error);
