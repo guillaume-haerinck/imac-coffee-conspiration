@@ -2,133 +2,87 @@
 @import '../../core/scss/constants';
 
 body {
-  background: url('/assets/images/statue2.png'), url('/assets/images/statue1.png'), url('/assets/images/bg.gif');
-  background-size: 44%, 27%, cover;
-  background-repeat: no-repeat;
-  background-position-x: -21%, right -7%, center;
-  background-position-y: bottom -7vh, bottom -6vh, center;
-  height: 100vh;
-  display: grid;
-  align-content: center;
+  background: url('/assets/images/bg.gif');
+  background-size: cover;
 }
 
-.carte {
-  width: 530px;
-  height: 300px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
-  border: 5px solid #fff;
-  box-sizing: border-box;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), inset 0 0 7px;
-  border-radius: 33px;
-  margin: auto;
-}
-
-.photo {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 30%;
-  border: 6px solid #fff;
-  place-self: center;
-  box-shadow: 0 0 10px;
-}
-
-img {
+#background-wrapper,
+#foreground-wrapper {
   height: 100%;
+  width: 100%;
 }
 
-.infos {
-  font-size: small;
-  margin-left: 20px;
+#background-wrapper {
+  app-pc-window {
+    max-width: 500px;
+  }
 }
 
-#agent {
-  margin: 20px 0 0;
-}
+#foreground-wrapper {
+  pointer-events: none;
+  z-index: 50;
+  position: absolute;
+  justify-content: center;
+  align-content: center;
 
-#titre {
-  margin: 4px auto;
-  color: white;
-  text-shadow: 0 0 10px black;
-}
+  .agent-card {
+    width: 530px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
+    border: 5px solid #fff;
+    box-sizing: border-box;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), inset 0 0 7px;
+    border-radius: 33px;
+    margin: auto;
+  }
 
-.infos h3 {
-  font-weight: normal;
-  margin: 5px auto;
-  font-size: 1.5em;
-}
+  .photo {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 30%;
+    border: 6px solid #fff;
+    place-self: center;
+    box-shadow: 0 0 10px;
+  }
 
-.infos h3 span {
-  font-weight: bold;
-}
+  img {
+    height: 100%;
+  }
 
-#citation {
-  grid-column: 1 / 3;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.3em;
-  color: white;
-  padding: 10px;
-}
+  .infos {
+    font-size: small;
+    margin-left: 20px;
+  }
 
-.form {
-  box-shadow: 0 0 10px;
-  margin: 50px auto;
-  width: 580px;
-  padding: 15px 40px;
-  background-color: white;
-  border-radius: 10px;
-}
+  #agent {
+    margin: 20px 0 0;
+  }
 
-#form {
-  margin-top: 0;
-  text-align: center;
-  font-size: 1.5em;
-  color: #ff00e1;
-}
+  #titre {
+    margin: 4px auto;
+    color: white;
+    text-shadow: 0 0 10px black;
+  }
 
-form {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-}
+  .infos h3 {
+    font-weight: normal;
+    margin: 5px auto;
+    font-size: 1.5em;
+  }
 
-.label-form {
-  margin: 10px 0;
-  font-weight: normal;
-  align-self: center;
-}
+  .infos h3 span {
+    font-weight: bold;
+  }
 
-input[type="text"] {
-  place-self: center stretch;
-  height: 32px;
-  margin: 10px 0;
-  border: 3px solid;
-  background: linear-gradient(101.64deg, rgba(0, 240, 255, 0.47) 8.01%, rgba(250, 0, 255, 0.47) 108.38%);
-}
-
-input[type="date"] {
-  justify-self: start;
-  margin: 10px 0;
-  border: 3px solid;
-  background: linear-gradient(101.64deg, rgba(0, 240, 255, 0.47) 8.01%, rgba(250, 0, 255, 0.47) 108.38%);
-  height: 32px;
-  width: 40%;
-  font-size: 1.6em;
-}
-
-input[type="submit"] {
-  grid-column: 1 / 3;
-  place-self: center;
-  width: 160px;
-  height: 50px;
-  border: 3px solid;
-  background: fuchsia;
-  color: white;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1.2em;
-  box-shadow: 0 0 5px black;
-  margin: 18px 0;
+  #citation {
+    grid-column: 1 / 3;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: white;
+    padding: 10px;
+  }
 }

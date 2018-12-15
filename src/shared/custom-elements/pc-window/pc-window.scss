@@ -97,6 +97,8 @@ $base-pad: 4px;
   }
 
   .menu-bar {
+    user-select: none;
+
     span {
       padding: ($base-pad * 2);
       display: inline-block;

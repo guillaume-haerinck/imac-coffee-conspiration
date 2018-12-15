@@ -59,6 +59,9 @@ export class PCWindow extends HTMLElement {
             this.style.left = "0px";
             this.style.top = "0px";
         });
+        this.addEventListener("mousedown", () => {
+            this.putOnTop();
+        });
     }
 
     private dragWindow = (event: MouseEvent) => {
@@ -104,9 +107,17 @@ export class PCWindow extends HTMLElement {
         destination.style.top = this._posY + "px";
         this.remove();
     }
+
+    private putOnTop() {
+        const windows = document.getElementsByTagName("app-pc-window");
+        for (let i = 0; i < windows.length; i++) {
+            (windows[i] as HTMLElement).style.zIndex = "auto";
+        }
+        this.style.zIndex = "10";
+    }
 }
 
 if (!customElements.get("app-pc-window")) {
-    customElements.define("app-pc-window", Window);
+    customElements.define("app-pc-window", PCWindow);
 }
 
