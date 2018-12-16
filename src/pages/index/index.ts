@@ -1,6 +1,6 @@
 /* 3rd party */
 import * as THREE from "three";
-
+const Typed = require("typed.js");
 
 /* custom */
 import "../../shared/custom-elements/overlay/overlay";
@@ -9,17 +9,26 @@ import { Overlay } from "../../shared/custom-elements/overlay/overlay";
 import { TVRoom } from "./elements/tv-room";
 import { SnoopaVision } from "./elements/snoopa-vision";
 
+
+/* Overlay animation */
+const introTextAnimation = new Typed('#intro-overlay-text-animation', {
+  stringsElement: '#intro-overlay-text',
+  typeSpeed: 50
+});
+
 /* Create objects */
 const tvroom = new TVRoom();
 const snoopaVision = new SnoopaVision();
 
 /* Event listenners and function calls */
-// Overlays
 document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "intro-overlay") {
-    tvroom.start();
+    tvroom.start(); // Loading scene
     document.getElementById("intro-overlay").remove();
-    snoopaVision.init();
+    tvroom.addMainScene()
+      .then(() => {
+        snoopaVision.init();
+      });
   };
 });
 

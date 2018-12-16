@@ -4,10 +4,18 @@
       <a href="#hacked">Goto hacked</a>
 
       <app-overlay id="intro-overlay">
-            <h1>Things are hidden away</h1>
+            <div id="intro-overlay-text">
+                  <p>Many things are <strong>hidden</strong> from us...</p>
+                  <p>I <em>might</em> tell you what they are</p>
+                  <p>But the journey is yours to take</p>
+                  <p><strong>[CLICK]</strong> if you consent to the risks.</p>
+            </div>
+            <span id="intro-overlay-text-animation"></span>
       </app-overlay>
 
       <app-overlay id="goto-fullscreen-overlay" hidden>
-            <p>You must press f11 to activate snoopavision</p>
+            <p>You found the Snoopa-Vision !</p>
+            <p>Use it to see the world as it is</p>
+            <p id="snoopa-vision-f11">Press <strong>F11</strong> to wear it</p>
       </app-overlay>
 <%= require('../../core/parts/footer.ejs')() %>

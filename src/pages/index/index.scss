@@ -5,6 +5,10 @@ body {
   background-color: black;
 }
 
+#intro-overlay {
+  grid-auto-flow: column;
+}
+
 canvas {
   width: 100% !important;
   height: 100% !important;

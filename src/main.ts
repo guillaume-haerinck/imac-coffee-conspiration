@@ -5,7 +5,8 @@ function blockWebsite(isActivated: boolean) {
     if (isActivated) {
         const overlay = new Overlay();
         overlay.id = "stopit-overlay";
-        overlay.innerHTML = "<p>DO NO EXIT FULLSCREEN MOTHERFUCKER</p>";
+        overlay.innerHTML = `<p>You need Snoopa-Vision to find the truth !</p>
+        <p id="snoopa-vision-f11">Press <strong>F11</strong> to put it back.</p>`;
         document.body.appendChild(overlay);
     } else {
         document.getElementById("stopit-overlay").remove();

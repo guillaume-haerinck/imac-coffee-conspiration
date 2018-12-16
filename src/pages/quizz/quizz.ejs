@@ -4,7 +4,7 @@
 	<app-pc-window id="q-test1" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
 		<div class="window-buttons">
-			<button rightAwnser>Bonne réponse ajout rover</button>
+			<button rightAwnser onclick="RoverXpDog.append(); RoverXpDog.say('bonita');">Bonne réponse ajout rover</button>
 			<button wrongAwnser id="holland">Mauvaise réponse</button>
 			<button rightAwnser>Autre bonne réponse</button>
 		</div>
@@ -12,9 +12,7 @@
 
 	<app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
 		<p>Ma question 2 ?</p>
-		<button rightAwnser
-			onclick="RoverXpDog.append();
-			RoverXpDog.say('bonita');">
+		<button rightAwnser>
 			Bonne réponse questi
 		</button>
 		<button wrongAwnser>Mauvaise réponse</button>

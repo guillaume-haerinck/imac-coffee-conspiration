@@ -23,6 +23,22 @@ export class TVRoom {
         window.addEventListener("resize", this.resize, true);
     }
 
+    addMainScene(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this._gltfLoader.load("assets/three-models/tvroom.glb", (loadedModel) => {
+                const text = this._scene.getObjectByName("loading-text");
+                this._scene.remove(text);
+                loadedModel.scene.name = "tvroom";
+                this._scene.add(loadedModel.scene);
+
+                const videoMaterial = this.loadVideoMaterial("hollande.mp4");
+                const tvScreen = this._scene.getObjectByName("TVScreenFlat");
+                (tvScreen as any).material = videoMaterial;
+                resolve();
+            });
+        });
+    }
+
     /* Getters */
     get scene(): THREE.Scene { return this._scene; }
 
@@ -30,14 +46,15 @@ export class TVRoom {
     private init() {
         this._fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
             let material: THREE.Material;
-            let textGeo = new THREE.TextGeometry("You came to the right place...", {
+            let textGeo = new THREE.TextGeometry("You made the right choice.", {
                 font: loadedFont,
-                size: 1,
-                height: 1,
+                size: 0.8,
+                height: 0.3,
             });
 
             let textMesh = new THREE.Mesh(textGeo, material);
-            textMesh.position.x = -3;
+            textMesh.position.x = -6;
+            textMesh.position.z = -2;
             textMesh.name = "loading-text";
             this._scene.add(textMesh);
         });
@@ -45,17 +62,6 @@ export class TVRoom {
         var light = new THREE.HemisphereLight(0x404040); // soft white light
         light.intensity = 50;
         this.scene.add(light);
-
-        this._gltfLoader.load("assets/three-models/tvroom.glb", (loadedModel) => {
-            const text = this._scene.getObjectByName("loading-text");
-            this._scene.remove(text);
-            loadedModel.scene.name = "tvroom";
-            this._scene.add(loadedModel.scene);
-
-            const videoMaterial = this.loadVideoMaterial("hollande.mp4");
-            const tvScreen = this._scene.getObjectByName("TVScreenFlat");
-            (tvScreen as any).material = videoMaterial;
-        });
 
         // Add to html
         this._renderer.setSize(window.innerWidth, window.innerHeight);
