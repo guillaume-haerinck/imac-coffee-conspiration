@@ -75,11 +75,20 @@ $base-pad: 4px;
       grid-gap: 15px;
 
       .icon {
+        width: 20px;
+        height: 20px;
+
         img {
           width: 20px;
           height: 20px;
           align-self: center;
         }
+      }
+
+      ::slotted(img) {
+        width: 20px;
+        height: 20px;
+        align-self: center;
       }
 
       .text {

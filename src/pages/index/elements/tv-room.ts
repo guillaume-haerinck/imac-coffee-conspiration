@@ -7,7 +7,7 @@ const GLTFfLoader = require("three-gltf-loader");
 export class TVRoom {
     constructor() {
         this._camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this._camera.position.z = 8;
+        this._camera.position.z = 12;
         this._gltfLoader = new GLTFfLoader();
         this._scene = new THREE.Scene();
         this._scene.name = "scene";
@@ -27,22 +27,31 @@ export class TVRoom {
     private init() {
         this._fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
             let material: THREE.Material;
-            let textGeo = new THREE.TextGeometry("SEEK THE\nTRUTH", {
+            let textGeo = new THREE.TextGeometry("LOADING...", {
                 font: loadedFont,
                 size: 1,
                 height: 1,
             });
 
             let textMesh = new THREE.Mesh(textGeo, material);
-            textMesh.name = "text";
+            textMesh.position.x = -3;
+            textMesh.name = "loading-text";
             this._scene.add(textMesh);
         });
 
-        this._gltfLoader.load("assets/three-models/test.glb", (loadedModel) => {
-            loadedModel.scene.name = "test";
-            const videoMaterial = this.loadVideoMaterial("hollande.mp4");
-            (loadedModel as any).scene.children[2].material = videoMaterial;
+        var light = new THREE.HemisphereLight(0x404040); // soft white light
+        light.intensity = 50;
+        this.scene.add(light);
+
+        this._gltfLoader.load("assets/three-models/tvroom.glb", (loadedModel) => {
+            const text = this._scene.getObjectByName("loading-text");
+            this._scene.remove(text);
+            loadedModel.scene.name = "tvroom";
             this._scene.add(loadedModel.scene);
+
+            const videoMaterial = this.loadVideoMaterial("hollande.mp4");
+            const tvScreen = this._scene.getObjectByName("TVScreenFlat");
+            (tvScreen as any).material = videoMaterial;
         });
 
         // Add to html
@@ -66,6 +75,9 @@ export class TVRoom {
         const mouseY = event.clientY - window.innerHeight / 2;
         this._camera.position.x = (mouseX - this._camera.position.x) * 0.01;
         this._camera.position.y = (mouseY - this._camera.position.y) * 0.01;
+        if (this._camera.position.y < -1.5) {
+            this._camera.position.y = -1.5;
+        }
         this._camera.lookAt(this._scene.position);
     };
 

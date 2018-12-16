@@ -21,11 +21,13 @@ document.addEventListener('click', (event: MouseEvent) => {
   };
 });
 
+/*
 snoopaVision.container.addEventListener('mouseenter', () => {
   snoopaVision.reveal();
   const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
   overlay.unhide();
 }, {once: true});
+*/
 
 /* Exports to access elements for inspector and from html */
 (window as any).scene = tvroom.scene;
