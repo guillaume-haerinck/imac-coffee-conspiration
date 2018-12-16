@@ -48,6 +48,25 @@
   background-position: center center;
   background-repeat: no-repeat;
 
+  .desktop-icon {
+    display: grid;
+grid-auto-flow: row;
+grid-template-columns: 80px;
+place-items: center;
+margin: 10px;
+
+    img{
+      width: 78%;
+
+    }
+    span {
+      color: white;
+      word-wrap: break-word;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+
   #task-bar {
     background-color: $default-w95-window-bg;
     height: 40px;
@@ -55,16 +74,33 @@
     position: absolute;
     width: 100%;
     border-top: $border;
+    display: grid;
+    grid-template-columns: max-content max-content;
+justify-content: space-between;
     
     #start-button {
-      height: 95%;
-      font-weight: bold;
-      padding-left: 20px;
-      border: $border;
+      height: 60%;
+    font-weight: bold;
+    padding: 3px;
+    justify-content: center;
+    margin-left: 6px;
+    border: $border;
 
       img {
-        height: 70%;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
       }
+    }
+
+    #time {
+      height: 60%;
+      padding: 3px;
+      justify-content: center;
+      margin-left: 6px;
+      border: inset 2px;
+      text-align: center;
+      margin-right: 6px;
     }
   }
 }
