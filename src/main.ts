@@ -2,6 +2,7 @@ import { Overlay } from "./shared/custom-elements/overlay/overlay";
 
 /* Functions */
 function blockWebsite(isActivated: boolean) {
+    /*
     if (isActivated) {
         const overlay = new Overlay();
         overlay.id = "stopit-overlay";
@@ -11,6 +12,7 @@ function blockWebsite(isActivated: boolean) {
     } else {
         document.getElementById("stopit-overlay").remove();
     }
+    */
 }
 
 /* Global event listenners */

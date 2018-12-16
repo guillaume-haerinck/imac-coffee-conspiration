@@ -1,5 +1,7 @@
 export interface Avatar {
     picture?: {
-        thumbnail?: string
+        large?: string,
+        medium?: string,
+        thumbnail?: string,
     }
 }
