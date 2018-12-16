@@ -19,7 +19,7 @@ function checkTime(i) {
     // add a zero in front of numbers<10
     m = checkTime(m);
     document.getElementById('time').innerHTML = h + ":" + m;
-    t = setTimeout(function() {
+    var t = setTimeout(function() {
       startTime()
     }, 500);
   }

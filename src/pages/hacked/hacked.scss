@@ -1,15 +1,70 @@
 @import '../../core/scss/styles';
 @import '../../core/scss/constants';
 
-iframe {
-  position: fixed;
+#prank {
   width: 100vw;
   height: 100vh;
   z-index: 100;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  display: none;
   border: none;
   cursor: none;
+}
+
+#background-wrapper, #foreground-wrapper, #prank {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+#foreground-wrapper {
+
+  #iphone-container {
+    position: absolute;
+    top: 3%;
+    left: 57%;
+    
+    #iphone {
+      background-image: url(/assets/images/iphone.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: relative;
+      width: 48vw;
+      height: 18vw;
+      transform: rotate(-8deg);
+      
+      iframe {
+        position: absolute;
+        width: 26vw;
+        left: 10%;
+        top: 8%;
+        height: 14.8vw;
+
+      }
+    }
+
+  }
+}
+
+#background-wrapper {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  place-items: stretch;
+  
+
+  #blue {
+    background-color: aqua;
+  }
+  #pink{
+    background-color: pink;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+  }
+  .background-color {
+    background-image: url(/assets/images/backgrounds/grit.png);
+    background-blend-mode: soft-light;
+  }
+
 }
