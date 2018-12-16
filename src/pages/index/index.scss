@@ -1,6 +1,10 @@
 @import '../../core/scss/styles';
 @import '../../core/scss/constants';
 
+body {
+  background-color: black;
+}
+
 canvas {
   width: 100% !important;
   height: 100% !important;

@@ -30,11 +30,10 @@ export class PCWindow extends HTMLElement {
 
     connectedCallback() { // Use event listenners here
         this.handleAttributes();
-        
-        this._rightAwnsers.forEach((awnser: Element) => {
+        this._rightAwnsers.forEach((awnser: HTMLElement) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
-        this._wrongAwnsers.forEach((awnser: Element) => {
+        this._wrongAwnsers.forEach((awnser: HTMLElement) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
 
@@ -149,12 +148,34 @@ export class PCWindow extends HTMLElement {
         
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
+
         for (const item of this.children) {
-            if (item.hasAttribute("rightAwnser")) {
+            // Top level
+            if (item.hasAttribute("rightAwnser")) {   
                 this._rightAwnsers.push(item);
             }
             if (item.hasAttribute("wrongAwnser")) {
                 this._wrongAwnsers.push(item);
+            }
+
+            // Nested level 1
+            for (const childrenItem of item.children) {
+                if (childrenItem.hasAttribute("rightAwnser")) {   
+                    this._rightAwnsers.push(childrenItem);
+                }
+                if (childrenItem.hasAttribute("wrongAwnser")) {
+                    this._wrongAwnsers.push(childrenItem);
+                }
+
+                // Nested level 2
+                for (const childrenOfChildrenItem of childrenItem.children) {
+                    if (childrenOfChildrenItem.hasAttribute("rightAwnser")) {   
+                        this._rightAwnsers.push(childrenOfChildrenItem);
+                    }
+                    if (childrenOfChildrenItem.hasAttribute("wrongAwnser")) {
+                        this._wrongAwnsers.push(childrenOfChildrenItem);
+                    }
+                }
             }
         }
     }

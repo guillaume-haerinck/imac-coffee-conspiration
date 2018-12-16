@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "three": "^0.99.0",
-    "three-gltf-loader": "^1.99.0"
+    "three-gltf-loader": "^1.99.0",
+    "typed.js": "^2.0.9"
   }
 }

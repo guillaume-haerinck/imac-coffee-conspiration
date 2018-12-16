@@ -13,7 +13,10 @@ export class TVRoom {
         this._scene.name = "scene";
         this._renderer = new THREE.WebGLRenderer({ antialias: true });
         this._fontLoader = new THREE.FontLoader();
+    }
 
+    /* Public methods */
+    start() {
         this.init();
         this.animate();
         document.addEventListener('mousemove', this.parralax, false);
@@ -27,7 +30,7 @@ export class TVRoom {
     private init() {
         this._fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
             let material: THREE.Material;
-            let textGeo = new THREE.TextGeometry("LOADING...", {
+            let textGeo = new THREE.TextGeometry("You came to the right place...", {
                 font: loadedFont,
                 size: 1,
                 height: 1,

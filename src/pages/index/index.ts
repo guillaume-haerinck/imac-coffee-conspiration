@@ -1,6 +1,7 @@
 /* 3rd party */
 import * as THREE from "three";
 
+
 /* custom */
 import "../../shared/custom-elements/overlay/overlay";
 import "./index.scss";
@@ -16,18 +17,17 @@ const snoopaVision = new SnoopaVision();
 // Overlays
 document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "intro-overlay") {
+    tvroom.start();
     document.getElementById("intro-overlay").remove();
     snoopaVision.init();
   };
 });
 
-/*
 snoopaVision.container.addEventListener('mouseenter', () => {
   snoopaVision.reveal();
   const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
   overlay.unhide();
 }, {once: true});
-*/
 
 /* Exports to access elements for inspector and from html */
 (window as any).scene = tvroom.scene;

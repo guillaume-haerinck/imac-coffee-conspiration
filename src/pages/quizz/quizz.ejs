@@ -3,9 +3,11 @@
 <div id="foreground-wrapper">
 	<app-pc-window id="q-test1" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
-		<button rightAwnser>Bonne réponse ajout rover</button>
-		<button wrongAwnser onclick="var BeDo=new Audio('assets/audio/YouCanBeDo.wav');BeDo.play();" id="holland">Mauvaise réponse</button>
-		<button rightAwnser>Autre bonne réponse</button>
+		<div class="window-buttons">
+			<button rightAwnser>Bonne réponse ajout rover</button>
+			<button wrongAwnser id="holland">Mauvaise réponse</button>
+			<button rightAwnser>Autre bonne réponse</button>
+		</div>
 	</app-pc-window>
 
 	<app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
