@@ -12,13 +12,25 @@ import { AvatarsService } from "./services/avatars.service";
 
 /* Managers */
 const agentCard = new AgentCard("agent-card-container");
+const timer = document.getElementById("timer");
 const firstnameInput = document.getElementById("form-firstname") as HTMLInputElement;
+const lastnameInput = document.getElementById("form-lastname") as HTMLInputElement;
+const birthdateInput = document.getElementById("form-birthdate") as HTMLInputElement;
 
 /* Overlay animation */
 const introTextAnimation = new Typed('#intro-overlay-text-animation', {
   stringsElement: '#intro-overlay-text',
   typeSpeed: 40
 });
+
+setInterval(() => {
+  let time = Number(timer.innerHTML);
+  time--;
+  timer.innerHTML = time.toString();
+  if (time === 0) {
+    window.location.hash = "hacked";
+  }
+}, 1000);
 
 document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "intro-overlay") {
@@ -27,7 +39,7 @@ document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "join-btn") {
     document.getElementById("join-btn").remove();
     agentCard.append();
-    (document.getElementById("timer") as PCWindow).unhide();
+    (document.getElementById("window-timer") as PCWindow).unhide();
     (document.getElementById("window-firstname") as PCWindow).unhide();
   }
 });
@@ -38,6 +50,8 @@ firstnameInput.addEventListener("keydown", () => {
   if (firstnameInput.value.length >= 5 && !bFormDone) {
     agentCard.revealBirthDate();
     agentCard.revealLastName();
+    (document.getElementById("window-lastname") as PCWindow).unhide();
+    (document.getElementById("window-birthdate") as PCWindow).unhide();
     bFormDone = true;
   }
 });
