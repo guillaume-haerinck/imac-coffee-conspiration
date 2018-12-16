@@ -9,6 +9,8 @@ export class AgentCard {
 
     /* Setters */
     set firstname(text: string) { this._firstname.innerHTML = text; }
+    set lastname(text: string) { this._lastname.innerHTML = text; }
+    set birthdate(text: string) { this._birthdate.innerHTML = text; }
 
     /* Public methods */
     public append() {
@@ -19,6 +21,8 @@ export class AgentCard {
 
         // Init values
         this._firstname = document.getElementById("badge-fname");
+        this._lastname = document.getElementById("badge-lname");
+        this._birthdate = document.getElementById("badge-bdate");
     }
 
     public revealLastName() {
@@ -34,4 +38,6 @@ export class AgentCard {
     private _cardContainer: HTMLDivElement;
 
     private _firstname: HTMLSpanElement;
+    private _lastname: HTMLSpanElement;
+    private _birthdate: HTMLSpanElement;
 }
