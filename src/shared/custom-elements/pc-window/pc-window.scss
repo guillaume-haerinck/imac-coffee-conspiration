@@ -47,7 +47,7 @@ $base-pad: 4px;
   align-content: start;
   align-self: start;
   background-color: $background;
-  padding: $base-pad;
+  padding: 2px;
   max-width: 500px;
 
   @include full-shadow(2px);
