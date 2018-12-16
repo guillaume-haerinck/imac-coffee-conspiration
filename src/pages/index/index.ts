@@ -49,6 +49,7 @@ snoopaVision.container.addEventListener('mouseenter', () => {
       overlay.remove();
       tvroom.moveCameraToTv();
       setTimeout(() => {
+        tvroom.muteVideo = true;
         window.location.hash = "quizz"; // Change page
       }, 6000);
     }

@@ -22,7 +22,7 @@ export class SnoopaVision {
     
     reveal = () => {
         const audio = new Audio(environment.assetsUrl + "/audio/snoopa-vision.mp3");
-        // audio.play();
+        audio.play();
         this._container.style.opacity = "100";
     }
 
