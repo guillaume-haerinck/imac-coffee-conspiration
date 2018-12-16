@@ -3,12 +3,12 @@ import "./hacked.scss";
 
 document.addEventListener("DOMContentLoaded", function(event){
     document.getElementById(`mac-crash`).style.display = 'block';
+
+    setTimeout(function(){ 
+        document.getElementById(`prank`).style.display = 'none';
+    }, 15000);
 });
 
-document.onmousedown = function() {
-    console.log("man");
-    
-    setTimeout(function(){ 
-        document.getElementById(`mac-crash`).style.display = 'none';
-    }, 3000);
-}
+
+
+
