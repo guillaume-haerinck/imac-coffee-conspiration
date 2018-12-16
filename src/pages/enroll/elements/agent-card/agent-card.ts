@@ -33,6 +33,10 @@ export class AgentCard {
         document.getElementById("birthdate").hidden = false;
     }
 
+    public revealSignature() {
+        document.getElementById("signature").hidden = false;
+    }
+
     /* Private members */
     private _wrapperId: string;
     private _cardContainer: HTMLDivElement;

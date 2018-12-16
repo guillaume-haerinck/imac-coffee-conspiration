@@ -9,15 +9,16 @@ import { PCWindow } from "../../shared/custom-elements/pc-window/pc-window";
 import { AgentCard } from "./elements/agent-card/agent-card";
 import { QuotesService } from "./services/quotes.service";
 import { AvatarsService } from "./services/avatars.service";
+import { Signature } from "./elements/signature/signature";
 
 /* Managers */
 const quotesService = new QuotesService();
 const avatarsService = new AvatarsService();
 const agentCard = new AgentCard("agent-card-container");
-const timer = document.getElementById("timer");
 const firstnameInput = document.getElementById("form-firstname") as HTMLInputElement;
 const lastnameInput = document.getElementById("form-lastname") as HTMLInputElement;
 const birthdateInput = document.getElementById("form-birthdate") as HTMLInputElement;
+const signature = new Signature("window-signature", "signature-img");
 
 /* Overlay animation */
 const introTextAnimation = new Typed('#intro-overlay-text-animation', {
@@ -53,6 +54,9 @@ lastnameInput.addEventListener("keyup", () => {
   agentCard.lastname = lastnameInput.value;
 
   if (firstnameInput.value.length >= 3 && !bLastNameTriggerDone) {
+    agentCard.revealSignature();
+    (document.getElementById("window-signature") as PCWindow).unhide();
+
     avatarsService.getAvatar()
       .then(avatar => {
         const image = document.getElementById("agent-picture-img") as HTMLImageElement;
