@@ -57,6 +57,7 @@ export class TVRoom {
 
     /* Setters */
     set light(light: THREE.AmbientLight) { this._light = light; }
+    set muteVideo(mute: boolean) { this._video.muted = mute; }
 
     /* Private methods */
     private init() {
@@ -113,17 +114,13 @@ export class TVRoom {
     };
 
     private loadVideoMaterial(filename: string): THREE.MeshBasicMaterial {
-        const video = document.createElement("video");
-        video.src = environment.assetsUrl + "videos/" + filename;
-        video.load();
-        video.loop = true;
-        video.muted = true;
-        video.play();
-        window.addEventListener("click", () => {
-            // video.muted = false;
-        }, { once: true });
-
-        const videoTexture = new THREE.VideoTexture(video);
+        this._video = document.createElement("video");
+        this._video.src = environment.assetsUrl + "videos/" + filename;
+        this._video.load();
+        this._video.loop = true;
+        this._video.muted = false;
+        this._video.play();
+        const videoTexture = new THREE.VideoTexture(this._video);
         videoTexture.minFilter = THREE.LinearFilter;
         videoTexture.magFilter = THREE.LinearFilter;
 
@@ -139,4 +136,5 @@ export class TVRoom {
     private _light: THREE.AmbientLight;
 
     private _bMoveCameraToTv: boolean;
+    private _video: HTMLVideoElement;
 }

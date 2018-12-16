@@ -4,16 +4,6 @@ import { environment } from "../../../../environment.js";
 import { PCWindowOptions } from "./pc-window-options";
 
 export class PCWindow extends HTMLElement {
-    private _rightWindowId: string;
-    private _wrongWindowId: string;
-    private _rightAwnsers: Element[] = [];
-    private _wrongAwnsers: Element[] = [];
-    private _posX: number = 0;
-    private _posY: number = 0;
-    private _posXMouse: number = 0;
-    private _posYMouse: number = 0;
-    private _isDragged: boolean = false;
-
     constructor() {
         super(); // Always calls first
 
@@ -26,6 +16,15 @@ export class PCWindow extends HTMLElement {
         environment.pcWindowOptions = options;
         templateContainer.innerHTML += template(environment);
         this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
+    }
+
+    /* Public methods */
+    hide() {
+        this.style.display = "none";
+    }
+
+    unhide() {
+        this.style.display = "grid";
     }
 
     connectedCallback() { // Use event listenners here
@@ -53,6 +52,7 @@ export class PCWindow extends HTMLElement {
         });
     }
 
+    /* Private methods */
     private dragWindow = (event: MouseEvent) => {
         if (this._isDragged) {
             const deltaX = event.clientX - this._posXMouse;
@@ -179,6 +179,17 @@ export class PCWindow extends HTMLElement {
             }
         }
     }
+
+    /* Private members */
+    private _rightWindowId: string;
+    private _wrongWindowId: string;
+    private _rightAwnsers: Element[] = [];
+    private _wrongAwnsers: Element[] = [];
+    private _posX: number = 0;
+    private _posY: number = 0;
+    private _posXMouse: number = 0;
+    private _posYMouse: number = 0;
+    private _isDragged: boolean = false;
 }
 
 if (!customElements.get("app-pc-window")) {

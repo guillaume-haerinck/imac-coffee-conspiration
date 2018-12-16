@@ -6,110 +6,14 @@ body {
   background-size: cover;
 }
 
-#background-wrapper,
-#foreground-wrapper {
-  height: 100%;
-  width: 100%;
+#intro-overlay {
+  grid-auto-flow: column;
 }
 
-#foreground-wrapper {
-  pointer-events: none;
-  z-index: 9;
-  position: absolute;
-  justify-content: center;
-  align-content: center;
-
-  #agent-card,
-  #agent-card-top,
-  #agent-card-bottom {
-    display: grid;
-  }
-
-  #agent-card-top,
-  #agent-card-bottom {
-    grid-auto-flow: column;
-  }
-
-  #agent-card {
-    pointer-events: all;
-    max-width: 530px;
-    grid-auto-flow: row;
-    justify-content: stretch;
-    background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
-    box-sizing: border-box;
-    box-shadow: 4px 4px 8px #000;
-    border-radius: 33px;
-    padding: 20px 10px;
-    margin: auto;
-
-    #agent-card-top {
-      justify-content: start;
-      grid-gap: 20px;
-
-      #agent-picture {
-        width: 125px;
-        height: 125px;
-        overflow: hidden;
-        margin-left: 10px;
-        border-radius: 125px;
-
-        img {
-          height: 100%;
-        }
-      }
-
-      #infos {
-        font-size: small;
-
-        #card-title {
-          font-weight: bold;
-          margin: 0;
-          color: white;
-          text-shadow: 0 0 10px black;
-        }
-
-        #society-title {
-          margin-top: 2px;
-        }
-
-        .label-badge {
-          font-weight: normal;
-          margin: 5px auto;
-          font-size: 1.5em;
-
-          span {
-            font-weight: bold;
-          }
-        }
-      }
-    }
-
-    #agent-card-bottom {
-      justify-items: center;
-
-      #citation-container {
-        display: inline-grid;
-        justify-items: start;
-
-        #citation {
-          text-align: center;
-          font-weight: bold;
-          color: white;
-          max-width: 350px;
-        }
-
-        img {
-          justify-self: center;
-          height: 80px;
-          width: auto;
-        }
-      }
-
-      #signature {
-        p { 
-          font-weight: bold;
-        }
-      }
-    }
-  }
+#agent-card-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-content: center;
 }

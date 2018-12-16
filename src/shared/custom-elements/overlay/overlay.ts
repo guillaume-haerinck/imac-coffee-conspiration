@@ -14,6 +14,10 @@ export class Overlay extends HTMLElement {
     unhide() {
         this.style.display = "grid";
     }
+
+    hide() {
+        this.style.display = "none";
+    }
 }
 
 if (!customElements.get("app-overlay")) {
