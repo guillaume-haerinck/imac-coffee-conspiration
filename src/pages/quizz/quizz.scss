@@ -13,6 +13,20 @@
   width: 100%;
   justify-content: center;
   align-content: center;
+  pointer-events: none;
+
+  app-pc-window {
+    pointer-events: all;
+  }
+
+  #crack {
+    display: none;
+
+    #youtube-crack {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   .window-buttons {
     display: inline-grid;
@@ -44,40 +58,52 @@
 #background-wrapper {
   height: 100%;
   width: 100%;
-  background-color:$default-w95-bg;
+  background-color: $default-w95-bg;
   background-image: url("/assets/images/logos/microsoft95logo.png");
   background-size: 175px;
-background-position: center center;
-background-repeat: no-repeat;
-grid-template-columns: repeat(6 , 1fr);
-grid-template-rows: auto;
-place-items: center;
-align-content: flex-start;
+  background-position: center center;
+  background-repeat: no-repeat;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  place-items: center;
+  align-content: flex-start;
+
+  #virtual-girl {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+
+    img {
+      width: 200px;
+    }
+  }
 
   .desktop-icon {
     display: grid;
-grid-auto-flow: row;
-grid-template-columns: 80px;
-place-items: center;
-margin: 10px;
-cursor: $hand-cursor !important;
-grid-gap: 10px;
+    grid-auto-flow: row;
+    grid-template-columns: 80px;
+    place-items: center;
+    margin: 10px;
+    cursor: $hand-cursor !important;
+    grid-gap: 10px;
 
-.desktop-icon:hover {
-  border: 1px dotted black;
-}
-
-    img{
+    img {
       width: 78%;
-
     }
+
     span {
       color: white;
       word-wrap: break-word;
       font-size: 14px;
       width: 100%;
       text-align: center;
+      text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px, -1px -1px 2px black;
     }
+  }
+
+  .desktop-icon:hover {
+    border: 1px dotted black;
   }
 
   #task-bar {
@@ -89,17 +115,16 @@ grid-gap: 10px;
     border-top: $border;
     display: grid;
     grid-template-columns: max-content max-content;
-justify-content: space-between;
-    
+    justify-content: space-between;
+
     #start-button {
       height: 60%;
-    font-weight: bold;
-    padding: 3px;
-    justify-content: center;
-    margin-left: 6px;
-    border: $border;
-    cursor: $hand-cursor;
-    
+      font-weight: bold;
+      padding: 3px;
+      justify-content: center;
+      margin-left: 6px;
+      border: $border;
+      cursor: $hand-cursor;
 
       img {
         height: 20px;

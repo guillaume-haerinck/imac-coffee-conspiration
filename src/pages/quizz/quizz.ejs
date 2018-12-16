@@ -1,6 +1,7 @@
 <%= require('../../core/parts/header.ejs')({title: 'Evaluation'}) %>
 
 <div id="foreground-wrapper">
+
 	<app-pc-window id="q-test1" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
 		<div class="window-buttons">
@@ -24,6 +25,12 @@
 			Bonne réponse questi
 		</button>
 		<button wrongAwnser>Mauvaise réponse</button>
+	</app-pc-window>
+
+	<app-pc-window id="crack" randomPlace>
+		<img slot="icon" src="assets/images/icons/warning.png">
+		<p slot="title">WARNING!</p>
+		<iframe id="youtube-crack" width="742" height="408" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
 	</app-pc-window>
 </div>
 
@@ -56,6 +63,12 @@
 		<div id="start-button"><img src="assets/images/icons/w95-icon.png">Start</div>
 		<div id="time"></div>
 	</div>
+	<div id="virtual-girl">
+		<img src="assets/images/virtual-girl.gif" alt="">
+	</div>
+	
 </div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <%= require('../../core/parts/footer.ejs')() %>
