@@ -55,16 +55,33 @@
     position: absolute;
     width: 100%;
     border-top: $border;
+    display: grid;
+    grid-template-columns: max-content max-content;
+justify-content: space-between;
     
     #start-button {
-      height: 95%;
-      font-weight: bold;
-      padding-left: 20px;
-      border: $border;
+      height: 60%;
+    font-weight: bold;
+    padding: 3px;
+    justify-content: center;
+    margin-left: 6px;
+    border: $border;
 
       img {
-        height: 70%;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
       }
+    }
+
+    #time {
+      height: 60%;
+      padding: 3px;
+      justify-content: center;
+      margin-left: 6px;
+      border: inset 2px;
+      text-align: center;
+      margin-right: 6px;
     }
   }
 }
