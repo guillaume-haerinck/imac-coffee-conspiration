@@ -1,14 +1,34 @@
 <%= require('../../core/parts/header.ejs')({title: 'astnhbaoesxnktb'}) %>
- <p>Hacked page</p>
-<%= require('../../core/parts/footer.ejs')() %>
 
-<iframe id="prank" src="https://geekprank.com/apple/" width="" height="" allow="fullscreen"></iframe>
+<div id="prank">
+    <iframe id="mac-crash" src="https://geekprank.com/apple/" width="" height="" allow="fullscreen"></iframe>
+
+</div>
 
 <div id="background-wrapper">
     <div id="blue" class="background-color"></div>
     <div id="pink" class="background-color"></div>
 </div>
+
 <div id="foreground-wrapper">
+    <div id="jackie-quote">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
+        </style> 
+        <span id="quote">"Coffee is a language in itself"</span>
+        <span id="author">Jackie Chan</span>
+    </div>
+    <div id="napkin">
+        <img src="assets/images/napkin.png" alt="">
+    </div>
+    <div id="coffee-beans">
+        <img src="assets/images/coffee-heart.png" alt="">
+    </div>
+    <div id="coffee-cup-container">
+        <div id="glitch">
+
+        </div>
+    </div>
     <div id="iphone-container">
             <div id="iphone">
                     <iframe width="556" height="408" src="https://www.youtube.com/embed/LmhIizQQol0?controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
@@ -17,3 +37,4 @@
     
     
 </div>
+<%= require('../../core/parts/footer.ejs')() %>

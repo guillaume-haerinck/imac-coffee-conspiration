@@ -2,10 +2,15 @@
 @import '../../core/scss/constants';
 
 #prank {
-  width: 100vw;
-  height: 100vh;
+  background-color: black;
+  iframe {
+    width: 100vw;
+    display: none;
+    height: 100vh;
+  }
+  
   z-index: 100;
-  display: none;
+  // display: none;
   border: none;
   cursor: none;
 }
@@ -16,9 +21,81 @@
   bottom: 0;
   right: 0;
   left: 0;
+  overflow: hidden;
 }
 
 #foreground-wrapper {
+
+  #jackie-quote {
+    color: white;
+    position: absolute;
+    bottom: 2vw;
+    right: 2vw;
+    width: 31vw;
+    text-align: center;
+
+    #quote {
+      font-family: 'Gochi Hand', cursive;
+      font-size: 2em;
+      text-shadow: 0 0 5px #0000004d;
+    }
+    #author {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+  }
+
+  #napkin {
+    position: absolute;
+    transform: rotate(-32deg);
+    bottom: -182px;
+    left: -64px;
+
+    img {
+      width:50vw;
+    }
+  }
+
+  #coffee-beans {
+    position: absolute;
+    transform: rotate(-11deg);
+    left: 7vw;
+    top: 3vw;
+
+    img {
+      width: 31vw;
+    }
+  }
+
+  #coffee-cup-container {
+    width: 45vw;
+    height: 45vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-image: url(/assets/images/coffee-cup.png);
+    background-size: cover;
+    z-index: 4;
+
+    #glitch {
+      width: 50%;
+      height: 50%;
+      background-color: grey;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 50%;
+      overflow: hidden;
+      background-image: url(/assets/images/coffee-glitch.gif);
+      background-size: 109%;
+      background-position: center;
+
+z-index: -1;
+    }
+  }
 
   #iphone-container {
     position: absolute;
