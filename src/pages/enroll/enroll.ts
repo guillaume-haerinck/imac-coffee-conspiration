@@ -17,5 +17,5 @@ const avatarsService = new AvatarsService();
 avatarsService.getAvatar()
   .then(avatar => {
     const image = document.getElementById("agent-picture-img") as HTMLImageElement;
-    image.src = avatar.picture.thumbnail;
+    image.src = avatar.picture.large;
   })

@@ -46,8 +46,11 @@ snoopaVision.container.addEventListener('mouseenter', () => {
   overlay.unhide();
   document.addEventListener("keyup", (event: KeyboardEvent) => {
     if (event.key === "F11") {
-      // TODO animation camera to TV
-      window.location.hash = "quizz"; // Change page
+      overlay.remove();
+      tvroom.moveCameraToTv();
+      setTimeout(() => {
+        window.location.hash = "quizz"; // Change page
+      }, 6000);
     }
   }, {once: true});
 }, {once: true});

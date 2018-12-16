@@ -20,17 +20,10 @@ export class SnoopaVision {
         this._position = this._container.getBoundingClientRect();
     }
     
-    updateHints = (event: MouseEvent) => {
-    // TODO client x and y and snoopa container position
-    //console.log("snoopposition: " + snoopaPosition.right);
-    //console.log("mouseX: " + event.clientX);
-    }
-    
     reveal = () => {
         const audio = new Audio(environment.assetsUrl + "/audio/snoopa-vision.mp3");
-        audio.play();
+        // audio.play();
         this._container.style.opacity = "100";
-        document.removeEventListener("mousemove", this.updateHints);
     }
 
     /* Private methods */

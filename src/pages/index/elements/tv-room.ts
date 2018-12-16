@@ -15,6 +15,7 @@ export class TVRoom {
         this._fontLoader = new THREE.FontLoader();
         this._light = new THREE.HemisphereLight(0x404040); // soft white light
         this._light.intensity = 0;
+        this._bMoveCameraToTv = false;
     }
 
     /* Public methods */
@@ -39,6 +40,15 @@ export class TVRoom {
                 resolve();
             });
         });
+    }
+
+    moveCameraToTv() {
+        document.removeEventListener('mousemove', this.parralax);
+        const tv = this._scene.getObjectByName("TV");
+        this._camera.position.x = tv.position.x;
+        this._camera.position.y = 1;
+        this._camera.lookAt(tv.position);
+        this._bMoveCameraToTv = true;
     }
 
     /* Getters */
@@ -73,6 +83,15 @@ export class TVRoom {
 
     private animate = () => { // MUST RUN
         requestAnimationFrame(this.animate); // Do not change
+
+        if (this._bMoveCameraToTv) {
+            this._camera.position.z -= 0.05;
+            this._camera.position.y -= 0.005;
+            if (this._camera.position.z <= -6) {
+                this._bMoveCameraToTv = false;
+            }
+        }
+
         this._renderer.render(this._scene, this._camera); // Do not change
     }
 
@@ -118,4 +137,6 @@ export class TVRoom {
     private _fontLoader: THREE.FontLoader;
     private _gltfLoader: THREE.GLTFLoader;
     private _light: THREE.AmbientLight;
+
+    private _bMoveCameraToTv: boolean;
 }
