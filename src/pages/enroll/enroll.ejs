@@ -1,17 +1,27 @@
 <%= require('../../core/parts/header.ejs')({title: 'Enroll'}) %>
     <div id="foreground-wrapper">
-        <div class="agent-card">
-            <div class="photo">
-                <img src="<%= htmlWebpackPlugin.options.assetsUrl %>/images/blob.jpeg">
+        <div id="agent-card">
+            <div id="agent-card-top">
+                <div id="agent-picture">
+                    <img id="agent-picture-img" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/blob.jpeg">
+                </div>
+                <div id="infos">
+                    <p id="card-title">Secret agent card</p>
+                    <h1 id="society-title">Anti-Coffee Society</h1>
+                    <h3 class="label-badge">Firstname: <span id="badge-fname"></span></h3>
+                    <h3 class="label-badge">Lastname: <span id="badge-lname"></span></h3>
+                    <h3 class="label-badge">Birth date: <span id="badge-bdate"></span></h3>
+                </div> 
             </div>
-            <div class="infos">
-                <h2 id="agent">Agent</h2>
-                <h1 id="titre">Anti-Coffee Society</h1>
-                <h3 class="label-badge">First Name: <span id="badge-fname">First Name</span></h3>
-                <h3 class="label-badge">Last Name: <span id="badge-lname">Last Name</span></h3>
-                <h3 class="label-badge">Birth date: <span id="badge-bdate">Birth date</span></h3>
+            <div id="agent-card-bottom">
+                <div id="citation-container">
+                    <p id="citation"></p>
+                    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/barcode.png">
+                </div>
+                <div id="signature">
+                    <p>Signature</p>
+                </div>
             </div>
-            <p id="citation">LOL</p>
         </div>
     </div>
 

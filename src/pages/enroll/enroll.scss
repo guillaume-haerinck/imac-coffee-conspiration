@@ -19,65 +19,97 @@ body {
   justify-content: center;
   align-content: center;
 
-  .agent-card {
-    pointer-events: all;
-    width: 530px;
-    height: 300px;
+  #agent-card,
+  #agent-card-top,
+  #agent-card-bottom {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+  }
+
+  #agent-card-top,
+  #agent-card-bottom {
+    grid-auto-flow: column;
+  }
+
+  #agent-card {
+    pointer-events: all;
+    max-width: 530px;
+    grid-auto-flow: row;
+    justify-content: stretch;
     background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
-    border: 5px solid #fff;
     box-sizing: border-box;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7), inset 0 0 7px;
+    box-shadow: 4px 4px 8px #000;
     border-radius: 33px;
+    padding: 20px 10px;
     margin: auto;
-  }
 
-  .photo {
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    border-radius: 30%;
-    border: 6px solid #fff;
-    place-self: center;
-    box-shadow: 0 0 10px;
-  }
+    #agent-card-top {
+      justify-content: start;
+      grid-gap: 20px;
 
-  img {
-    height: 100%;
-  }
+      #agent-picture {
+        width: 125px;
+        height: 125px;
+        overflow: hidden;
+        margin-left: 10px;
+        border-radius: 125px;
 
-  .infos {
-    font-size: small;
-    margin-left: 20px;
-  }
+        img {
+          height: 100%;
+        }
+      }
 
-  #agent {
-    margin: 20px 0 0;
-  }
+      #infos {
+        font-size: small;
 
-  #titre {
-    margin: 4px auto;
-    color: white;
-    text-shadow: 0 0 10px black;
-  }
+        #card-title {
+          font-weight: bold;
+          margin: 0;
+          color: white;
+          text-shadow: 0 0 10px black;
+        }
 
-  .infos h3 {
-    font-weight: normal;
-    margin: 5px auto;
-    font-size: 1.5em;
-  }
+        #society-title {
+          margin-top: 2px;
+        }
 
-  .infos h3 span {
-    font-weight: bold;
-  }
+        .label-badge {
+          font-weight: normal;
+          margin: 5px auto;
+          font-size: 1.5em;
 
-  #citation {
-    grid-column: 1 / 3;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.3em;
-    color: white;
-    padding: 10px;
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    #agent-card-bottom {
+      justify-items: center;
+
+      #citation-container {
+        display: inline-grid;
+        justify-items: start;
+
+        #citation {
+          text-align: center;
+          font-weight: bold;
+          color: white;
+          max-width: 350px;
+        }
+
+        img {
+          justify-self: center;
+          height: 80px;
+          width: auto;
+        }
+      }
+
+      #signature {
+        p { 
+          font-weight: bold;
+        }
+      }
+    }
   }
 }

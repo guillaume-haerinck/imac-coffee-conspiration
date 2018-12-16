@@ -13,6 +13,8 @@ export class TVRoom {
         this._scene.name = "scene";
         this._renderer = new THREE.WebGLRenderer({ antialias: true });
         this._fontLoader = new THREE.FontLoader();
+        this._light = new THREE.HemisphereLight(0x404040); // soft white light
+        this._light.intensity = 0;
     }
 
     /* Public methods */
@@ -41,9 +43,14 @@ export class TVRoom {
 
     /* Getters */
     get scene(): THREE.Scene { return this._scene; }
+    get light(): THREE.AmbientLight { return this._light; }
+
+    /* Setters */
+    set light(light: THREE.AmbientLight) { this._light = light; }
 
     /* Private methods */
     private init() {
+        this.scene.add(this._light);
         this._fontLoader.load("assets/three-fonts/roboto_medium_regular.typeface.json", (loadedFont) => {
             let material: THREE.Material;
             let textGeo = new THREE.TextGeometry("You made the right choice.", {
@@ -58,10 +65,6 @@ export class TVRoom {
             textMesh.name = "loading-text";
             this._scene.add(textMesh);
         });
-
-        var light = new THREE.HemisphereLight(0x404040); // soft white light
-        light.intensity = 50;
-        this.scene.add(light);
 
         // Add to html
         this._renderer.setSize(window.innerWidth, window.innerHeight);
@@ -114,4 +117,5 @@ export class TVRoom {
     private _renderer: THREE.WebGLRenderer;
     private _fontLoader: THREE.FontLoader;
     private _gltfLoader: THREE.GLTFLoader;
+    private _light: THREE.AmbientLight;
 }

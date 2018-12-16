@@ -28,6 +28,14 @@ document.addEventListener('click', (event: MouseEvent) => {
     tvroom.addMainScene()
       .then(() => {
         snoopaVision.init();
+
+        const snoopCenterX = snoopaVision.position.left + (snoopaVision.position.width / 2);
+        const snoopCenterY = snoopaVision.position.top + (snoopaVision.position.height + 50);
+        document.addEventListener("mousemove", (event: MouseEvent) => {
+          const closeToSnoopXAt0 = Math.abs(snoopCenterX - event.clientX);
+          const closeToSnoopYAt0 = Math.abs(snoopCenterY - event.clientY);
+          tvroom.light.intensity = (closeToSnoopXAt0 + closeToSnoopYAt0) * 0.005;
+        });
       });
   };
 });
@@ -36,7 +44,14 @@ snoopaVision.container.addEventListener('mouseenter', () => {
   snoopaVision.reveal();
   const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
   overlay.unhide();
+  document.addEventListener("keyup", (event: KeyboardEvent) => {
+    if (event.key === "F11") {
+      // TODO animation camera to TV
+      window.location.hash = "quizz"; // Change page
+    }
+  }, {once: true});
 }, {once: true});
+
 
 /* Exports to access elements for inspector and from html */
 (window as any).scene = tvroom.scene;
