@@ -1,8 +1,8 @@
 <%= require('../../core/parts/header.ejs')({title: 'Evaluation'}) %>
 
 <div id="foreground-wrapper">
-
-	<app-pc-window id="q-test1" ifRight="q-test2" ifWrong="l-test1">
+	<img id="cursor" src="assets/images/hand.png" alt="">
+	<app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
 		<div class="window-buttons">
 			<button rightAwnser onclick="RoverXpDog.append(); RoverXpDog.say('bonita');">Bonne réponse ajout rover</button>

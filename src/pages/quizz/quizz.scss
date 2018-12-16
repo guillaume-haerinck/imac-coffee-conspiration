@@ -19,6 +19,14 @@
     pointer-events: all;
   }
 
+  #cursor {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    width: 600px;
+    //transform: translateX(-7px);
+  }
+
   #crack {
     display: none;
 
@@ -85,7 +93,7 @@
     grid-template-columns: 80px;
     place-items: center;
     margin: 10px;
-    cursor: $hand-cursor !important;
+    cursor: $hand-cursor;
     grid-gap: 10px;
 
     img {
