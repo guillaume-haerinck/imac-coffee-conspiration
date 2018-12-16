@@ -48,6 +48,25 @@
   background-position: center center;
   background-repeat: no-repeat;
 
+  .desktop-icon {
+    display: grid;
+grid-auto-flow: row;
+grid-template-columns: 80px;
+place-items: center;
+margin: 10px;
+
+    img{
+      width: 78%;
+
+    }
+    span {
+      color: white;
+      word-wrap: break-word;
+      font-size: 14px;
+      width: 100%;
+    }
+  }
+
   #task-bar {
     background-color: $default-w95-window-bg;
     height: 40px;
