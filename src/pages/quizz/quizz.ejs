@@ -1,85 +1,90 @@
 <%= require('../../core/parts/header.ejs')({title: 'Evaluation'}) %>
 
 <div id="foreground-wrapper">
-	<div class="windows-boot-container">
-		<div class="windows-boot">
-	    <div class="logo">
-	      <img src="assets/images/logos/windows-vapor-logo.png" alt="">
-	    </div>
-	    <div class="container">
-	      <div class="box"></div>
-	      <div class="box"></div>
-	      <div class="box"></div>
-	    </div>
-	  </div>
-	</div>
+  <div class="windows-boot-container">
+    <div class="windows-boot">
+      <div class="logo">
+        <img src="assets/images/logos/windows-vapor-logo.png" alt="">
+      </div>
+      <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
 
-	<img id="cursor" src="assets/images/hand.png" alt="">
-	<app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
-		<p>Ma question ?</p>
-		<div class="window-buttons">
-			<button rightAwnser onclick="RoverXpDog.append(); RoverXpDog.say('bonita');">Bonne réponse ajout rover</button>
-			<button wrongAwnser id="holland">Mauvaise réponse</button>
-			<button rightAwnser>Autre bonne réponse</button>
-		</div>
-	</app-pc-window>
+  <img id="cursor" src="assets/images/hand.png" alt="">
+  <app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
+    <p>Ma question ?</p>
+    <div class="window-buttons">
+      <button rightAwnser onclick="RoverXpDog.append(); RoverXpDog.say('bonita');">Bonne réponse ajout rover</button>
+      <button wrongAwnser id="holland">Mauvaise réponse</button>
+      <button rightAwnser>Autre bonne réponse</button>
+    </div>
+  </app-pc-window>
 
-	<app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
-		<p>Ma question 2 ?</p>
-		<button rightAwnser>
-			Bonne réponse questi
-		</button>
-		<button wrongAwnser>Mauvaise réponse</button>
-	</app-pc-window>
+  <app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
+    <p>Ma question 2 ?</p>
+    <button rightAwnser>
+      Bonne réponse questi
+    </button>
+    <button wrongAwnser>Mauvaise réponse</button>
+  </app-pc-window>
 
-	<app-pc-window id="q-test3" hidden>
-		<p>Ma question 3 ?</p>
-		<button rightAwnser>
-			Bonne réponse questi
-		</button>
-		<button wrongAwnser>Mauvaise réponse</button>
-	</app-pc-window>
+  <app-pc-window id="q-test3" hidden>
+    <p>Ma question 3 ?</p>
+    <button rightAwnser>
+      Bonne réponse questi
+    </button>
+    <button wrongAwnser>Mauvaise réponse</button>
+  </app-pc-window>
 
-	<app-pc-window id="crack" randomPlace>
-		<img slot="icon" src="assets/images/icons/warning.png">
-		<p slot="title">WARNING!</p>
-		<iframe id="youtube-crack" width="742" height="408" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
-	</app-pc-window>
+  <app-pc-window id="crack" randomPlace>
+    <img slot="icon" src="assets/images/icons/warning.png">
+    <p slot="title">WARNING!</p>
+    <iframe id="youtube-crack" width="742" height="408" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </app-pc-window>
+
+  <app-pc-window id="netscape-planet" randomPlace>
+    <p slot="title">Netscapefinalv2</p>
+    <img slot="icon" src="assets/images/icons/warning.png">
+    <object id="planet" type="text/html" data="http://ra.revolvermaps.com/w/8/a/a2.php?i=0settggap27&m=0c&c=ffffff&cr1=ffffff&f=arial&l=33&bv=10&cw=ff00ff&cb=00fff6" style="width:200px; height:200px"></object>
+  </app-pc-window>
 </div>
 
 <div id="background-wrapper">
-	<div class="desktop-icon" id="wikipedia">
-		<img src="assets/images/icons/wikipedia-logo.png" alt="">
-		<span>Wikipedia.exe</span>
-	</div>
-	<div class="desktop-icon" id="netscape">
-		<img src="assets/images/icons/netscape-logo.png" alt="">
-		<span>Netscapefinalv2.prod.Final.c</span>
-	</div>
-	<div class="desktop-icon" id="wallpaper">
-		<img src="assets/images/icons/wallpaper.jpg" alt="">
-		<span>Awes0meWall paper.jpg</span>
-	</div>
-	<div class="desktop-icon" id="mypc">
-		<img src="assets/images/icons/my-computer.gif" alt="">
-		<span>My Computer</span>
-	</div>
-	<div class="desktop-icon" id="recycle">
-		<img src="assets/images/icons/recycle-bin.png" alt="">
-		<span>Recycle Bin</span>
-	</div>
-	<div class="desktop-icon" id="flight-simulator">
-		<img src="assets/images/icons/flight-simulator.png" alt="">
-		<span>Flight Simulator 95 crack.exe</span>
-	</div>
-	<div id="task-bar">
-		<div id="start-button"><img src="assets/images/icons/w95-icon.png">Start</div>
-		<div id="time"></div>
-	</div>
-	<div id="virtual-girl">
-		<img src="assets/images/virtual-girl.gif" alt="">
-	</div>
-
+  <div class="desktop-icon" id="wikipedia">
+    <img src="assets/images/icons/wikipedia-logo.png" alt="">
+    <span>Wikipedia.exe</span>
+  </div>
+  <div class="desktop-icon" id="netscape">
+    <img src="assets/images/icons/netscape-logo.png" alt="">
+    <span>Netscapefinalv2.prod.Final.c</span>
+  </div>
+  <div class="desktop-icon" id="wallpaper">
+    <img src="assets/images/icons/wallpaper.jpg" alt="">
+    <span>Awes0meWall paper.jpg</span>
+  </div>
+  <div class="desktop-icon" id="mypc">
+    <img src="assets/images/icons/my-computer.gif" alt="">
+    <span>My Computer</span>
+  </div>
+  <div class="desktop-icon" id="recycle">
+    <img src="assets/images/icons/recycle-bin.png" alt="">
+    <span>Recycle Bin</span>
+  </div>
+  <div class="desktop-icon" id="flight-simulator">
+    <img src="assets/images/icons/flight-simulator.png" alt="">
+    <span>Flight Simulator 95 crack.exe</span>
+  </div>
+  <div id="task-bar">
+    <div id="start-button"><img src="assets/images/icons/w95-icon.png">Start</div>
+    <div id="time"></div>
+  </div>
+  <div id="virtual-girl">
+    <img src="assets/images/virtual-girl.gif" alt="">
+  </div>
 </div>
 
 <script src="https://www.youtube.com/iframe_api"></script>

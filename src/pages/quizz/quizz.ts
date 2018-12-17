@@ -28,10 +28,12 @@ document.body.addEventListener('mousemove',(e)=>{
   document.getElementById('cursor').style.transform ="translateX(-20px)";
 });
 
-// document.getElementById('mypc').addEventListener('dblclick',(e)=>{
-// });
+document.getElementById('netscape').addEventListener('dblclick',(e)=>{
+  document.getElementById('netscape-planet').style.display = `grid`;
+});
 
 document.getElementById('start-button').addEventListener('click',(e)=>{
+  document.getElementById("cursor").style.display = 'none';
   document.getElementById('foreground-wrapper').style.cursor = `none`;
   document.getElementById('background-wrapper').style.cursor = `none`;
   document.querySelector('.windows-boot-container').style.display = `block`;

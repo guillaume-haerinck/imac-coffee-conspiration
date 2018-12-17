@@ -7,8 +7,9 @@
     width: 100vw;
     display: none;
     height: 100vh;
+    border: none;
   }
-  
+
   z-index: 100;
   // display: none;
   border: none;
@@ -65,13 +66,13 @@
     top: 3vw;
 
     img {
-      width: 31vw;
+      width: 25vw;
     }
   }
 
   #coffee-cup-container {
-    width: 45vw;
-    height: 45vw;
+    width: 32vw;
+    height: 32vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -102,7 +103,7 @@ z-index: -1;
     position: absolute;
     top: 3%;
     left: 57%;
-    
+
     #iphone {
       background-image: url(/assets/images/iphone.png);
       background-repeat: no-repeat;
@@ -111,7 +112,7 @@ z-index: -1;
       width: 48vw;
       height: 18vw;
       transform: rotate(-8deg);
-      
+
       iframe {
         position: absolute;
         width: 26vw;
@@ -131,7 +132,7 @@ z-index: -1;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   place-items: stretch;
-  
+
 
   #blue {
     background-color: aqua;
