@@ -1,6 +1,19 @@
 <%= require('../../core/parts/header.ejs')({title: 'Evaluation'}) %>
 
 <div id="foreground-wrapper">
+	<div class="windows-boot-container">
+		<div class="windows-boot">
+	    <div class="logo">
+	      <img src="assets/images/logos/windows-vapor-logo.png" alt="">
+	    </div>
+	    <div class="container">
+	      <div class="box"></div>
+	      <div class="box"></div>
+	      <div class="box"></div>
+	    </div>
+	  </div>
+	</div>
+
 	<img id="cursor" src="assets/images/hand.png" alt="">
 	<app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
 		<p>Ma question ?</p>
@@ -49,7 +62,7 @@
 	</div>
 	<div class="desktop-icon" id="mypc">
 		<img src="assets/images/icons/my-computer.gif" alt="">
-		<span>Computer</span>
+		<span>My Computer</span>
 	</div>
 	<div class="desktop-icon" id="recycle">
 		<img src="assets/images/icons/recycle-bin.png" alt="">
@@ -66,7 +79,7 @@
 	<div id="virtual-girl">
 		<img src="assets/images/virtual-girl.gif" alt="">
 	</div>
-	
+
 </div>
 
 <script src="https://www.youtube.com/iframe_api"></script>

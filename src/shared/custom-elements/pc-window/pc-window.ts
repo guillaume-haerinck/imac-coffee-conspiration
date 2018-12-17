@@ -9,7 +9,7 @@ export class PCWindow extends HTMLElement {
 
         const options = this.handleTemplateVariables();
         this.attachShadow({ mode: 'open' });
-        const templateContainer = document.createElement("template");      
+        const templateContainer = document.createElement("template");
         templateContainer.innerHTML = `<style>${ style }</style>`;
         this.style.left = "0px";
         this.style.top = "0px";
@@ -145,13 +145,13 @@ export class PCWindow extends HTMLElement {
         if (this.hasAttribute("randomPlace")) {
             this.placeAtRandom();
         }
-        
+
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
 
         for (const item of this.children) {
             // Top level
-            if (item.hasAttribute("rightAwnser")) {   
+            if (item.hasAttribute("rightAwnser")) {
                 this._rightAwnsers.push(item);
             }
             if (item.hasAttribute("wrongAwnser")) {
@@ -160,7 +160,7 @@ export class PCWindow extends HTMLElement {
 
             // Nested level 1
             for (const childrenItem of item.children) {
-                if (childrenItem.hasAttribute("rightAwnser")) {   
+                if (childrenItem.hasAttribute("rightAwnser")) {
                     this._rightAwnsers.push(childrenItem);
                 }
                 if (childrenItem.hasAttribute("wrongAwnser")) {
@@ -169,7 +169,7 @@ export class PCWindow extends HTMLElement {
 
                 // Nested level 2
                 for (const childrenOfChildrenItem of childrenItem.children) {
-                    if (childrenOfChildrenItem.hasAttribute("rightAwnser")) {   
+                    if (childrenOfChildrenItem.hasAttribute("rightAwnser")) {
                         this._rightAwnsers.push(childrenOfChildrenItem);
                     }
                     if (childrenOfChildrenItem.hasAttribute("wrongAwnser")) {
@@ -195,4 +195,3 @@ export class PCWindow extends HTMLElement {
 if (!customElements.get("app-pc-window")) {
     customElements.define("app-pc-window", PCWindow);
 }
-
