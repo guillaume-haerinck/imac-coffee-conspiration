@@ -16,28 +16,40 @@
 
   <img id="cursor" src="assets/images/hand.png" alt="">
   <app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
-    <p>Ma question ?</p>
+    <p slot="title">Question 1</p>
+    <p>Who is the guru of Fratrum Capulus?</p>
     <div class="window-buttons">
-      <button rightAwnser onclick="RoverXpDog.append(); RoverXpDog.say('bonita');">Bonne réponse ajout rover</button>
-      <button wrongAwnser id="holland">Mauvaise réponse</button>
-      <button rightAwnser>Autre bonne réponse</button>
+      <button rightAwnser id="b-abu"></button>
+      <button wrongAwnser id="b-jawad" onclick="RoverXpDog.append(); RoverXpDog.say('bonita');"></button>
+      <button wrongAwnser id="b-durif"></button>
     </div>
   </app-pc-window>
 
   <app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
-    <p>Ma question 2 ?</p>
-    <button rightAwnser>
-      Bonne réponse questi
-    </button>
-    <button wrongAwnser>Mauvaise réponse</button>
+    <p slot="title">Question 2</p>
+    <p>What chemical element is responsible?</p>
+    <div class="window-buttons">
+    <button rightAwnser id="b-coffee"></button>
+    <button wrongAwnser id="b-molecule"></button>
+    <button wrongAwnser id="b-water"></button>
+    <button wrongAwnser id="b-mickey"></button>
+    </div>
   </app-pc-window>
 
   <app-pc-window id="q-test3" hidden>
-    <p>Ma question 3 ?</p>
-    <button rightAwnser>
-      Bonne réponse questi
-    </button>
-    <button wrongAwnser>Mauvaise réponse</button>
+    <p slot="title">Question 3</p>
+    <p>Who has been corrupted?</p>
+    <div class="window-buttons">
+      <button rightAwnser id="b-albert"></button>
+      <button rightAwnser id="b-caprio"></button>
+      <button rightAwnser id="b-clooney"></button>
+      <button rightAwnser id="b-frank"></button>
+      <button rightAwnser id="b-gomez"></button>
+      <button rightAwnser id="b-hitch"></button>
+      <button rightAwnser id="b-lenon"></button>
+      <button rightAwnser id="b-obama"></button>
+      <button rightAwnser id="b-monroe"></button>
+    </div>
   </app-pc-window>
 
   <app-pc-window id="crack" randomPlace>
@@ -47,7 +59,7 @@
   </app-pc-window>
 
   <app-pc-window id="netscape-planet" randomPlace>
-    <p slot="title">Netscapefinalv2</p>
+    <p slot="title">Wolrd CONNECTOR</p>
     <img slot="icon" src="assets/images/icons/warning.png"/>
     <object id="planet" type="text/html" data="http://ra.revolvermaps.com/w/8/a/a2.php?i=0settggap27&m=0c&c=ffffff&cr1=ffffff&f=arial&l=33&bv=10&cw=ff00ff&cb=00fff6" style="width:200px; height:200px"></object>
   </app-pc-window>
@@ -58,6 +70,11 @@
     <img src="assets/images/barbara.png" alt="">
     <img src="assets/images/thomas.jpg" alt="">
     <img src="assets/images/margaux.png" alt="">
+  </app-pc-window>
+  <app-pc-window id="netscape-browser" randomPlace>
+    <img slot="icon" src="assets/images/icons/netscape-logo.png">
+    <p slot="title">Netscape Internet Browser</p>
+    <iframe id="youtube-crack" src="https://mrdoob.com/projects/google/chrome/collapse/"width="500" height="400"></iframe>
   </app-pc-window>
 </div>
 

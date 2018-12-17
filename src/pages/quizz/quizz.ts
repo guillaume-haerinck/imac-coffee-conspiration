@@ -8,6 +8,7 @@ var xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
 
 document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
   document.getElementById('background-wrapper').style.backgroundImage = `url(assets/images/icons/wallpaper.jpg)`;
+  document.getElementById('background-wrapper').style.backgroundPositionY = `top`;
   document.getElementById('background-wrapper').style.backgroundSize = `cover`;
   document.getElementById('virtual-girl').style.display = `block`;
 });
@@ -18,9 +19,7 @@ document.getElementById('flight-simulator').addEventListener('dblclick',(e)=>{
 });
 
 document.getElementById('wikipedia').addEventListener('dblclick',(e)=>{
-  document.getElementById('cursor').style.display = `block`;
-  document.getElementById('foreground-wrapper').style.cursor = `none`;
-  document.getElementById('background-wrapper').style.cursor = `none`;
+  document.getElementById('netscape-planet').style.display = `grid`;
 });
 
 document.body.addEventListener('mousemove',(e)=>{
@@ -30,7 +29,7 @@ document.body.addEventListener('mousemove',(e)=>{
 });
 
 document.getElementById('netscape').addEventListener('dblclick',(e)=>{
-  document.getElementById('netscape-planet').style.display = `grid`;
+  document.getElementById('netscape-browser').style.display = `grid`;
 });
 
 document.getElementById('art-gallery').addEventListener('dblclick',(e)=>{
@@ -42,6 +41,8 @@ document.getElementById('flash-player').addEventListener('dblclick',(e)=>{
 });
 
 document.getElementById('mypc').addEventListener('dblclick',(e)=>{
+  document.getElementById('foreground-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
+  document.getElementById('background-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
   fart.play();
 });
 
@@ -57,8 +58,9 @@ document.getElementById('start-button').addEventListener('click',(e)=>{
   xpStartupSound.play();
 
   var t = setTimeout(function() {
-    document.getElementById('foreground-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
-    document.getElementById('background-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
+    document.getElementById('cursor').style.display = `block`;
+    document.getElementById('foreground-wrapper').style.cursor = `none`;
+    document.getElementById('background-wrapper').style.cursor = `none`;
   }, 5000);
 });
 

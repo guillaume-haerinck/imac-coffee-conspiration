@@ -37,9 +37,9 @@ export class PCWindow extends HTMLElement {
         });
 
         const controls = this.shadowRoot.querySelectorAll(".control");
-        const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
         for (let i = 0; i < controls.length; i++) {
             controls[i].addEventListener("mousedown", () => {
+                const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
                 audio.play();
             });
         }

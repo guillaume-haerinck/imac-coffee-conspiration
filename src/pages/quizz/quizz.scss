@@ -101,6 +101,13 @@
     display: none;
   }
 
+  #netscape-browser {
+    display: none;
+
+    iframe {
+    }
+  }
+
   #mona-lisa {
     display: none;
 
@@ -112,27 +119,81 @@
   .window-buttons {
     display: inline-grid;
     grid-auto-flow: column;
+
+    button {
+      background-position-x: 0;
+      background-position-y: 0;
+      background-repeat: repeat;
+      background-size: auto auto;
+      background-size: cover;
+      height: 150px;
+      width: 110px;
+      background-position: center center;
+      border: 3px solid;
+      border-bottom-color: #a8a9a8;
+      border-right-color: #a8a9a8;
+      border-top-color: #eaeaea;
+      border-left-color: #eaeaea;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      margin: 5px;
+    }
   }
 
   #q-test1 button:not(.control) {
-    cursor: $hand-cursor;
-    background-position-x: 0;
-    background-position-y: 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    background-size: cover;
-    height: 150px;
-    width: 110px;
-    background-position: center center;
-    border: 3px solid;
-    border-bottom-color: #a8a9a8;
-    border-right-color: #a8a9a8;
-    border-top-color: #eaeaea;
-    border-left-color: #eaeaea;
+
   }
 
-  #holland {
-    background: url("/assets/images/hollande.jpg");
+  #b-abu {
+    background: url("/assets/images/answers/abu.jpeg");
+  }
+  #b-jawad {
+    background: url("/assets/images/answers/jawad.jpeg");
+  }
+  #b-durif {
+    background: url("/assets/images/answers/durif.jpeg");
+  }
+
+  #b-coffee {
+    background: url("/assets/images/answers/coffee.png");
+  }
+  #b-molecule {
+    background: url("/assets/images/answers/molecule.jpeg");
+  }
+  #b-mickey {
+    background: url("/assets/images/answers/mickey.jpeg");
+  }
+  #b-water {
+    background: url("/assets/images/answers/water.jpeg");
+  }
+
+  #b-albert {
+    background: url("/assets/images/answers/albert.jpeg");
+  }
+  #b-caprio {
+    background: url("/assets/images/answers/caprio.jpeg");
+  }
+  #b-clooney {
+    background: url("/assets/images/answers/clooney.jpeg");
+  }
+  #b-frank {
+    background: url("/assets/images/answers/frank.png");
+  }
+  #b-gomez {
+    background: url("/assets/images/answers/gomez.jpeg");
+  }
+  #b-hitch {
+    background: url("/assets/images/answers/hitch.jpeg");
+  }
+  #b-lenon {
+    background: url("/assets/images/answers/lenon.jpeg");
+  }
+  #b-obama {
+    background: url("/assets/images/answers/obama.jpeg");
+  }
+  #b-monroe {
+    background: url("/assets/images/answers/monroe.jpeg");
   }
 }
 
