@@ -1,7 +1,8 @@
 import "./quizz.scss";
 import "../../shared/custom-elements/pc-window/pc-window";
 import { RoverXpDog } from "./elements/rover-xp-dog/rover-xp-dog";
-
+var fart = new Audio('assets/audio/fart.mp3');
+var xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
 /* Exports to access elements inside html */
 (window as any).RoverXpDog = new RoverXpDog("background-wrapper");
 
@@ -32,6 +33,18 @@ document.getElementById('netscape').addEventListener('dblclick',(e)=>{
   document.getElementById('netscape-planet').style.display = `grid`;
 });
 
+document.getElementById('art-gallery').addEventListener('dblclick',(e)=>{
+  document.getElementById('mona-lisa').style.display = `grid`;
+});
+
+document.getElementById('flash-player').addEventListener('dblclick',(e)=>{
+  document.getElementById('flash').style.display = `block`;
+});
+
+document.getElementById('mypc').addEventListener('dblclick',(e)=>{
+  fart.play();
+});
+
 document.getElementById('start-button').addEventListener('click',(e)=>{
   document.getElementById("cursor").style.display = 'none';
   document.getElementById('foreground-wrapper').style.cursor = `none`;
@@ -40,8 +53,6 @@ document.getElementById('start-button').addEventListener('click',(e)=>{
   document.getElementById('background-wrapper').style.backgroundImage = `url(assets/images/backgrounds/vapor-beans.gif)`;
   document.getElementById('background-wrapper').style.backgroundSize = `cover`;
   document.getElementById('task-bar').style.background = `linear-gradient(104.44deg, #00DBFF -22.29%, #FF00E5 95.68%)`;
-
-  var xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
   xpStartupSound.play();
 
   var t = setTimeout(function() {
