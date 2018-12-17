@@ -1,12 +1,11 @@
-
 #agent-card,
-#agent-card-top,
-#agent-card-bottom {
+#agent-card-bottom,
+#agent-card-top {
   display: grid;
 }
 
-#agent-card-top,
-#agent-card-bottom {
+#agent-card-bottom,
+#agent-card-top {
   grid-auto-flow: column;
 }
 
@@ -19,14 +18,35 @@
   justify-content: stretch;
   background: linear-gradient(121deg, rgba(0, 255, 252, 1) 0%, rgba(255, 0, 54, 1) 100%);
   box-sizing: border-box;
-  box-shadow: 4px 4px 8px #000;
+  box-shadow: 4px 4px 14px #000, 4px 4px 14px #000;
   border-radius: 33px;
   padding: 20px 10px;
   margin: auto;
+  border: outset;
+  border-bottom-color: #b220d2;
+  border-right-color: #b220d2;
+  border-top-color: #46f2fb;
+  border-left-color: #46f2fb;
+  position: relative;
 
   #agent-card-top {
     justify-content: start;
     grid-gap: 20px;
+
+    #lanyard {
+      position: absolute;
+      top: -840px;
+      z-index: -1;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #agent-icon {
+      position: absolute;
+      opacity: 0.1;
+      transform: rotate(-13deg);
+      right: 20px;
+    }
 
     #agent-picture {
       width: 125px;
@@ -47,7 +67,7 @@
         font-weight: bold;
         margin: 0;
         color: white;
-        text-shadow: 0 0 10px black;
+        font-size: 1.2em;
       }
 
       #society-title {
@@ -82,7 +102,7 @@
 
       img {
         justify-self: center;
-        height: 80px;
+        height: 60px;
         width: auto;
       }
     }
