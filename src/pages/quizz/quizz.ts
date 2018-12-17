@@ -50,13 +50,13 @@ document.getElementById('start-button').addEventListener('click',(e)=>{
   document.getElementById('foreground-wrapper').style.cursor = `none`;
   document.getElementById('background-wrapper').style.cursor = `none`;
   document.querySelector('.windows-boot-container').style.display = `block`;
-  document.getElementById('background-wrapper').style.backgroundImage = `url(assets/images/backgrounds/vapor-beans.gif)`;
-  document.getElementById('background-wrapper').style.backgroundSize = `cover`;
+  document.getElementById('background-wrapper').style.backgroundImage = `url(/assets/images/logos/windows-vapor-logo.png), url(assets/images/backgrounds/vapor-beans.gif)`;
+  document.getElementById('background-wrapper').style.backgroundSize = `175px, cover`;
+  document.getElementById('background-wrapper').style.backgroundPosition = `center, center`;
   document.getElementById('task-bar').style.background = `linear-gradient(104.44deg, #00DBFF -22.29%, #FF00E5 95.68%)`;
   xpStartupSound.play();
 
   var t = setTimeout(function() {
-    // document.querySelector('.windows-boot-container').style.display = `none`;
     document.getElementById('foreground-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
     document.getElementById('background-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
   }, 5000);
