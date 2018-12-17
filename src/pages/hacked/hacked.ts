@@ -16,7 +16,7 @@ function getOS() {
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
     os = 'windows';
   } else if (/Android/.test(userAgent)) {
-    os = 'Android';
+    os = 'android';
   } else if (!os && /Linux/.test(platform)) {
     os = 'linux';
   }
@@ -38,8 +38,13 @@ else if(getOS() == 'mac') {
 
 else if(getOS() == 'linux') {
   timeOut = 10000;
-  document.getElementById('mac-crash').src = `https://geekprank.com/apple/`;
-} 
+  document.getElementById('mac-crash').src = `https://geekprank.com/fbi-warning/`;
+}
+
+else {
+  var timeOut = 40000;
+  document.getElementById('mac-crash').src = `https://geekprank.com/fake-dos/`;
+}
 
 document.addEventListener("DOMContentLoaded", function(event){
     document.getElementById(`mac-crash`).style.display = 'block';
