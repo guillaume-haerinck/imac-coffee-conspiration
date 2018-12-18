@@ -109,8 +109,6 @@ export class PCWindow extends HTMLElement {
         this.style.position = "absolute";
         const posX = Math.floor(Math.random() * Math.floor(window.innerWidth - 400));
         const posY = Math.floor(Math.random() * Math.floor(window.innerHeight - 500));
-        console.log(window.innerWidth - this.offsetWidth)
-        console.log('positions : ',posX, posY);
         this.style.left = posX.toString() + "px";
         this.style.top = posY.toString() + "px";
     }
