@@ -25,7 +25,8 @@ document.getElementById('wikipedia').addEventListener('dblclick',(e)=>{
 document.body.addEventListener('mousemove',(e)=>{
   document.getElementById('cursor').style.top = e.pageY+"px";
   document.getElementById('cursor').style.left = e.pageX+"px";
-  document.getElementById('cursor').style.transform ="translateX(-20px)";
+  document.getElementById('cursor').style.transform ="translate(-60px, -20px)";
+
 });
 
 document.getElementById('netscape').addEventListener('dblclick',(e)=>{

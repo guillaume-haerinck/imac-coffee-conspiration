@@ -84,7 +84,7 @@
     display: none;
     position: absolute;
     z-index: 999;
-    width: 600px;
+    width: 70vw;
     //transform: translateX(-7px);
   }
 
@@ -99,13 +99,18 @@
 
   #netscape-planet {
     display: none;
+
+    object {
+      background-image: url("/assets/images/bad-tv.gif");
+      background-size: 18%;
+      background-position: center;
+    }
   }
 
   #netscape-browser {
     display: none;
 
-    iframe {
-    }
+    iframe {}
   }
 
   #mona-lisa {
@@ -141,16 +146,16 @@
     }
   }
 
-  #q-test1 button:not(.control) {
-
-  }
+  #q-test1 button:not(.control) {}
 
   #b-abu {
     background: url("/assets/images/answers/abu.jpeg");
   }
+
   #b-jawad {
     background: url("/assets/images/answers/jawad.jpeg");
   }
+
   #b-durif {
     background: url("/assets/images/answers/durif.jpeg");
   }
@@ -158,12 +163,15 @@
   #b-coffee {
     background: url("/assets/images/answers/coffee.png");
   }
+
   #b-molecule {
     background: url("/assets/images/answers/molecule.jpeg");
   }
+
   #b-mickey {
     background: url("/assets/images/answers/mickey.jpeg");
   }
+
   #b-water {
     background: url("/assets/images/answers/water.jpeg");
   }
@@ -171,27 +179,35 @@
   #b-albert {
     background: url("/assets/images/answers/albert.jpeg");
   }
+
   #b-caprio {
     background: url("/assets/images/answers/caprio.jpeg");
   }
+
   #b-clooney {
     background: url("/assets/images/answers/clooney.jpeg");
   }
+
   #b-frank {
     background: url("/assets/images/answers/frank.png");
   }
+
   #b-gomez {
     background: url("/assets/images/answers/gomez.jpeg");
   }
+
   #b-hitch {
     background: url("/assets/images/answers/hitch.jpeg");
   }
+
   #b-lenon {
     background: url("/assets/images/answers/lenon.jpeg");
   }
+
   #b-obama {
     background: url("/assets/images/answers/obama.jpeg");
   }
+
   #b-monroe {
     background: url("/assets/images/answers/monroe.jpeg");
   }
@@ -296,8 +312,6 @@
     }
   }
 }
-
-
 @-webkit-keyframes fade-out {
   0% {
     opacity: 1;
@@ -316,20 +330,20 @@
     opacity: 0;
   }
 }
-
 @keyframes slide-in-elliptic-bottom-fwd {
   0% {
     -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
-            transform: translateY(600px) rotateX(30deg) scale(0);
+    transform: translateY(600px) rotateX(30deg) scale(0);
     -webkit-transform-origin: 50% 100%;
-            transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
     opacity: 0;
   }
+
   100% {
     -webkit-transform: translateY(0) rotateX(0) scale(1);
-            transform: translateY(0) rotateX(0) scale(1);
+    transform: translateY(0) rotateX(0) scale(1);
     -webkit-transform-origin: 50% -1400px;
-            transform-origin: 50% -1400px;
+    transform-origin: 50% -1400px;
     opacity: 1;
   }
 }
