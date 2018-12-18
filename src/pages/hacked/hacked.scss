@@ -1,8 +1,10 @@
 @import '../../core/scss/styles';
 @import '../../core/scss/constants';
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
 
 #prank {
   background-color: black;
+
   iframe {
     width: 100vw;
     display: none;
@@ -16,7 +18,9 @@
   cursor: none;
 }
 
-#background-wrapper, #foreground-wrapper, #prank {
+#background-wrapper,
+#foreground-wrapper,
+#prank {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -27,7 +31,6 @@
 }
 
 #foreground-wrapper {
-
   #jackie-quote {
     color: white;
     position: absolute;
@@ -41,6 +44,7 @@
       font-size: 2em;
       text-shadow: 0 0 5px #0000004d;
     }
+
     #author {
       display: block;
       font-family: Arial, Helvetica, sans-serif;
@@ -55,7 +59,7 @@
     left: -64px;
 
     img {
-      width:50vw;
+      width: 50vw;
     }
   }
 
@@ -76,7 +80,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-image: url(/assets/images/coffee-cup.png);
     background-size: cover;
     z-index: 4;
@@ -88,14 +92,13 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
       background-image: url(/assets/images/coffee-glitch.gif);
       background-size: 109%;
       background-position: center;
-
-z-index: -1;
+      z-index: -1;
     }
   }
 
@@ -127,23 +130,22 @@ z-index: -1;
 }
 
 #background-wrapper {
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   place-items: stretch;
 
-
   #blue {
     background-color: aqua;
   }
-  #pink{
+
+  #pink {
     background-color: pink;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
   }
+
   .background-color {
     background-image: url(/assets/images/backgrounds/grit.png);
     background-blend-mode: soft-light;
   }
-
 }

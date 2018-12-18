@@ -33,7 +33,13 @@ export class SnoopaVision {
         this._image.style.width = "150px";
         this._image.style.maxHeight = "200px";
         const posX = Math.floor(Math.random() * Math.floor(window.innerWidth - 150));
-        const posY = Math.floor(Math.random() * Math.floor(window.innerHeight - 200));
+        let posY = Math.floor(Math.random() * Math.floor(window.innerHeight - 200));
+
+        // If in the center of the screen, put on top
+        if (posY > (window.innerHeight / 2) - 50 && posY < ((window.innerHeight / 2) + 50)) {
+            posY = 0;
+        }
+
         this._container.style.left = posX.toString() + "px";
         this._container.style.top = posY.toString() + "px";
     }

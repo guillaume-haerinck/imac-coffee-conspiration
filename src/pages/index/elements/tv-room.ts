@@ -28,15 +28,21 @@ export class TVRoom {
 
     addMainScene(): Promise<any> {
         return new Promise((resolve, reject) => {
+            // TODO bake lighting
+            // TODO add bloom
             this._gltfLoader.load("assets/three-models/tvroom.glb", (loadedModel) => {
                 const text = this._scene.getObjectByName("loading-text");
                 this._scene.remove(text);
                 loadedModel.scene.name = "tvroom";
                 this._scene.add(loadedModel.scene);
 
+                this._cup = this._scene.getObjectByName("Cup");
+
                 const videoMaterial = this.loadVideoMaterial("hollande.mp4");
                 const tvScreen = this._scene.getObjectByName("TVScreenFlat");
                 (tvScreen as any).material = videoMaterial;
+
+                document.body.style.cursor = "url('/assets/images/icons/weed-cursor.cur'), auto";
                 resolve();
             });
         });
@@ -85,6 +91,10 @@ export class TVRoom {
     private animate = () => { // MUST RUN
         requestAnimationFrame(this.animate); // Do not change
 
+        if (this._cup) {
+            this._cup.rotation.y += 0.01;
+        }
+
         if (this._bMoveCameraToTv) {
             this._camera.position.z -= 0.05;
             this._camera.position.y -= 0.005;
@@ -118,7 +128,7 @@ export class TVRoom {
         this._video.src = environment.assetsUrl + "videos/" + filename;
         this._video.load();
         this._video.loop = true;
-        this._video.muted = false;
+        this._video.muted = true;
         this._video.play();
         const videoTexture = new THREE.VideoTexture(this._video);
         videoTexture.minFilter = THREE.LinearFilter;
@@ -137,4 +147,5 @@ export class TVRoom {
 
     private _bMoveCameraToTv: boolean;
     private _video: HTMLVideoElement;
+    private _cup: THREE.Object3D;
 }

@@ -15,7 +15,7 @@ document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
 
 document.getElementById('flight-simulator').addEventListener('dblclick',(e)=>{
   document.getElementById('crack').style.display = `grid`;
-  document.getElementById('youtube-crack').src = `https://www.youtube.com/embed/sODZLSHJm6Q?controls=0&autoplay=1&version=3&enablejsapi=1`;
+  (document as any).getElementById('youtube-crack').src = `https://www.youtube.com/embed/sODZLSHJm6Q?controls=0&autoplay=1&version=3&enablejsapi=1`;
 });
 
 document.getElementById('wikipedia').addEventListener('dblclick',(e)=>{
@@ -51,7 +51,7 @@ document.getElementById('start-button').addEventListener('click',(e)=>{
   document.getElementById("cursor").style.display = 'none';
   document.getElementById('foreground-wrapper').style.cursor = `none`;
   document.getElementById('background-wrapper').style.cursor = `none`;
-  document.querySelector('.windows-boot-container').style.display = `block`;
+  (document as any).querySelector('.windows-boot-container').style.display = `block`;
   document.getElementById('background-wrapper').style.backgroundImage = `url(/assets/images/logos/windows-vapor-logo.png), url(assets/images/backgrounds/vapor-beans.gif)`;
   document.getElementById('background-wrapper').style.backgroundSize = `175px, cover`;
   document.getElementById('background-wrapper').style.backgroundPosition = `center, center`;

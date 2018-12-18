@@ -28,22 +28,22 @@ var timeOut = 15000;
 
 if(getOS() == 'windows') {
   timeOut = 50000;
-  document.getElementById('mac-crash').src = `https://geekprank.com/win10-update/`;
+  (document as any).getElementById('mac-crash').src = `https://geekprank.com/win10-update/`;
 }
 
 else if(getOS() == 'mac') {
   timeOut = 15000;
-  document.getElementById('mac-crash').src = `https://geekprank.com/apple/`;
+  (document as any).getElementById('mac-crash').src = `https://geekprank.com/apple/`;
 }
 
 else if(getOS() == 'linux') {
   timeOut = 10000;
-  document.getElementById('mac-crash').src = `https://geekprank.com/fbi-warning/`;
+  (document as any).getElementById('mac-crash').src = `https://geekprank.com/fbi-warning/`;
 }
 
 else {
   var timeOut = 40000;
-  document.getElementById('mac-crash').src = `https://geekprank.com/fake-dos/`;
+  (document as any).getElementById('mac-crash').src = `https://geekprank.com/fake-dos/`;
 }
 
 document.addEventListener("DOMContentLoaded", function(event){
