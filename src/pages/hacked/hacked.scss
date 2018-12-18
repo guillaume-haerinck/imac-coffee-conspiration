@@ -54,10 +54,10 @@
     position: absolute;
     transform: rotate(-32deg);
     bottom: -182px;
-    left: -64px;
+    left: 100px;
 
     img {
-      width: 50vw;
+      width: 33vw;
     }
   }
 
@@ -103,23 +103,23 @@
   #iphone-container {
     position: absolute;
     top: 3%;
-    left: 57%;
+    right: 9%;
 
     #iphone {
       background-image: url("/assets/images/iphone.png");
       background-repeat: no-repeat;
       background-size: contain;
       position: relative;
-      width: 48vw;
-      height: 18vw;
+      width: 30vw;
+      height: 14vw;
       transform: rotate(-8deg);
 
       iframe {
         position: absolute;
-        width: 27vw;
+        width: 21vw;
         left: 10%;
         top: 9%;
-        height: 14.8vw;
+        height: 11.5vw;
       }
     }
   }
