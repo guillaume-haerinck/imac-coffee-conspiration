@@ -143,6 +143,10 @@
       background-position: center !important;
       margin: 5px;
     }
+
+    .img-btn {
+      height: 150px;
+    }
   }
 
   #b-abu {
@@ -308,6 +312,10 @@
       margin-right: 6px;
     }
   }
+}
+
+#rover-xp-dog {
+  bottom: 25px !important;
 }
 
 @-webkit-keyframes fade-out {

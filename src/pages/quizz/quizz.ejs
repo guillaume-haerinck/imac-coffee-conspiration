@@ -4,7 +4,7 @@
   <div class="windows-boot-container">
     <div class="windows-boot">
       <div class="logo">
-        <img src="assets/images/logos/windows-vapor-logo.png" alt="">
+        <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/logos/windows-vapor-logo.png" alt="">
       </div>
       <div class="container">
         <div class="box"></div>
@@ -13,9 +13,10 @@
       </div>
     </div>
   </div>
-  <img id="cursor" src="assets/images/hand.png" alt="">
+  <img id="cursor" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hand.png" alt="">
 
-  <app-pc-window class="main" id="w-intro" ifRight="w-q1" ifWrong="w-rover">
+  <!-- Questions -->
+  <app-pc-window id="w-intro" ifRight="w-q1" ifWrong="w-rover">
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/matrix.ico">
     <p slot="title">Well done neo.</p>
     <p>Something is going on with the <strong>coffee</strong>. I granted you access to our research, so that you can understand it by yourself. Go back to me when you think you got it.</p>
@@ -26,7 +27,7 @@
     </div>
   </app-pc-window>
 
-  <app-pc-window hidden class="main" id="w-rover" ifRight="w-intro"  rover="We're not even started and you're already lost ? What a looser...">
+  <app-pc-window hidden id="w-rover" ifRight="w-intro"  rover="We're not even started and you're already lost ? What a looser...">
     <p slot="title">More</p>
     <p>I don't want to influence your thoughts, if you need help, call rover with the little [?] at the top of the toolbar.</p>
     <div class="window-buttons">
@@ -34,65 +35,82 @@
     </div>
   </app-pc-window>
 
-  <app-pc-window hidden class="main" id="w-q1" rover="What the hell is the Fratrum Capulus ? I sure don't know">
+  <app-pc-window hidden id="w-q1" ifRight="w-q2" ifWrong="w-e1" rover="What the hell is the Fratrum Capulus ? I sure don't know">
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/pokeball.png">
     <p slot="title">Now go catch them all</p>
-    <p>Who is the guru of Fratrum Capulus?</p>
+    <p>Did you find out who created the conspiracy of the Fractum Capulus ?</p>
     <div class="window-buttons">
-      <button rightAwnser id="b-abu"></button>
-      <button wrongAwnser id="b-jawad" onclick="RoverXpDog.append(); RoverXpDog.say('bonita');"></button>
-      <button wrongAwnser id="b-durif"></button>
+      <button rightAwnser class="img-btn" id="b-abu"></button>
+      <button wrongAwnser class="img-btn" id="b-jawad"></button>
+      <button wrongAwnser class="img-btn" id="b-durif"></button>
     </div>
   </app-pc-window>
 
-  <app-pc-window id="q-test2" ifRight="q-test3" ifWrong="l-test1" hidden>
-    <p slot="title">Question 2</p>
-    <p>What chemical element is responsible?</p>
+  <app-pc-window hidden id="w-e1" ifRight="w-q1">
+    <p slot="title">Nope !</p>
+    <p>Bad awnser, I'm sure you just missed the button.</p>
     <div class="window-buttons">
-    <button rightAwnser id="b-coffee"></button>
-    <button wrongAwnser id="b-molecule"></button>
-    <button wrongAwnser id="b-water"></button>
-    <button wrongAwnser id="b-mickey"></button>
+      <button rightAwnser>I'm sorry, it won't happen again</button>
     </div>
   </app-pc-window>
 
-  <app-pc-window id="q-test3" hidden>
-    <p slot="title">Question 3</p>
-    <p>Who has been corrupted?</p>
+  <app-pc-window hidden id="w-q2" ifRight="w-q3" ifWrong="w-e1" >
+    <p slot="title">Good job !</p>
+    <p>And what chemical element is responsible of mind-possession ?</p>
     <div class="window-buttons">
-      <button rightAwnser id="b-albert"></button>
-      <button rightAwnser id="b-caprio"></button>
-      <button rightAwnser id="b-clooney"></button>
-      <button rightAwnser id="b-frank"></button>
-      <button rightAwnser id="b-gomez"></button>
-      <button rightAwnser id="b-hitch"></button>
-      <button rightAwnser id="b-lenon"></button>
-      <button rightAwnser id="b-obama"></button>
-      <button rightAwnser id="b-monroe"></button>
+      <button rightAwnser class="img-btn" id="b-coffee"></button>
+      <button wrongAwnser class="img-btn" id="b-molecule"></button>
+      <button wrongAwnser class="img-btn" id="b-water"></button>
+      <button wrongAwnser class="img-btn" id="b-mickey"></button>
     </div>
   </app-pc-window>
 
+  <app-pc-window hidden id="w-q3" ifRight="w-ending">
+    <p slot="title">The final frontier</p>
+    <p>Knowing what you know, find out who has been infected</p>
+    <div class="window-buttons">
+      <button rightAwnser class="img-btn" id="b-albert"></button>
+      <button rightAwnser class="img-btn" id="b-caprio"></button>
+      <button rightAwnser class="img-btn" id="b-clooney"></button>
+      <button rightAwnser class="img-btn" id="b-frank"></button>
+      <button rightAwnser class="img-btn" id="b-gomez"></button>
+      <button rightAwnser class="img-btn" id="b-hitch"></button>
+      <button rightAwnser class="img-btn" id="b-lenon"></button>
+      <button rightAwnser class="img-btn" id="b-obama"></button>
+      <button rightAwnser class="img-btn" id="b-monroe"></button>
+    </div>
+  </app-pc-window>
+
+  <app-pc-window hidden id="w-ending" >
+    <p slot="title">The final frontier</p>
+    <p>Impressive, you found it at the first glance.</p>
+    <div class="window-buttons">
+        <button rightAwnser id="goto-enroll">Push your skills forward.</button>
+    </div>
+  </app-pc-window>
+
+  <!-- Fun stuff -->
   <app-pc-window id="crack" randomPlace>
-    <img slot="icon" src="assets/images/icons/warning.png"/>
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/warning.png"/>
     <p slot="title">WARNING!</p>
     <iframe id="youtube-crack" width="742" height="408" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </app-pc-window>
 
   <app-pc-window id="netscape-planet" randomPlace>
     <p slot="title">Wolrd CONNECTOR</p>
-    <img slot="icon" src="assets/images/icons/warning.png"/>
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/warning.png"/>
     <object id="planet" type="text/html" data="http://ra.revolvermaps.com/w/8/a/a2.php?i=0settggap27&m=0c&c=ffffff&cr1=ffffff&f=arial&l=33&bv=10&cw=ff00ff&cb=00fff6" style="width:300px; height:300px"></object>
   </app-pc-window>
 
   <app-pc-window id="mona-lisa" randomPlace>
-    <img slot="icon" src="assets/images/icons/monalisa.jpeg">
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/monalisa.jpeg">
     <p slot="title">This is art</p>
-    <img src="assets/images/barbara.png" alt="">
-    <img src="assets/images/thomas.jpg" alt="">
-    <img src="assets/images/margaux.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/barbara.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/thomas.jpg" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/margaux.png" alt="">
   </app-pc-window>
   <app-pc-window id="netscape-browser" randomPlace>
-    <img slot="icon" src="assets/images/icons/netscape-logo.png">
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/netscape-logo.png">
     <p slot="title">Netscape Internet Browser</p>
     <iframe id="youtube-crack" src="https://mrdoob.com/projects/google/chrome/collapse/"width="500" height="400"></iframe>
   </app-pc-window>
@@ -100,41 +118,41 @@
 
 <div id="background-wrapper">
   <div class="desktop-icon" id="wikipedia">
-    <img src="assets/images/icons/wikipedia-logo.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/wikipedia-logo.png" alt="">
     <span>Wikipedia.exe</span>
   </div>
   <div class="desktop-icon" id="netscape">
-    <img src="assets/images/icons/netscape-logo.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/netscape-logo.png" alt="">
     <span>Netscapefinalv2.prod.Final.c</span>
   </div>
   <div class="desktop-icon" id="wallpaper">
-    <img src="assets/images/icons/wallpaper.jpg" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/wallpaper.jpg" alt="">
     <span>Awes0meWall paper.jpg</span>
   </div>
   <div class="desktop-icon" id="mypc">
-    <img src="assets/images/icons/my-computer.gif" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/my-computer.gif" alt="">
     <span>My Computer</span>
   </div>
   <div class="desktop-icon" id="flash-player">
-    <img src="assets/images/icons/flash-player.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flash-player.png" alt="">
     <span>Install Flash Player</span>
   </div>
   <div class="desktop-icon" id="flight-simulator">
-    <img src="assets/images/icons/flight-simulator.png" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flight-simulator.png" alt="">
     <span>Flight Simulator 95 crack.exe</span>
   </div>
   <div class="desktop-icon" id="art-gallery">
-    <img src="assets/images/icons/monalisa.jpeg" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/monalisa.jpeg" alt="">
     <span>Art Gallery</span>
   </div>
   <div id="task-bar">
-    <div id="start-button"><img src="assets/images/icons/w95-icon.png">Start</div>
+    <div id="start-button"><img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/w95-icon.png">Start</div>
     <div id="time"></div>
   </div>
   <div id="virtual-girl">
-    <img src="assets/images/virtual-girl.gif" alt="">
+    <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/virtual-girl.gif" alt="">
   </div>
-  <img id="flash" src="assets/images/flash.png" alt="">
+  <img id="flash" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/flash.png" alt="">
 </div>
 
 <script src="https://www.youtube.com/iframe_api"></script>

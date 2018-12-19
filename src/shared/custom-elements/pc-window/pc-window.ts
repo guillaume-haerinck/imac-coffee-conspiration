@@ -87,6 +87,7 @@ export class PCWindow extends HTMLElement {
         destination.style.display = "grid";
         destination.style.left = this._posX + "px";
         destination.style.top = this._posY + "px";
+        destination.style.zIndex = this.style.zIndex;
         this.hide();
     }
 

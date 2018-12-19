@@ -1,7 +1,14 @@
 import "./quizz.scss";
 import "../../shared/custom-elements/pc-window/pc-window";
-var fart = new Audio('assets/audio/fart.mp3');
-var xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
+
+/* Assets */
+const fart = new Audio('assets/audio/fart.mp3');
+const xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
+
+/* Event listenners*/
+document.getElementById("goto-enroll").addEventListener("click", () => {
+  window.location.hash = "enroll"; // Change page
+});
 
 document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
   document.getElementById('background-wrapper').style.backgroundImage = `url(assets/images/icons/wallpaper.jpg)`;
