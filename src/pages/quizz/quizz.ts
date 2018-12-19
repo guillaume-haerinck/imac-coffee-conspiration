@@ -48,6 +48,7 @@ document.getElementById('flash-player').addEventListener('dblclick',(e)=>{
 document.getElementById('mypc').addEventListener('dblclick',(e)=>{
   document.getElementById('foreground-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
   document.getElementById('background-wrapper').style.cursor = `url('assets/images/icons/bieber-cursor.cur'), auto`;
+  document.getElementById('cursor').style.display = `none`;
   fart.play();
 });
 

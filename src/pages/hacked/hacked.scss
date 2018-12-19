@@ -11,7 +11,6 @@
     height: 100vh;
     border: none;
   }
-
   z-index: 100;
   // display: none;
   border: none;
@@ -56,10 +55,10 @@
     position: absolute;
     transform: rotate(-32deg);
     bottom: -182px;
-    left: -64px;
+    left: 100px;
 
     img {
-      width: 50vw;
+      width: 33vw;
     }
   }
 
@@ -80,8 +79,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url(/assets/images/coffee-cup.png);
+    transform: translate(-50%,-50%);
+    background-image: url("/assets/images/coffee-cup.png");
     background-size: cover;
     z-index: 4;
 
@@ -95,7 +94,7 @@
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      background-image: url(/assets/images/coffee-glitch.gif);
+      background-image: url("/assets/images/coffee-glitch.gif");
       background-size: 109%;
       background-position: center;
       z-index: -1;
@@ -105,27 +104,25 @@
   #iphone-container {
     position: absolute;
     top: 3%;
-    left: 57%;
+    right: 9%;
 
     #iphone {
-      background-image: url(/assets/images/iphone.png);
+      background-image: url("/assets/images/iphone.png");
       background-repeat: no-repeat;
       background-size: contain;
       position: relative;
-      width: 48vw;
-      height: 18vw;
+      width: 30vw;
+      height: 14vw;
       transform: rotate(-8deg);
 
       iframe {
         position: absolute;
-        width: 26vw;
+        width: 21vw;
         left: 10%;
-        top: 8%;
-        height: 14.8vw;
-
+        top: 9%;
+        height: 11.5vw;
       }
     }
-
   }
 }
 
@@ -145,7 +142,7 @@
   }
 
   .background-color {
-    background-image: url(/assets/images/backgrounds/grit.png);
+    background-image: url("/assets/images/backgrounds/grit.png");
     background-blend-mode: soft-light;
   }
 }

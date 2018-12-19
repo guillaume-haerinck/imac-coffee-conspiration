@@ -109,6 +109,20 @@
 
   #netscape-browser {
     display: none;
+
+    iframe {
+      -ms-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      -ms-transform-origin: 0 0;
+      -moz-transform-origin: 0 0;
+      -o-transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      width: 660px;
+    }
   }
 
   #mona-lisa {
@@ -245,7 +259,7 @@
     pointer-events: none;
     width: 416px;
     display: none;
-    animation: slide-in-elliptic-bottom-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-elliptic-bottom-fwd 0.7s cubic-bezier(0.50, 0.460, 0.450, 0.940) both;
   }
 
   .desktop-icon {
