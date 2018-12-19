@@ -31,11 +31,12 @@ document.addEventListener('click', (event: MouseEvent) => {
   if (event.srcElement.id === "intro-overlay") {
     document.getElementById("intro-overlay").remove();
   }
-  if (event.srcElement.id === "join-btn") {
-    document.getElementById("join-btn").remove();
-    agentCard.append();
-    (document.getElementById("window-firstname") as PCWindow).unhide();
-  }
+});
+
+document.getElementById('join-btn').addEventListener('click',()=>{
+  document.getElementById("join-btn").remove();
+  agentCard.append();
+  (document.getElementById("window-firstname") as PCWindow).unhide();
 });
 
 let bFirstNameTriggerDone = false;
