@@ -55,9 +55,10 @@ snoopaVision.container.addEventListener('mouseenter', () => {
   document.addEventListener("keyup", (event: KeyboardEvent) => {
     if (event.key === "F11") {
       overlay.remove();
+      tvroom.changeVideo("invasion-los-angeles.mp4");
       tvroom.moveCameraToTv();
       setTimeout(() => {
-        tvroom.muteVideo = true;
+        tvroom.videoMute = true;
         window.location.hash = "quizz"; // Change page
       }, 6000);
     }

@@ -38,7 +38,7 @@ export class TVRoom {
 
                 this._cup = this._scene.getObjectByName("Cup");
 
-                const videoMaterial = this.loadVideoMaterial("hollande.mp4");
+                const videoMaterial = this.loadVideoMaterial("news.mp4");
                 const tvScreen = this._scene.getObjectByName("TVScreenFlat");
                 (tvScreen as any).material = videoMaterial;
 
@@ -57,13 +57,20 @@ export class TVRoom {
         this._bMoveCameraToTv = true;
     }
 
+    changeVideo(src: string) {
+        this._video.muted = true;
+        const videoMaterial = this.loadVideoMaterial(src);
+        const tvScreen = this._scene.getObjectByName("TVScreenFlat");
+        (tvScreen as any).material = videoMaterial;
+    }
+
     /* Getters */
     get scene(): THREE.Scene { return this._scene; }
     get light(): THREE.AmbientLight { return this._light; }
 
     /* Setters */
     set light(light: THREE.AmbientLight) { this._light = light; }
-    set muteVideo(mute: boolean) { this._video.muted = mute; }
+    set videoMute(mute: boolean) { this._video.muted = mute; }
 
     /* Private methods */
     private init() {
@@ -128,7 +135,7 @@ export class TVRoom {
         this._video.src = environment.assetsUrl + "videos/" + filename;
         this._video.load();
         this._video.loop = true;
-        this._video.muted = true;
+        this._video.muted = false;
         this._video.play();
         const videoTexture = new THREE.VideoTexture(this._video);
         videoTexture.minFilter = THREE.LinearFilter;

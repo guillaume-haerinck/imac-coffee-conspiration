@@ -18,7 +18,7 @@ const agentCard = new AgentCard("agent-card-container");
 const firstnameInput = document.getElementById("form-firstname") as HTMLInputElement;
 const lastnameInput = document.getElementById("form-lastname") as HTMLInputElement;
 const birthdateInput = document.getElementById("form-birthdate") as HTMLInputElement;
-const animalInput = document.getElementById("form-animal") as HTMLInputElement;
+const animalInput = document.getElementById("form-animal") as HTMLSelectElement;
 const signature = new Signature("window-signature", "signature-img");
 
 /* Overlay animation */
