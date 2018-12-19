@@ -1,6 +1,6 @@
 @import '../../../../core/scss/constants';
 
-#rover-xp-dog {
+#bonzi-buddy {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -8,15 +8,15 @@
   grid-auto-flow: row;
   margin: 20px;
 
-  #rover-img {
+  #bonzi-img {
     justify-self: center;
     height: 150px;
-    width: 150px;
+    width: auto;
     overflow: hidden;
     margin-top: 50px;
   }
 
-  #rover-bubble {
+  #bonzi-bubble {
     margin: 10px;
     border: 2px solid white;
     display: inline-block;

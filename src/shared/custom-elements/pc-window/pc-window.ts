@@ -2,7 +2,7 @@ const style = require('!css-loader!sass-loader!./pc-window.scss').toString();
 import template from "./pc-window.ejs";
 import { environment } from "../../../../environment.js";
 import { PCWindowOptions } from "./pc-window-options";
-import { RoverXpDog } from "./rover-xp-dog/rover-xp-dog";
+import { BonziBuddy } from "./bonzi-buddy/bonzi-buddy";
 
 export class PCWindow extends HTMLElement {
     constructor() { // Can't modify DOM in constructor
@@ -123,7 +123,7 @@ export class PCWindow extends HTMLElement {
         } else {
             options.bMenu = false;
         }
-        if (this.hasAttribute("rover")) {
+        if (this.hasAttribute("bonzi")) {
             options.controls.help = true;
         }
         return options;
@@ -148,17 +148,17 @@ export class PCWindow extends HTMLElement {
             }
         }
 
-        if (this.hasAttribute("rover")) {
-            const text = this.getAttribute("rover");
-            const rover = RoverXpDog.getInstance();
+        if (this.hasAttribute("bonzi")) {
+            const text = this.getAttribute("bonzi");
+            const bonzi = BonziBuddy.getInstance();
             for (let i = 0; i < controls.length; i++) {
-                if(controls[i].hasAttribute("rover")) {
+                if(controls[i].hasAttribute("bonzi")) {
                     controls[i].addEventListener("mousedown", () => {
                         if (text !== "") {
-                            rover.say(text);
+                            bonzi.say(text);
                         } else {
                             // TODO random message
-                            rover.say("Hello world");
+                            bonzi.say("Hello world");
                         }
                     });
                 }
