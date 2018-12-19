@@ -11,6 +11,7 @@ export class AgentCard {
     set firstname(text: string) { this._firstname.innerHTML = text; }
     set lastname(text: string) { this._lastname.innerHTML = text; }
     set birthdate(text: string) { this._birthdate.innerHTML = text; }
+    set animal(text: string) { this._animal.innerHTML = text; }
 
     /* Public methods */
     public append() {
@@ -23,6 +24,7 @@ export class AgentCard {
         this._firstname = document.getElementById("badge-fname");
         this._lastname = document.getElementById("badge-lname");
         this._birthdate = document.getElementById("badge-bdate");
+        this._animal = document.getElementById("badge-animal");
     }
 
     public revealLastName() {
@@ -37,6 +39,10 @@ export class AgentCard {
         document.getElementById("signature").hidden = false;
     }
 
+    public revealAnimal() {
+        document.getElementById("animal").hidden = false;
+    }
+
     /* Private members */
     private _wrapperId: string;
     private _cardContainer: HTMLDivElement;
@@ -44,4 +50,5 @@ export class AgentCard {
     private _firstname: HTMLSpanElement;
     private _lastname: HTMLSpanElement;
     private _birthdate: HTMLSpanElement;
+    private _animal: HTMLSpanElement;
 }

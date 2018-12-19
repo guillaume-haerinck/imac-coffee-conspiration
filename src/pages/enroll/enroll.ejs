@@ -1,41 +1,60 @@
 <%= require('../../core/parts/header.ejs')({title: 'Enroll'}) %>
 <app-overlay id="intro-overlay">
-    <div id="intro-overlay-text">
-        <p>You have proven yourself worthy of our cause</p>
-        <p>We don't have much time before they find us</p>
-        <p>Fill the form to join the society</p>
-        <p>We'll talk afterwards.</p>
-    </div>
-    <span id="intro-overlay-text-animation"></span>
+  <div id="intro-overlay-text">
+    <p>You have proven yourself worthy of our cause</p>
+    <p>We don't have much time before they find us</p>
+    <p>Fill the form to join the society</p>
+    <p>We'll talk afterwards.</p>
+  </div>
+  <span id="intro-overlay-text-animation"></span>
 </app-overlay>
 
 <div id="agent-card-container">
-    <img id="join-btn" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/anti-coffee.png">
+  <img id="join-btn" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/anti-coffee.png">
 </div>
 
 <app-pc-window hidden id="window-firstname" randomPlace>
-    <p slot="title">It's getting serious</p>
-    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
-    <p>Please, enter your name: </p>
-    <input type="text" id="form-firstname" maxlength="10">
+  <p slot="title">It's getting serious</p>
+  <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
+  <p>Please, enter your name: </p>
+  <input type="text" id="form-firstname" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-lastname" randomPlace>
-    <p slot="title">There is also that</p>
-    <p>Yeah, we need your lastname as well</p>
-    <input type="text" id="form-lastname" maxlength="10">
+  <p slot="title">There is also that</p>
+  <p>Yeah, we need your lastname as well</p>
+  <input type="text" id="form-lastname" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-birthdate" randomPlace>
-    <p slot="title">Legal department is asking</p>
-    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
-    <p>Are you above 18 ?</p>
-    <input type="date" id="form-birthdate" maxlength="10">
+  <p slot="title">Legal department is asking</p>
+  <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
+  <p>Are you above 18 ?</p>
+  <input type="date" id="form-birthdate" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-signature" randomPlace>
-    <p slot="title">Genitals are prohibited</p>
-    <p>Enter your signature:</p>
+  <p slot="title">Genitals are prohibited</p>
+  <p>Enter your signature:</p>
+</app-pc-window>
+
+<app-pc-window hidden id="window-animal" randomPlace>
+  <p slot="title">What is your favourite animal</p>
+  <p>Select an animal from the list</p>
+  <select id="form-animal" name="">
+    <option value="puppies">Puppies</option>
+    <option value="dolphins">Dolphins</option>
+    <option value="raptor-jesus">Raptor Jesus</option>
+    <option value="nyan-cats">Nyan Cats</option>
+    <option value="javashit">JavaShit</option>
+  </select>
+</app-pc-window>
+
+<app-pc-window hidden id="window-pewdiepie" randomPlace>
+  <p slot="title">Please subscribe to PewDiePie</p>
+  <p>You must prove that you are a bro to proceed:</p>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <div class="g-ytsubscribe" data-channel="PewDiePie" data-layout="default" data-count="default"></div>
 </app-pc-window>
 
 

@@ -18,6 +18,7 @@ const agentCard = new AgentCard("agent-card-container");
 const firstnameInput = document.getElementById("form-firstname") as HTMLInputElement;
 const lastnameInput = document.getElementById("form-lastname") as HTMLInputElement;
 const birthdateInput = document.getElementById("form-birthdate") as HTMLInputElement;
+const animalInput = document.getElementById("form-animal") as HTMLInputElement;
 const signature = new Signature("window-signature", "signature-img");
 
 /* Overlay animation */
@@ -70,13 +71,21 @@ birthdateInput.addEventListener("change", () => {
   agentCard.birthdate = birthdateInput.value;
 });
 
+animalInput.addEventListener("change", () => {
+  agentCard.animal = animalInput.options[animalInput.selectedIndex].text;
+});
+
 document.getElementById("signature-canvas").addEventListener("mouseup", () => {
   quotesService.getQuote()
   .then(quote => {
     document.getElementById("citation").innerHTML = `"${quote.quote}"`;
-    setTimeout(() => {
-      window.location.hash = "hacked"; // Change page
-    }, 5000);
+    (document.getElementById("window-pewdiepie") as PCWindow).unhide();
+    agentCard.revealAnimal();
+    (document.getElementById("window-animal") as PCWindow).unhide();
+
+    // setTimeout(() => {
+    //   window.location.hash = "hacked"; // Change page
+    // }, 5000);
   })
   .catch(error => {
     console.warn("cannot get quote");
