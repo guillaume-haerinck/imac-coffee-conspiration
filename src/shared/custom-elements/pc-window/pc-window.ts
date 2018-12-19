@@ -5,18 +5,8 @@ import { PCWindowOptions } from "./pc-window-options";
 import { RoverXpDog } from "./rover-xp-dog/rover-xp-dog";
 
 export class PCWindow extends HTMLElement {
-    constructor() {
+    constructor() { // Can't modify DOM in constructor
         super(); // Always calls first
-
-        const options = this.handleTemplateVariables();
-        this.attachShadow({ mode: 'open' });
-        const templateContainer = document.createElement("template");
-        templateContainer.innerHTML = `<style>${ style }</style>`;
-        this.style.left = "0px";
-        this.style.top = "0px";
-        environment.pcWindowOptions = options;
-        templateContainer.innerHTML += template(environment);
-        this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
     }
 
     /* Public methods */
@@ -29,6 +19,7 @@ export class PCWindow extends HTMLElement {
     }
 
     connectedCallback() { // Use event listenners here
+        this.create();
         this.handleAttributes();
         this._rightAwnsers.forEach((awnser: HTMLElement) => {
             awnser.addEventListener("click", this.replaceWindow);
@@ -46,6 +37,17 @@ export class PCWindow extends HTMLElement {
     }
 
     /* Private methods */
+    private create() {
+        const options = this.handleTemplateVariables();
+        this.attachShadow({ mode: 'open' });
+        const templateContainer = document.createElement("template");
+        templateContainer.innerHTML = `<style>${ style }</style>`;
+        this.style.left = "0px";
+        this.style.top = "0px";
+        environment.pcWindowOptions = options;
+        templateContainer.innerHTML += template(environment);
+        this.shadowRoot.appendChild(templateContainer.content.cloneNode(true));
+    }
     private dragWindow = (event: MouseEvent) => {
         if (this._isDragged) {
             const deltaX = event.clientX - this._posXMouse;
