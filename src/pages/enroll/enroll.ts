@@ -83,9 +83,9 @@ document.getElementById("signature-canvas").addEventListener("mouseup", () => {
     agentCard.revealAnimal();
     (document.getElementById("window-animal") as PCWindow).unhide();
 
-    // setTimeout(() => {
-    //   window.location.hash = "hacked"; // Change page
-    // }, 5000);
+    setTimeout(() => {
+      window.location.hash = "hacked"; // Change page
+    }, 5000);
   })
   .catch(error => {
     console.warn("cannot get quote");

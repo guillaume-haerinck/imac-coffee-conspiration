@@ -15,6 +15,9 @@ export class RoverXpDog {
             this.append();
         }
         this._text.innerHTML = message;
+        var imageNumber = Math.floor((Math.random() * 4) + 1);
+        this._gif.src = `/assets/images/rover-xp-dog${imageNumber}.gif`;
+
     }
 
     private append() {
@@ -23,6 +26,7 @@ export class RoverXpDog {
         this._roverContainer.innerHTML = template(environment);
         document.body.appendChild(this._roverContainer);
         this._text = this._roverContainer.getElementsByClassName("rover-text")[0] as HTMLParagraphElement;
+        this._gif = this._roverContainer.getElementsByClassName("rover-gif")[0] as HTMLPictureElement;
         this._bAppended = true;
     }
 
@@ -30,4 +34,5 @@ export class RoverXpDog {
     private _bAppended: boolean;
     private _roverContainer: HTMLDivElement;
     private _text: HTMLParagraphElement;
+    private _gif: HTMLPictureElement;
 }
