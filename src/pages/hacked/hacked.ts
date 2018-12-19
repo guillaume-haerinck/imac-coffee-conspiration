@@ -51,6 +51,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 
     setTimeout(function(){
         document.getElementById(`prank`).style.display = 'none';
-        document.getElementById('wikins-video').src = 'https://www.youtube.com/embed/LmhIizQQol0?controls=0&loop=1&autoplay=1';
+        (document as any).getElementById('wikins-video').src = 'https://www.youtube.com/embed/LmhIizQQol0?controls=0&loop=1&autoplay=1';
     }, timeOut);
 });

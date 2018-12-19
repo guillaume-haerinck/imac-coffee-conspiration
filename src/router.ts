@@ -1,4 +1,3 @@
-// TODO handle error, notify user with overlay
 const render = (event: HashChangeEvent) => {
     const pageName = event.newURL.split('#')[1];
     fetch(pageName + ".html")
