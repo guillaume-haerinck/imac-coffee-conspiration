@@ -15,7 +15,7 @@ export class BonziBuddy {
             this.append();
         }
         this._text.innerHTML = message;
-        var imageNumber = Math.floor((Math.random() * 2) + 1);
+        var imageNumber = Math.floor((Math.random() * 4) + 1);
         this._gif.src = `${ environment.assetsUrl }images/bonzi-buddy-${ imageNumber }.gif`;
 
     }
