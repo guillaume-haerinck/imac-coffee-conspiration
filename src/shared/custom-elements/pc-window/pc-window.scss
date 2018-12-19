@@ -78,7 +78,6 @@ $base-pad: 4px;
         width: 20px;
         height: 20px;
 
-
         img {
           width: 20px;
           height: 20px;
@@ -108,10 +107,10 @@ $base-pad: 4px;
         background-color: $base;
         margin-left: $base-pad;
         padding: 0;
+        font-weight: bold;
         cursor: $hand-cursor;
 
         @include base-shadow(2px);
-
         @include hover-reverse;
       }
     }

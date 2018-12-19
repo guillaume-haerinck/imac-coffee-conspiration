@@ -1,0 +1,54 @@
+@import '../../../../core/scss/constants';
+
+#rover-xp-dog {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-auto-flow: row;
+  margin: 20px;
+
+  #rover-img {
+    justify-self: center;
+    border-radius: 250px;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+  }
+
+  #rover-bubble {
+    margin: 10px;
+    border: 2px solid white;
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: auto;
+    background-color: #c2cde7;
+    border-radius: 10px;
+    padding: 10px;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: auto;
+      left: 60px;
+      bottom: -20px;
+      border: 10px solid;
+      border-color: white white transparent transparent;
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: auto;
+      left: 62px;
+      bottom: -15px;
+      border: 8px solid;
+      border-color: #c2cde7 #c2cde7 transparent transparent;
+    }
+  }
+}

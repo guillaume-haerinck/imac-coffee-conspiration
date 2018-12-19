@@ -13,10 +13,30 @@
       </div>
     </div>
   </div>
-
   <img id="cursor" src="assets/images/hand.png" alt="">
-  <app-pc-window class="main" id="q-test1" ifRight="q-test2" ifWrong="l-test1">
-    <p slot="title">Question 1</p>
+
+  <app-pc-window class="main" id="w-intro" ifRight="w-q1" ifWrong="w-rover">
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/matrix.ico">
+    <p slot="title">Well done neo.</p>
+    <p>Something is going on with the <strong>coffee</strong>. I granted you access to our research, so that you can understand it by yourself. Go back to me when you think you got it.</p>
+    <p><strong>Be warned</strong>, some files might have been corrupted by their previous attack.</p>
+    <div class="window-buttons">
+      <button rightAwnser>I got it</button>
+      <button wrongAwnser>Tell me more</button>
+    </div>
+  </app-pc-window>
+
+  <app-pc-window hidden class="main" id="w-rover" ifRight="w-intro"  rover="We're not even started and you're already lost ? What a looser...">
+    <p slot="title">More</p>
+    <p>I don't want to influence your thoughts, if you need help, call rover with the little [?] at the top of the toolbar.</p>
+    <div class="window-buttons">
+      <button rightAwnser>Go back</button>
+    </div>
+  </app-pc-window>
+
+  <app-pc-window hidden class="main" id="w-q1" rover="What the hell is the Fratrum Capulus ? I sure don't know">
+    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/pokeball.png">
+    <p slot="title">Now go catch them all</p>
     <p>Who is the guru of Fratrum Capulus?</p>
     <div class="window-buttons">
       <button rightAwnser id="b-abu"></button>

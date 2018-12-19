@@ -2,6 +2,7 @@ const style = require('!css-loader!sass-loader!./pc-window.scss').toString();
 import template from "./pc-window.ejs";
 import { environment } from "../../../../environment.js";
 import { PCWindowOptions } from "./pc-window-options";
+import { RoverXpDog } from "./rover-xp-dog/rover-xp-dog";
 
 export class PCWindow extends HTMLElement {
     constructor() {
@@ -35,14 +36,6 @@ export class PCWindow extends HTMLElement {
         this._wrongAwnsers.forEach((awnser: HTMLElement) => {
             awnser.addEventListener("click", this.replaceWindow);
         });
-
-        const controls = this.shadowRoot.querySelectorAll(".control");
-        for (let i = 0; i < controls.length; i++) {
-            controls[i].addEventListener("mousedown", () => {
-                const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
-                audio.play();
-            });
-        }
 
         this.shadowRoot.children[1].addEventListener("mousedown", this.onMouseDown); // Title bar
         document.addEventListener("mouseup", this.onMouseUp);
@@ -94,7 +87,7 @@ export class PCWindow extends HTMLElement {
         destination.style.display = "grid";
         destination.style.left = this._posX + "px";
         destination.style.top = this._posY + "px";
-        this.remove();
+        this.hide();
     }
 
     private putOnTop() {
@@ -109,8 +102,6 @@ export class PCWindow extends HTMLElement {
         this.style.position = "absolute";
         const posX = Math.floor(Math.random() * Math.floor(window.innerWidth - 400));
         const posY = Math.floor(Math.random() * Math.floor(window.innerHeight - 500));
-        console.log(window.innerWidth - this.offsetWidth)
-        console.log('positions : ',posX, posY);
         this.style.left = posX.toString() + "px";
         this.style.top = posY.toString() + "px";
     }
@@ -129,12 +120,8 @@ export class PCWindow extends HTMLElement {
         } else {
             options.bMenu = false;
         }
-        if (this.hasAttribute("controls")) {
-            const controls = this.getAttribute("controls").split(";");
-            controls.forEach(control => {
-                if (control === "full") { options.controls.full = true; }
-                if (control === "help") { options.controls.help = true; }
-            });
+        if (this.hasAttribute("rover")) {
+            options.controls.help = true;
         }
         return options;
     }
@@ -146,6 +133,33 @@ export class PCWindow extends HTMLElement {
 
         if (this.hasAttribute("randomPlace")) {
             this.placeAtRandom();
+        }
+
+        const controls = this.shadowRoot.querySelectorAll(".control");
+        for (let i = 0; i < controls.length; i++) {
+            if(controls[i].hasAttribute("close")) {
+                controls[i].addEventListener("mousedown", () => {
+                    const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
+                    audio.play();
+                });
+            }
+        }
+
+        if (this.hasAttribute("rover")) {
+            const text = this.getAttribute("rover");
+            const rover = RoverXpDog.getInstance();
+            for (let i = 0; i < controls.length; i++) {
+                if(controls[i].hasAttribute("rover")) {
+                    controls[i].addEventListener("mousedown", () => {
+                        if (text !== "") {
+                            rover.say(text);
+                        } else {
+                            // TODO random message
+                            rover.say("Hello world");
+                        }
+                    });
+                }
+            }
         }
 
         this._rightWindowId = this.getAttribute("ifRight");

@@ -1,10 +1,7 @@
 import "./quizz.scss";
 import "../../shared/custom-elements/pc-window/pc-window";
-import { RoverXpDog } from "./elements/rover-xp-dog/rover-xp-dog";
 var fart = new Audio('assets/audio/fart.mp3');
 var xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
-/* Exports to access elements inside html */
-(window as any).RoverXpDog = new RoverXpDog("background-wrapper");
 
 document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
   document.getElementById('background-wrapper').style.backgroundImage = `url(assets/images/icons/wallpaper.jpg)`;
