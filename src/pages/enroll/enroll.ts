@@ -70,15 +70,15 @@ birthdateInput.addEventListener("change", () => {
   agentCard.birthdate = birthdateInput.value;
 });
 
-/*
-
-quotesService.getQuote()
+document.getElementById("signature-canvas").addEventListener("mouseup", () => {
+  quotesService.getQuote()
   .then(quote => {
     document.getElementById("citation").innerHTML = `"${quote.quote}"`;
+    setTimeout(() => {
+      window.location.hash = "hacked"; // Change page
+    }, 5000);
   })
   .catch(error => {
     console.warn("cannot get quote");
   })
-
-
-*/
+}, {once: true});

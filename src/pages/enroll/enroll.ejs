@@ -10,31 +10,31 @@
 </app-overlay>
 
 <div id="agent-card-container">
-    <button id="join-btn">Join the anti-coffee society</button>
+    <img id="join-btn" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/anti-coffee.png">
 </div>
 
 <app-pc-window hidden id="window-firstname" randomPlace>
-    <p slot="title">HAHAHA</p>
+    <p slot="title">It's getting serious</p>
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
-    <p>Enter your name: </p>
+    <p>Please, enter your name: </p>
     <input type="text" id="form-firstname" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-lastname" randomPlace>
-    <p slot="title">HAHAHA</p>
-    <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
-    <p>Lastname, now. </p>
+    <p slot="title">There is also that</p>
+    <p>Yeah, we need your lastname as well</p>
     <input type="text" id="form-lastname" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-birthdate" randomPlace>
-    <p slot="title">HAHAHA</p>
+    <p slot="title">Legal department is asking</p>
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hollande.jpg">
-    <p>Are you over 18 ?</p>
+    <p>Are you above 18 ?</p>
     <input type="date" id="form-birthdate" maxlength="10">
 </app-pc-window>
 
 <app-pc-window hidden id="window-signature" randomPlace>
+    <p slot="title">Genitals are prohibited</p>
     <p>Enter your signature:</p>
 </app-pc-window>
 

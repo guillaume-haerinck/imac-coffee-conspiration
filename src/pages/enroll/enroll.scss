@@ -10,6 +10,11 @@ body {
   grid-auto-flow: column;
 }
 
+#join-btn {
+  cursor: pointer;
+  height: 150px;
+}
+
 #agent-card-container {
   position: fixed;
   height: 100%;
