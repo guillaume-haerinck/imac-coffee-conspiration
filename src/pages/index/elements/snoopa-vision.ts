@@ -9,10 +9,14 @@ export class SnoopaVision {
     get container(): HTMLDivElement { return this._container; }
     get position(): ClientRect | DOMRect { return this._position; }
 
+    /* Setters */
+    set opacity(pourcent: number) { this._container.style.opacity = pourcent.toString(); }
+
     /* Public methods */
     init() {
         this._container.className = "snoopa-vision";
-        this._container.innerHTML = `<img src=${environment.assetsUrl}images/snoopa-vision.png>`;
+        this._container.innerHTML = `<img src=${environment.assetsUrl}images/snoopa-vision-glitch.gif>`;
+        this._container.style.cursor = "pointer";
         this._image = this._container.firstElementChild as HTMLImageElement;
         this.placeAtRandom();
         this._container.style.opacity = "0";
@@ -21,6 +25,8 @@ export class SnoopaVision {
     }
     
     reveal = () => {
+        this._container.innerHTML = `<img src=${environment.assetsUrl}images/snoopa-vision.png>`;
+        this._container.style.cursor = "unset";
         const audio = new Audio(environment.assetsUrl + "/audio/snoopa-vision.mp3");
         audio.play();
         this._container.style.opacity = "100";
