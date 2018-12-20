@@ -8,6 +8,11 @@ export class PCIcon extends HTMLElement {
 
     connectedCallback() { // Use event listenners here
         if (this.hidden) { this.style.display = "none"; }
+
+        this.addEventListener('dblclick', () => {
+            var clicSound = new Audio('assets/audio/windows-ding.mp3');
+            clicSound.play();
+        });
         /*
         document.addEventListener("click", (event: MouseEvent) => { 
             if (this.contains(event.target as Node)) {
