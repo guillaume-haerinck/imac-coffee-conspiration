@@ -90,7 +90,7 @@
   </app-pc-window>
 
   <!-- Fun stuff -->
-  <app-pc-window hidden id="crack" randomPlace closable>
+  <app-pc-window hidden id="crack" randomPlace>
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/warning.png"/>
     <p slot="title">WARNING!</p>
     <iframe id="youtube-crack" width="742" height="408" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
@@ -109,6 +109,7 @@
     <img class="art-picture" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/barbara.png" alt="">
     <img class="art-picture" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/margaux.png" alt="">
   </app-pc-window>
+
   <app-pc-window hidden id="netscape-browser" randomPlace closable>
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/netscape-logo.png">
     <p slot="title">Netscape Internet Browser</p>
@@ -118,34 +119,37 @@
 
 <!-- Background -->
 <div id="background-wrapper">
-  <div class="desktop-icon" id="wikipedia">
+  <!-- PC icons -->
+  <app-pc-icon id="wikipedia">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/wikipedia-logo.png" alt="">
     <span>Wikipedia.exe</span>
-  </div>
-  <div class="desktop-icon" id="netscape">
+  </app-pc-icon>
+  <app-pc-icon  id="netscape">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/netscape-logo.png" alt="">
     <span>Netscape Browser.c</span>
-  </div>
-  <div class="desktop-icon" id="wallpaper">
+  </app-pc-icon>
+  <app-pc-icon  id="wallpaper">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/wallpaper.jpg" alt="">
     <span>Awes0meWall paper.jpg</span>
-  </div>
-  <div class="desktop-icon" id="mypc">
+  </app-pc-icon>
+  <app-pc-icon id="mypc">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/my-computer.gif" alt="">
     <span>My Computer</span>
-  </div>
-  <div class="desktop-icon" id="flash-player">
+  </app-pc-icon>
+  <app-pc-icon id="flash-player">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flash-player.png" alt="">
     <span>Install Flash Player</span>
-  </div>
-  <div class="desktop-icon" id="flight-simulator">
+  </app-pc-icon>
+  <app-pc-icon id="flight-simulator">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flight-simulator.png" alt="">
     <span>Flight Simulator 95 crack.exe</span>
-  </div>
-  <div class="desktop-icon" id="art-gallery">
+  </app-pc-icon>
+  <app-pc-icon class="desktop-icon" id="art-gallery">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/monalisa.jpeg" alt="">
     <span>Art Gallery</span>
-  </div>
+  </app-pc-icon>
+
+  <!-- Other -->
   <div id="task-bar">
     <div id="start-button"><img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/w95-icon.png">Start</div>
     <div id="time"></div>

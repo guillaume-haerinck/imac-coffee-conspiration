@@ -1,6 +1,8 @@
 import "./quizz.scss";
 import "../../shared/custom-elements/pc-window/pc-window";
 import { PCWindow } from "../../shared/custom-elements/pc-window/pc-window";
+import "../../shared/custom-elements/pc-icon/pc-icon";
+import { PCIcon } from "../../shared/custom-elements/pc-icon/pc-icon";
 
 /* Assets */
 const fart = new Audio('assets/audio/fart.mp3');
@@ -31,12 +33,12 @@ document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
 document.getElementById('flight-simulator').addEventListener('dblclick',(e)=>{
   var bipAlert = new Audio('assets/audio/warning-bip.mp3');
   bipAlert.play();
-  document.getElementById('crack').style.display = `grid`;
+  (document.getElementById('crack') as PCWindow).unhide();
   (document as any).getElementById('youtube-crack').src = `https://www.youtube.com/embed/sODZLSHJm6Q?controls=0&autoplay=1&version=3&enablejsapi=1`;
 });
 
 document.getElementById('wikipedia').addEventListener('dblclick',(e)=>{
-  document.getElementById('netscape-planet').style.display = `grid`;
+  (document.getElementById('netscape-planet') as PCWindow).unhide();
 });
 
 document.body.addEventListener('mousemove',(e)=>{
@@ -47,7 +49,7 @@ document.body.addEventListener('mousemove',(e)=>{
 });
 
 document.getElementById('netscape').addEventListener('dblclick',(e)=>{
-  document.getElementById('netscape-browser').style.display = `grid`;
+  (document.getElementById('netscape-browser') as PCWindow).unhide();
 });
 
 document.getElementById('art-gallery').addEventListener('dblclick',(e)=>{
