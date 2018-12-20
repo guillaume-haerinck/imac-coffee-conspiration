@@ -2,20 +2,7 @@
 @import '../../core/scss/constants';
 @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
 
-#prank {
-  background-color: black;
 
-  iframe {
-    width: 100vw;
-    display: none;
-    height: 100vh;
-    border: none;
-  }
-  z-index: 100;
-  // display: none;
-  border: none;
-  cursor: none;
-}
 
 #background-wrapper,
 #foreground-wrapper,
@@ -27,6 +14,21 @@
   left: 0;
   overflow: hidden;
   cursor: url(/assets/images/icons/spoon.png), auto;
+}
+
+#prank {
+  background-color: black;
+
+  iframe {
+    width: 100vw;
+    display: none;
+    height: 100vh;
+    border: none;
+    cursor: none !important;
+  }
+  z-index: 100;
+  border: none;
+  cursor: none !important;
 }
 
 #foreground-wrapper {
@@ -100,6 +102,21 @@
       z-index: -1;
     }
   }
+  #coffee-cup-container::before {
+    content: 'Fratrum capulus' '\A' "got you!";
+    position: absolute;
+    text-shadow: 3px 3px 6px #0dddff, -3px -3px 6px #9006ff !important;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-transform: uppercase;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: pre;
+    text-align: center;
+	   animation: flicker-2 2s linear infinite both;
+}
 
   #iphone-container {
     position: absolute;
@@ -144,5 +161,48 @@
   .background-color {
     background-image: url("/assets/images/backgrounds/grit.png");
     background-blend-mode: soft-light;
+  }
+}
+
+@keyframes flicker-2 {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 0;
+  }
+  43.01% {
+    opacity: 1;
+  }
+  45.99% {
+    opacity: 1;
+  }
+  46% {
+    opacity: 0;
+  }
+  46.9% {
+    opacity: 0;
+  }
+  46.91% {
+    opacity: 1;
+  }
+  51.99% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0;
+  }
+  52.8% {
+    opacity: 0;
+  }
+  52.81% {
+    opacity: 1;
   }
 }

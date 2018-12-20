@@ -90,8 +90,8 @@
 
   #crack {
     #youtube-crack {
-      width: 742px;
-      height: 408px;
+      width: 400px;
+      height: 215px;
     }
   }
 
@@ -120,6 +120,8 @@
   }
 
   #mona-lisa {
+    display: none;
+
     img {
       width: 100%;
     }
@@ -144,7 +146,7 @@
       border-right-color: #a8a9a8;
       border-top-color: #eaeaea;
       border-left-color: #eaeaea;
-      background-size: contain !important;
+      background-size: cover !important;
       background-repeat: no-repeat !important;
       background-position: center !important;
       margin: 5px;
