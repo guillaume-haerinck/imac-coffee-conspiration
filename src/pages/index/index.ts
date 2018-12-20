@@ -52,8 +52,9 @@ snoopaVision.container.addEventListener('mouseenter', () => {
   bSnoopFound = true;
   const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
   overlay.unhide();
-  document.addEventListener("keyup", (event: KeyboardEvent) => {
-    if (event.key === "F11") {
+  const isFullScreen = matchMedia("all and (display-mode: fullscreen");
+  isFullScreen.onchange = (event: Event) => {
+    if (isFullScreen.matches) {
       overlay.remove();
       tvroom.changeVideo("invasion-los-angeles.mp4");
       tvroom.moveCameraToTv();
@@ -62,7 +63,7 @@ snoopaVision.container.addEventListener('mouseenter', () => {
         window.location.hash = "quizz"; // Change page
       }, 6000);
     }
-  }, {once: true});
+  }, {once: true};
 }, {once: true});
 
 
