@@ -6,7 +6,17 @@ const fart = new Audio('assets/audio/fart.mp3');
 const xpStartupSound = new Audio('assets/audio/xp-startup.mp3');
 
 /* Event listenners*/
+var icons = document.getElementsByClassName('desktop-icon');
+for (var i = 0; i < icons.length; i++) {
+    icons[i].addEventListener('dblclick', ()=>{
+      var clicSound = new Audio('assets/audio/windows-ding.mp3');
+      clicSound.play();
+    });
+}
+
 document.getElementById("goto-enroll").addEventListener("click", () => {
+  var shutdownAudio = new Audio('assets/audio/shutdown.mp3');
+  shutdownAudio.play();
   window.location.hash = "enroll"; // Change page
 });
 
@@ -18,6 +28,8 @@ document.getElementById('wallpaper').addEventListener('dblclick',(e)=>{
 });
 
 document.getElementById('flight-simulator').addEventListener('dblclick',(e)=>{
+  var bipAlert = new Audio('assets/audio/warning-bip.mp3');
+  bipAlert.play();
   document.getElementById('crack').style.display = `grid`;
   (document as any).getElementById('youtube-crack').src = `https://www.youtube.com/embed/sODZLSHJm6Q?controls=0&autoplay=1&version=3&enablejsapi=1`;
 });

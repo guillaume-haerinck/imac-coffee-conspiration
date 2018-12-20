@@ -40,7 +40,7 @@ document.getElementById('join-btn').addEventListener('click',()=>{
 });
 
 let bFirstNameTriggerDone = false;
-firstnameInput.addEventListener("keyup", () => {
+firstnameInput.addEventListener("change", () => {
   agentCard.firstname = firstnameInput.value;
   if (firstnameInput.value.length >= 3 && !bFirstNameTriggerDone) {
     agentCard.revealBirthDate();
@@ -52,7 +52,7 @@ firstnameInput.addEventListener("keyup", () => {
 });
 
 let bLastNameTriggerDone = false;
-lastnameInput.addEventListener("keyup", () => {
+lastnameInput.addEventListener("change", () => {
   agentCard.lastname = lastnameInput.value;
 
   if (firstnameInput.value.length >= 3 && !bLastNameTriggerDone) {

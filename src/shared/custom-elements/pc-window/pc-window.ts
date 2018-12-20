@@ -76,8 +76,12 @@ export class PCWindow extends HTMLElement {
     private replaceWindow = (event: Event) => {
         let destinationId = null;
         if (event.srcElement.attributes.getNamedItem("rightAwnser")) {
+          const audio = new Audio(environment.assetsUrl + "audio/right.mp3");
+          audio.play();
             destinationId = this._rightWindowId;
         } else if (event.srcElement.attributes.getNamedItem("wrongAwnser")) {
+          const audio = new Audio(environment.assetsUrl + "audio/wrong.mp3");
+          audio.play();
             destinationId = this._wrongWindowId;
         }
 
@@ -154,6 +158,8 @@ export class PCWindow extends HTMLElement {
             for (let i = 0; i < controls.length; i++) {
                 if(controls[i].hasAttribute("bonzi")) {
                     controls[i].addEventListener("mousedown", () => {
+                      var audio = new Audio(environment.assetsUrl + "audio/exclamation.mp3");
+                      audio.play();
                         if (text !== "") {
                             bonzi.say(text);
                         } else {
