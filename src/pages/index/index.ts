@@ -39,6 +39,7 @@ document.addEventListener('click', (event: MouseEvent) => {
             const closeToSnoopYAt0 = Math.abs(snoopCenterY - event.clientY);
             const intensity = 4 - (closeToSnoopXAt0 + closeToSnoopYAt0) * 0.005;
             tvroom.light.intensity = intensity;
+            snoopaVision.opacity = intensity * 0.1;
           } else {
             tvroom.light.intensity = 3;
           }
@@ -47,10 +48,13 @@ document.addEventListener('click', (event: MouseEvent) => {
   };
 });
 
-snoopaVision.container.addEventListener('mouseenter', () => {
+snoopaVision.container.addEventListener('click', () => {
   snoopaVision.reveal();
   bSnoopFound = true;
   const overlay = document.getElementById("goto-fullscreen-overlay") as HTMLElement & Overlay;
+  if (getOS() === "Mac OS") {
+    document.getElementById("fullscreen-shortcut").innerHTML = "Control + Command + F";
+  }
   overlay.unhide();
   const isFullScreen = matchMedia("all and (display-mode: fullscreen");
   isFullScreen.onchange = (event: Event) => {
@@ -66,6 +70,28 @@ snoopaVision.container.addEventListener('mouseenter', () => {
   }, {once: true};
 }, {once: true});
 
+function getOS(): string {
+  var userAgent = window.navigator.userAgent,
+      platform = window.navigator.platform,
+      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+      os = null;
+
+  if (macosPlatforms.indexOf(platform) !== -1) {
+    os = 'Mac OS';
+  } else if (iosPlatforms.indexOf(platform) !== -1) {
+    os = 'iOS';
+  } else if (windowsPlatforms.indexOf(platform) !== -1) {
+    os = 'Windows';
+  } else if (/Android/.test(userAgent)) {
+    os = 'Android';
+  } else if (!os && /Linux/.test(platform)) {
+    os = 'Linux';
+  }
+
+  return os;
+}
 
 /* Exports to access elements for inspector and from html */
 (window as any).scene = tvroom.scene;

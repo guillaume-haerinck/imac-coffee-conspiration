@@ -30,6 +30,7 @@ export class TVRoom {
         return new Promise((resolve, reject) => {
             // TODO bake lighting
             // TODO add bloom
+            this.addProgressBar();
             this._gltfLoader.load("assets/three-models/tvroom.glb", (loadedModel) => {
                 const text = this._scene.getObjectByName("loading-text");
                 this._scene.remove(text);
@@ -44,6 +45,9 @@ export class TVRoom {
 
                 document.body.style.cursor = "url('/assets/images/icons/weed-cursor.cur'), auto";
                 resolve();
+                this.removeProgressBar();
+            }, (xhr: ProgressEvent) => {
+                this.updateProgressBar(Math.floor(xhr.loaded / 55602248 * 100) + "% loaded");
             });
         });
     }
@@ -113,6 +117,22 @@ export class TVRoom {
         this._renderer.render(this._scene, this._camera); // Do not change
     }
 
+    private addProgressBar() {
+        this._progress = document.createElement("p");
+        this._progress.style.top = "10px";
+        this._progress.style.paddingLeft = "10px";
+        this._progress.style.color = "white";
+        document.body.append(this._progress);
+    }
+
+    private removeProgressBar() {
+        this._progress.remove();
+    }
+
+    private updateProgressBar(text: string) {
+        this._progress.innerHTML = text;
+    }
+
     private resize = () => {
         this._camera.aspect = window.innerWidth / window.innerHeight;
         this._camera.updateProjectionMatrix();
@@ -155,4 +175,5 @@ export class TVRoom {
     private _bMoveCameraToTv: boolean;
     private _video: HTMLVideoElement;
     private _cup: THREE.Object3D;
+    private _progress: HTMLParagraphElement;
 }
