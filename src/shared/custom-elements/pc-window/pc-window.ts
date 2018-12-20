@@ -78,10 +78,12 @@ export class PCWindow extends HTMLElement {
         let destinationId = null;
         if (event.srcElement.attributes.getNamedItem("rightAwnser")) {
           const audio = new Audio(environment.assetsUrl + "audio/right.mp3");
+          audio.volume = .05;
           audio.play();
             destinationId = this._rightWindowId;
         } else if (event.srcElement.attributes.getNamedItem("wrongAwnser")) {
           const audio = new Audio(environment.assetsUrl + "audio/wrong.mp3");
+          audio.volume = .05;
           audio.play();
             destinationId = this._wrongWindowId;
         }
