@@ -39,8 +39,9 @@ document.getElementById('join-btn').addEventListener('click',()=>{
   (document.getElementById("window-firstname") as PCWindow).unhide();
 });
 
+
 let bFirstNameTriggerDone = false;
-firstnameInput.addEventListener("change", () => {
+var firstnameFunction = () => {
   agentCard.firstname = firstnameInput.value;
   if (firstnameInput.value.length >= 3 && !bFirstNameTriggerDone) {
     agentCard.revealBirthDate();
@@ -49,16 +50,16 @@ firstnameInput.addEventListener("change", () => {
     (document.getElementById("window-birthdate") as PCWindow).unhide();
     bFirstNameTriggerDone = true;
   }
-});
+}
+firstnameInput.addEventListener("change", firstnameFunction);
+firstnameInput.addEventListener("keyup",firstnameFunction);
 
 let bLastNameTriggerDone = false;
-lastnameInput.addEventListener("change", () => {
+var lastnameFunction = () => {
   agentCard.lastname = lastnameInput.value;
-
   if (firstnameInput.value.length >= 3 && !bLastNameTriggerDone) {
     agentCard.revealSignature();
     (document.getElementById("window-signature") as PCWindow).unhide();
-
     avatarsService.getAvatar()
       .then(avatar => {
         const image = document.getElementById("agent-picture-img") as HTMLImageElement;
@@ -66,15 +67,20 @@ lastnameInput.addEventListener("change", () => {
       });
     bLastNameTriggerDone = true;
   }
-});
+}
+lastnameInput.addEventListener("change", lastnameFunction);
+lastnameInput.addEventListener("keyup",lastnameFunction);
 
 birthdateInput.addEventListener("change", () => {
   agentCard.birthdate = birthdateInput.value;
 });
 
-animalInput.addEventListener("change", () => {
+var animalFunction = () => {
   agentCard.animal = animalInput.options[animalInput.selectedIndex].text;
-});
+
+}
+animalInput.addEventListener("change", animalFunction);
+animalInput.addEventListener("keyup",animalFunction);
 
 document.getElementById("signature-canvas").addEventListener("mouseup", () => {
   quotesService.getQuote()
