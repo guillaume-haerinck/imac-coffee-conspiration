@@ -10,14 +10,8 @@ export class PCWindow extends HTMLElement {
     }
 
     /* Public methods */
-    hide() {
-        this.style.display = "none";
-        console.log("hide called");
-    }
-
-    unhide() {
-        this.style.display = "grid";
-    }
+    hide() { this.style.display = "none"; }
+    unhide() {this.style.display = "grid"; }
 
     connectedCallback() { // Use event listenners here
         this.create();

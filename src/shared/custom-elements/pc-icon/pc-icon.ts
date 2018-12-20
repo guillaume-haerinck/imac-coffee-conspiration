@@ -7,7 +7,20 @@ export class PCIcon extends HTMLElement {
     }
 
     connectedCallback() { // Use event listenners here
+        if (this.hidden) { this.style.display = "none"; }
+        /*
+        document.addEventListener("click", (event: MouseEvent) => { 
+            if (this.contains(event.target as Node)) {
+                this.style.backgroundColor = "red";
+            } else {
+                this.style.backgroundColor = "unset";
+            }
+        });
+        */
     }
+
+    unhide() { this.style.display = "grid"; }
+    hide() { this.style.display = "none"; }
 }
 
 if (!customElements.get("app-pc-icon")) {

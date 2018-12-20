@@ -16,7 +16,7 @@
   <img id="cursor" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/hand.png" alt="">
 
   <!-- Questions -->
-  <app-pc-window id="w-intro" ifRight="w-q1" ifWrong="w-bonzi">
+  <app-pc-window id="w-intro" ifRight="w-flash" ifWrong="w-bonzi">
     <img slot="icon" src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/matrix.ico">
     <p slot="title">Well done neo.</p>
     <p>Something is going on with the <strong>coffee</strong>. I granted you access to our research, so that you can understand it by yourself. Go back to me when you think you got it.</p>
@@ -33,6 +33,12 @@
     <div class="window-buttons">
       <button rightAwnser>Go back</button>
     </div>
+  </app-pc-window>
+
+  <app-pc-window hidden id="w-flash" ifRight="w-q1"  bonzi="Flash is a very usefull piece of software. I don't get why everyone says it's shit.">
+    <p slot="title">A very modern choice</p>
+    <p>[You need flash to get this content]</p>
+    <button rightAwnser hidden id="w-flash-btn">Flash is awesome</button>
   </app-pc-window>
 
   <app-pc-window hidden id="w-q1" ifRight="w-q2" ifWrong="w-e1" bonzi="What the hell is the Fratrum Capulus? I'm sure that u don't give a damn shit!">
@@ -138,7 +144,7 @@
   </app-pc-icon>
   <app-pc-icon id="flash-player">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flash-player.png" alt="">
-    <span>Install Flash Player</span>
+    <span>Install Flash</span>
   </app-pc-icon>
   <app-pc-icon id="flight-simulator">
     <img src="<%= htmlWebpackPlugin.options.assetsUrl %>images/icons/flight-simulator.png" alt="">

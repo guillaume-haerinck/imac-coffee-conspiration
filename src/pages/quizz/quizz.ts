@@ -58,6 +58,7 @@ document.getElementById('art-gallery').addEventListener('dblclick',(e)=>{
 
 document.getElementById('flash-player').addEventListener('dblclick',(e)=>{
   document.getElementById('flash').style.display = `block`;
+  document.getElementById('w-flash-btn').hidden = false;
 });
 
 document.getElementById('mypc').addEventListener('dblclick',(e)=>{
