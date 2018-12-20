@@ -17,9 +17,11 @@ function blockWebsite(isActivated: boolean) {
 /* Global event listenners */
 const isFullScreen = matchMedia("all and (display-mode: fullscreen");
 isFullScreen.onchange = (event: Event) => {
-    if (!isFullScreen.matches) {
-        blockWebsite(true);
-    } else {
-        blockWebsite(false);
+    if (window.location.pathname != "/hacked.html") {
+        if (!isFullScreen.matches) {
+            blockWebsite(true);
+        } else {
+            blockWebsite(false);
+        }
     }
 };
