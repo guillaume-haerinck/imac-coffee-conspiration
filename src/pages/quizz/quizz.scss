@@ -254,33 +254,6 @@
     animation: slide-in-elliptic-bottom-fwd 0.7s cubic-bezier(0.50, 0.460, 0.450, 0.940) both;
   }
 
-  .desktop-icon {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 80px;
-    place-items: center;
-    margin: 10px;
-    cursor: $hand-cursor;
-    grid-gap: 10px;
-
-    img {
-      width: 78%;
-    }
-
-    span {
-      color: white;
-      word-wrap: break-word;
-      font-size: 14px;
-      width: 100%;
-      text-align: center;
-      text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px, -1px -1px 2px black;
-    }
-  }
-
-  .desktop-icon:hover {
-    border: 1px dotted black;
-  }
-
   #task-bar {
     background-color: $default-w95-window-bg;
     height: 40px;

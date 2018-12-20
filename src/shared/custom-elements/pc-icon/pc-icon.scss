@@ -1,0 +1,28 @@
+@import '../../../core/scss/constants';
+
+app-pc-icon {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 80px;
+  place-items: center;
+  margin: 10px;
+  cursor: $hand-cursor;
+  grid-gap: 10px;
+
+  img {
+    width: 78%;
+  }
+
+  span {
+    color: white;
+    word-wrap: break-word;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px, -1px -1px 2px black;
+  }
+
+  &:hover {
+    border: 1px dotted black;
+  }
+}
