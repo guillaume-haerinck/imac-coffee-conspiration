@@ -1,5 +1,6 @@
 import "./quizz.scss";
 import "../../shared/custom-elements/pc-window/pc-window";
+import { PCWindow } from "../../shared/custom-elements/pc-window/pc-window";
 
 /* Assets */
 const fart = new Audio('assets/audio/fart.mp3');
@@ -38,7 +39,7 @@ document.getElementById('netscape').addEventListener('dblclick',(e)=>{
 });
 
 document.getElementById('art-gallery').addEventListener('dblclick',(e)=>{
-  document.getElementById('mona-lisa').style.display = `grid`;
+  (document.getElementById('mona-lisa') as PCWindow).unhide();
 });
 
 document.getElementById('flash-player').addEventListener('dblclick',(e)=>{

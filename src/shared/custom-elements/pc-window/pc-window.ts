@@ -12,6 +12,7 @@ export class PCWindow extends HTMLElement {
     /* Public methods */
     hide() {
         this.style.display = "none";
+        console.log("hide called");
     }
 
     unhide() {
@@ -141,10 +142,16 @@ export class PCWindow extends HTMLElement {
         const controls = this.shadowRoot.querySelectorAll(".control");
         for (let i = 0; i < controls.length; i++) {
             if(controls[i].hasAttribute("close")) {
-                controls[i].addEventListener("mousedown", () => {
-                    const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
-                    audio.play();
-                });
+                if (this.hasAttribute("closable")) {
+                    controls[i].addEventListener("mousedown", () => {
+                        this.hide();
+                    });
+                } else {
+                    controls[i].addEventListener("mousedown", () => {
+                        const audio = new Audio(environment.assetsUrl + "audio/windows-error.mp3");
+                        audio.play();
+                    });
+                }
             }
         }
 
