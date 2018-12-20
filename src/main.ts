@@ -1,4 +1,4 @@
-//import '@webcomponents/custom-elements'; // Polyfills for custom elements. Do this import before any code that manipulates the DOM.
+import '@webcomponents/custom-elements'; // Polyfills for custom elements. Do this import before any code that manipulates the DOM.
 import { Overlay } from "./shared/custom-elements/overlay/overlay";
 
 /* Functions */

@@ -89,8 +89,6 @@
   }
 
   #crack {
-    display: none;
-
     #youtube-crack {
       width: 400px;
       height: 215px;
@@ -98,8 +96,6 @@
   }
 
   #netscape-planet {
-    display: none;
-
     object {
       background-image: url("/assets/images/bad-tv.gif");
       background-size: 18%;
@@ -108,8 +104,6 @@
   }
 
   #netscape-browser {
-    display: none;
-
     iframe {
       -ms-transform: scale(1);
       -moz-transform: scale(1);
@@ -128,9 +122,8 @@
   #mona-lisa {
     display: none;
 
-    .art-picture {
-      width: 370px;
-      margin-bottom: 10px;
+    img {
+      width: 100%;
     }
   }
 
