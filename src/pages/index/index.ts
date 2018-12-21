@@ -56,18 +56,20 @@ snoopaVision.container.addEventListener('click', () => {
     document.getElementById("fullscreen-shortcut").innerHTML = "Control + Command + F";
   }
   overlay.unhide();
-  const isFullScreen = matchMedia("all and (display-mode: fullscreen");
-  isFullScreen.onchange = (event: Event) => {
-    if (isFullScreen.matches) {
+  const mediaCondition = window.matchMedia("all and (display-mode: fullscreen");
+  const onFullScreen = (event: MediaQueryListEvent) => {
+    if (event.matches) {
       overlay.remove();
       tvroom.changeVideo("invasion-los-angeles.mp4");
       tvroom.moveCameraToTv();
+      mediaCondition.removeEventListener("change", onFullScreen);
       setTimeout(() => {
         tvroom.videoMute = true;
         window.location.hash = "quizz"; // Change page
       }, 6000);
     }
-  }, {once: true};
+  };
+  mediaCondition.addEventListener("change", onFullScreen);
 }, {once: true});
 
 function getOS(): string {
