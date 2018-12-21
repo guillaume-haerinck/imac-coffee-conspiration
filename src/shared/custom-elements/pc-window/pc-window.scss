@@ -51,95 +51,95 @@ $base-pad: 4px;
   max-width: 700px;
 
   @include full-shadow(2px);
+}
 
-  .title-bar {
-    user-select: none;
-    cursor: move;
+.title-bar {
+  user-select: none;
+  cursor: move;
+  display: inline-grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-content: center;
+  grid-gap: 30px;
+  color: white;
+  text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px, -1px -1px 2px black;
+  background: $blue;
+  padding: $base-pad;
+  height: 30px;
+
+  .title {
+    pointer-events: none;
+    font-weight: bold;
     display: inline-grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
     align-content: center;
-    grid-gap: 30px;
-    color: white;
-    text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px, -1px -1px 2px black;
-    background: $blue;
-    padding: $base-pad;
-    height: 30px;
+    grid-auto-flow: column;
+    grid-gap: 15px;
 
-    .title {
-      pointer-events: none;
-      font-weight: bold;
-      display: inline-grid;
-      align-content: center;
-      grid-auto-flow: column;
-      grid-gap: 15px;
+    .icon {
+      width: 20px;
+      height: 20px;
 
-      .icon {
-        width: 20px;
-        height: 20px;
-
-        img {
-          width: 20px;
-          height: 20px;
-          align-self: center;
-        }
-      }
-
-      ::slotted(img) {
+      img {
         width: 20px;
         height: 20px;
         align-self: center;
       }
-
-      .text {
-        padding: 0;
-      }
     }
 
-    .controls {
-      display: inline-grid;
-      grid-auto-flow: column;
-      align-content: center;
+    ::slotted(img) {
+      width: 20px;
+      height: 20px;
+      align-self: center;
+    }
 
-      .control {
-        width: 26px;
-        height: 26px;
-        background-color: $base;
-        margin-left: $base-pad;
-        padding: 0;
-        font-weight: bold;
-        cursor: $hand-cursor;
-
-        @include base-shadow(2px);
-        @include hover-reverse;
-      }
+    .text {
+      padding: 0;
     }
   }
 
-  .menu-bar {
-    user-select: none;
-
-    span {
-      padding: ($base-pad * 2);
-      display: inline-block;
-      cursor: pointer;
-
-      &::first-letter {
-        text-decoration: underline;
-      }
-
-      &:hover {
-        background-color: $base-hover;
-      }
-    }
-  }
-
-  .content {
-    @include full-reverse(2px);
-
+  .controls {
     display: inline-grid;
-    padding: 15px;
-    max-height: 400px;
-    overflow: auto;
+    grid-auto-flow: column;
+    align-content: center;
+
+    .control {
+      width: 26px;
+      height: 26px;
+      background-color: $base;
+      margin-left: $base-pad;
+      padding: 0;
+      font-weight: bold;
+      cursor: $hand-cursor;
+
+      @include base-shadow(2px);
+      @include hover-reverse;
+    }
   }
+}
+
+.menu-bar {
+  user-select: none;
+
+  span {
+    padding: ($base-pad * 2);
+    display: inline-block;
+    cursor: pointer;
+
+    &::first-letter {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      background-color: $base-hover;
+    }
+  }
+}
+
+.content {
+  @include full-reverse(2px);
+
+  display: inline-grid;
+  padding: 15px;
+  max-height: 400px;
+  overflow: auto;
 }

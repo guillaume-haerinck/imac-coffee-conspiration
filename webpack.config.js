@@ -11,6 +11,7 @@ const envFile = require('./environment');
 
 module.exports = {
     entry: {
+        polyfills: './src/polyfills.ts',
         index: ['./src/pages/index/index.ts', './src/router.ts', './src/main.ts'],
         quizz: ['./src/pages/quizz/quizz.ts', './src/router.ts', './src/main.ts'],
         enroll: ['./src/pages/enroll/enroll.ts', './src/router.ts', './src/main.ts'],

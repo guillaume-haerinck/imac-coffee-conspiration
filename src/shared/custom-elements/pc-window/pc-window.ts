@@ -177,32 +177,23 @@ export class PCWindow extends HTMLElement {
         this._rightWindowId = this.getAttribute("ifRight");
         this._wrongWindowId = this.getAttribute("ifWrong");
 
-        for (const item of this.children) {
+        for (let i = 0; i < this.children.length; i++) {
             // Top level
-            if (item.hasAttribute("rightAwnser")) {
-                this._rightAwnsers.push(item);
+            if (this.children[i].hasAttribute("rightAwnser")) {
+                this._rightAwnsers.push(this.children[i]);
             }
-            if (item.hasAttribute("wrongAwnser")) {
-                this._wrongAwnsers.push(item);
+            if (this.children[i].hasAttribute("wrongAwnser")) {
+                this._wrongAwnsers.push(this.children[i]);
             }
 
             // Nested level 1
-            for (const childrenItem of item.children) {
-                if (childrenItem.hasAttribute("rightAwnser")) {
-                    this._rightAwnsers.push(childrenItem);
+            const nestChilds = this.children[i].children;
+            for (let y = 0; y < nestChilds.length; y++) {
+                if (nestChilds[y].hasAttribute("rightAwnser")) {
+                    this._rightAwnsers.push(nestChilds[y]);
                 }
-                if (childrenItem.hasAttribute("wrongAwnser")) {
-                    this._wrongAwnsers.push(childrenItem);
-                }
-
-                // Nested level 2
-                for (const childrenOfChildrenItem of childrenItem.children) {
-                    if (childrenOfChildrenItem.hasAttribute("rightAwnser")) {
-                        this._rightAwnsers.push(childrenOfChildrenItem);
-                    }
-                    if (childrenOfChildrenItem.hasAttribute("wrongAwnser")) {
-                        this._wrongAwnsers.push(childrenOfChildrenItem);
-                    }
+                if (nestChilds[y].hasAttribute("wrongAwnser")) {
+                    this._wrongAwnsers.push(nestChilds[y]);
                 }
             }
         }
