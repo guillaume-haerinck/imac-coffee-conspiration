@@ -64,7 +64,6 @@
           width: 100%;
         }
       }
-
       @keyframes loader {
         0% {
           transform: translate(-30px);
@@ -248,10 +247,10 @@
 
   #flash {
     position: absolute;
-    bottom: -28px;
-    left: 0;
+    bottom: 9px;
+    left: 130px;
     pointer-events: none;
-    width: 416px;
+    width: 300px;
     display: none;
     animation: slide-in-elliptic-bottom-fwd 0.7s cubic-bezier(0.50, 0.460, 0.450, 0.940) both;
   }
@@ -298,7 +297,6 @@
 #bonzi-buddy {
   bottom: 25px !important;
 }
-
 @-webkit-keyframes fade-out {
   0% {
     opacity: 1;
@@ -308,7 +306,6 @@
     opacity: 0;
   }
 }
-
 @keyframes fade-out {
   0% {
     opacity: 1;
@@ -318,7 +315,6 @@
     opacity: 0;
   }
 }
-
 @keyframes slide-in-elliptic-bottom-fwd {
   0% {
     -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
