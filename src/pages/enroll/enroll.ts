@@ -83,18 +83,11 @@ animalInput.addEventListener("change", animalFunction);
 animalInput.addEventListener("keyup",animalFunction);
 
 document.getElementById("signature-canvas").addEventListener("mouseup", () => {
-  quotesService.getQuote()
-  .then(quote => {
-    document.getElementById("citation").innerHTML = `"${quote.quote}"`;
+    document.getElementById("citation").innerHTML = `"I trust no one"`;
     (document.getElementById("window-pewdiepie") as PCWindow).unhide();
     agentCard.revealAnimal();
     (document.getElementById("window-animal") as PCWindow).unhide();
-
     setTimeout(() => {
       window.location.hash = "hacked"; // Change page
     }, 5000);
-  })
-  .catch(error => {
-    console.warn("cannot get quote");
-  })
 }, {once: true});

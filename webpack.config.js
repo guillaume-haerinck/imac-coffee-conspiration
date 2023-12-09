@@ -1,7 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -22,11 +21,6 @@ module.exports = {
     },
     plugins: [
 		new ForkTsCheckerWebpackPlugin(),
-        new StyleLintPlugin({
-            syntax: 'scss',
-            emitErrors: false,
-            failOnError: false
-        }),
         new ExtractTextPlugin('[name].bundle.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
